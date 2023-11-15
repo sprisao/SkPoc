@@ -1,3 +1,12 @@
-export default function Page() {
-    return <h1 className="h-10 font-black text-4xl text-amber-400">Hello, Next.js!</h1>
+import UserTable from "./components/UserTable";
+import {getUsers} from "./lib/api";
+
+export default async function Page() {
+
+    const users = await getUsers();
+
+    return <>
+        <h1 className="text-3xl font-bold">User Table</h1>
+        <UserTable users={users}/>
+    </>
 }
