@@ -1,13 +1,12 @@
 export default class User {
-    constructor(id, name, username, email, address, phone, website, company) {
-        this.id = id;
-        this.name = name;
+    constructor(userId, username, email, avatar, password, birthdate, registeredDate) {
+        this.userId = userId;
         this.username = username;
         this.email = email;
-        this.address = address; // Address 인스턴스
-        this.phone = phone;
-        this.website = website;
-        this.company = company; // Company 인스턴스
+        this.avatar = avatar;
+        this.password = password;
+        this.birthdate = birthdate;
+        this.registeredDate = registeredDate;
     }
 
     getFullAddress() {
