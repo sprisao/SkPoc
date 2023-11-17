@@ -3,7 +3,7 @@ import UserTable from "./components/UserTable";
 import {useState} from "react";
 import {faker} from '@faker-js/faker';
 import {DataTable} from "@/app/components/tables/CustomerServiceDetails/table";
-import {columns, Payment} from "@/app/components/tables/CustomerServiceDetails/columns";
+import {columns, CustomerServiceDetail} from "@/app/components/tables/CustomerServiceDetails/columns";
 
 
 export function createRandomUser() {
@@ -18,16 +18,56 @@ export function createRandomUser() {
     };
 }
 
-async function getData(): Promise<Payment[]> {
+async function getData(): Promise<CustomerServiceDetail[]> {
     // Fetch data from your API here.
     return [
+        /*3개의 비어있는 데이터 추가 */
         {
-            id: "728ed52f",
-            amount: 100,
-            status: "pending",
-            email: "m@example.com",
+            select: false,
+            accountNumber: '',
+            serviceType: '',
+            serviceNumber: '',
+            serviceStatus: "",
+            ratePlan: "",
+            deviceName: "",
+            businessNumber: "",
+            businessName: "",
         },
-        // ...
+        {
+            select: false,
+            accountNumber: '',
+            serviceType: '',
+            serviceNumber: '',
+            serviceStatus: "",
+            ratePlan: "",
+            deviceName: "",
+            businessNumber: "",
+            businessName: "",
+        },
+        {
+            select: false,
+            accountNumber: '',
+            serviceType: '',
+            serviceNumber: '',
+            serviceStatus: "",
+            ratePlan: "",
+            deviceName: "",
+            businessNumber: "",
+            businessName: "",
+        },
+        {
+            select: false,
+            accountNumber: '',
+            serviceType: '',
+            serviceNumber: '',
+            serviceStatus: "",
+            ratePlan: "",
+            deviceName: "",
+            businessNumber: "",
+            businessName: "",
+        },
+
+
     ]
 }
 
