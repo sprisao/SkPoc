@@ -1,6 +1,6 @@
 const UserTable = ({ users }) => {
     return (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto user-table">
             <table className="min-w-full bg-white">
                 <thead>
                 <tr>
