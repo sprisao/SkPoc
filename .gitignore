@@ -30,3 +30,6 @@ yarn-error.log*
 ._*
 .Spotlight-V100
 .Trashes
+
+# node package-lock.json
+package-lock.json
