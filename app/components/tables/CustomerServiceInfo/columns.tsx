@@ -4,7 +4,7 @@ import {ColumnDef} from "@tanstack/react-table"
 import {Checkbox} from "@/components/ui/checkbox";
 
 /*고객상담정보 타입*/
-export type CustomerServiceDetail = {
+export type CustomerServiceDetailData = {
     /*선택유무*/
     select: boolean
     /*서비스계정정보*/
@@ -25,7 +25,7 @@ export type CustomerServiceDetail = {
     businessName: string
 }
 
-export const columns: ColumnDef<CustomerServiceDetail>[] = [
+export const columns: ColumnDef<CustomerServiceDetailData>[] = [
     {
         id: "select",
         header: ({table}) => (

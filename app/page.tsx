@@ -1,11 +1,14 @@
 'use client'
-import UserTable from "./components/UserTable";
-import {useState} from "react";
+import React, {useState} from "react";
 import {faker} from '@faker-js/faker';
 import {CustomerServiceInfoTable} from "@/app/components/tables/CustomerServiceInfo/table";
-import {columns, CustomerServiceDetail} from "@/app/components/tables/CustomerServiceInfo/columns";
+import {columns, CustomerServiceDetailData} from "@/app/components/tables/CustomerServiceInfo/columns";
 import CustomerServiceInfo from "@/app/components/sections/CustomerServiceInfo";
 import SearchCustomerService from "@/app/components/sections/SearchCustomerService";
+import BillingInformation from "@/app/components/sections/BillingInformation";
+import PaymentInformation from "@/app/components/sections/PaymentInformation";
+import SaveServiceHistory from "@/app/components/sections/SaveServiceHistory";
+import CustomerServiceDetail from "@/app/components/sections/CustomerServiceDetail";
 
 
 export function createRandomUser() {
@@ -20,7 +23,7 @@ export function createRandomUser() {
     };
 }
 
-async function getData(): Promise<CustomerServiceDetail[]> {
+async function getData(): Promise<CustomerServiceDetailData[]> {
     // Fetch data from your API here.
     return [
         /*3개의 비어있는 데이터 추가 */
@@ -103,6 +106,27 @@ export default async function Page() {
 
             {/*고객상담 정보*/}
             <CustomerServiceInfo data={data}/>
+
+            {/*고객상담 상세정보, 청구정보, 납부정보, 상담이력저장 섹션ㅐ*/}
+            <div>
+                <div className="flex flex-row justify-between">
+                    <div className="w-1/2 bg-amber-600">
+                        <CustomerServiceDetail/>
+                    </div>
+                    <div className="w-1/2 bg-green-300">
+                        <BillingInformation/>
+                    </div>
+                </div>
+                <div className="flex flex-row">
+                    <div className="w-2/5 bg-purple-200">
+                        <PaymentInformation/>
+                    </div>
+                    <div className="w-3/5 bg-pink-300">
+                        <SaveServiceHistory/>
+                    </div>
+                </div>
+            </div>
+
 
             {/*<button*/}
             {/*    className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 generate-users-button"*/}
