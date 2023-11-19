@@ -2,7 +2,7 @@
 import React, {useState} from "react";
 import {faker} from '@faker-js/faker';
 import {CustomerServiceInfoTable} from "@/app/components/tables/CustomerServiceInfo/table";
-import {columns, CustomerServiceDetailData} from "@/app/components/tables/CustomerServiceInfo/columns";
+import {columns, CustomerServiceInfoData} from "@/app/components/tables/CustomerServiceInfo/columns";
 import CustomerServiceInfo from "@/app/components/sections/CustomerServiceInfo";
 import SearchCustomerService from "@/app/components/sections/SearchCustomerService";
 import BillingInformation from "@/app/components/sections/BillingInformation";
@@ -23,7 +23,7 @@ export function createRandomUser() {
     };
 }
 
-async function getData(): Promise<CustomerServiceDetailData[]> {
+async function getData(): Promise<CustomerServiceInfoData[]> {
     // Fetch data from your API here.
     return [
         /*3개의 비어있는 데이터 추가 */
@@ -111,7 +111,7 @@ export default async function Page() {
             <div>
                 <div className="flex flex-row justify-between">
                     <div className="w-1/2 bg-amber-600">
-                        <CustomerServiceDetail/>
+                        <CustomerServiceDetail data={null}/>
                     </div>
                     <div className="w-1/2 bg-green-300">
                         <BillingInformation/>
