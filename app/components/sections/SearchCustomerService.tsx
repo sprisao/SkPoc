@@ -1,12 +1,12 @@
+import SectionTitle from "@/app/components/ui/SectionTitle";
+
 {/*고객상담관리 조회 Container*/
 }
 const SearchCustomerService = () => {
     return (
 
         <div className="bg-blue-100 mt-4">
-            <div>
-                <p>고객상담관리 조회</p>
-            </div>
+            <SectionTitle title="고객상담관리 조회"/>
 
             {/*고객상담관리 조회 아이템*/}
             <div className="flex flex-row bg-blue-500 py-2 px-5 justify-between">

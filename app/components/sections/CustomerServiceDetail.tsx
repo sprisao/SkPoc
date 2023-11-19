@@ -1,3 +1,5 @@
+import SectionTitle from "@/app/components/ui/SectionTitle";
+
 export type CustomerServiceDetailData = {
     corporationName: string; // 소속법인명
     welfareDiscount: boolean; // 복지할인
@@ -25,9 +27,7 @@ type CustomerServiceDetailProps = {
 const CustomerServiceDetail = ({data}: CustomerServiceDetailProps) => {
     return (
         <div>
-            <h1>
-                고객상담 상세정보
-            </h1>
+            <SectionTitle title="고객상담 상세정보"/>
         </div>
     );
 
