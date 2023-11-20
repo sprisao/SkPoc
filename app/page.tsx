@@ -1,8 +1,5 @@
-'use client'
-import React, {useState} from "react";
 import {faker} from '@faker-js/faker';
-import {CustomerServiceInfoTable} from "@/app/components/tables/CustomerServiceInfo/table";
-import {columns, CustomerServiceInfoData} from "@/app/components/tables/CustomerServiceInfo/columns";
+import {CustomerServiceInfoData} from "@/app/components/tables/CustomerServiceInfo/columns";
 import CustomerServiceInfo from "@/app/components/sections/CustomerServiceInfo";
 import SearchCustomerService from "@/app/components/sections/SearchCustomerService";
 import BillingInformation from "@/app/components/sections/BillingInformation";
@@ -10,19 +7,20 @@ import PaymentInformation from "@/app/components/sections/PaymentInformation";
 import SaveServiceHistory from "@/app/components/sections/SaveServiceHistory";
 import CustomerServiceDetail from "@/app/components/sections/CustomerServiceDetail";
 import {BillingInfoData} from "@/app/components/tables/BillingInfo/columns_billingInfo";
+import WidthDisplay from "@/app/utils/WidthDisplay";
 
 
-export function createRandomUser() {
-    return {
-        userId: faker.datatype.uuid(),
-        username: faker.internet.userName(),
-        email: faker.internet.email(),
-        // avatar: faker.image.avatar(),
-        password: faker.internet.password(),
-        birthdate: faker.date.birthdate({min: 18, max: 65, mode: 'age'}), // age 옵션 사용
-        registeredAt: faker.date.past(),
-    };
-}
+// export function createRandomUser() {
+//     return {
+//         userId: faker.datatype.uuid(),
+//         username: faker.internet.userName(),
+//         email: faker.internet.email(),
+//         // avatar: faker.image.avatar(),
+//         password: faker.internet.password(),
+//         birthdate: faker.date.birthdate({min: 18, max: 65, mode: 'age'}), // age 옵션 사용
+//         registeredAt: faker.date.past(),
+//     };
+// }
 
 async function getCustomerInfoData(): Promise<CustomerServiceInfoData[]> {
     // Fetch data from your API here.
@@ -78,7 +76,7 @@ async function getCustomerInfoData(): Promise<CustomerServiceInfoData[]> {
 }
 
 async function getBillingInfoData(): Promise<BillingInfoData[]> {
-    return[
+    return [
         /*make 5 leer data*/
         {
             billingDate: '',
@@ -115,27 +113,27 @@ async function getBillingInfoData(): Promise<BillingInfoData[]> {
 }
 
 export default async function Page() {
-    const [users, setUsers] = useState([]);
-    const [showTable, setShowTable] = useState(false);
-    const [isGenerated, setIsGenerated] = useState(false);
-
-    const generateUsers = () => {
-        const newUsers = Array.from({length: 50000}, () => createRandomUser());
-        setUsers(newUsers);
-        setIsGenerated(true);
-    };
-
-    const handleShowTable = () => {
-        setShowTable(true);
-    };
+    // const [users, setUsers] = useState([]);
+    // const [showTable, setShowTable] = useState(false);
+    // const [isGenerated, setIsGenerated] = useState(false);
+    //
+    // const generateUsers = () => {
+    //     const newUsers = Array.from({length: 50000}, () => createRandomUser());
+    //     setUsers(newUsers);
+    //     setIsGenerated(true);
+    // };
+    //
+    // const handleShowTable = () => {
+    //     setShowTable(true);
+    // };
 
     const customerServiceInfoData = await getCustomerInfoData()
-    const billingInfoData = await getCustomerInfoData()
+    const billingInfoData = await getBillingInfoData()
 
 
     return (
         <div className=" mainContainer px-3">
-
+            <WidthDisplay/>
             <div className="px-3 py-1 rounded-md border-b-2 border-x-2 border-black">
                 <p>고객상담</p>
             </div>

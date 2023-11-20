@@ -1,4 +1,5 @@
 /*청구정보*/
+'use client'
 import SectionTitle from "@/app/components/ui/SectionTitle";
 import {columns} from "@/app/components/tables/BillingInfo/columns_billingInfo";
 import {BillingInfoTable} from "@/app/components/tables/BillingInfo/BillingInfoTable";
