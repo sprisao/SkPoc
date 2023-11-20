@@ -9,6 +9,7 @@ import BillingInformation from "@/app/components/sections/BillingInformation";
 import PaymentInformation from "@/app/components/sections/PaymentInformation";
 import SaveServiceHistory from "@/app/components/sections/SaveServiceHistory";
 import CustomerServiceDetail from "@/app/components/sections/CustomerServiceDetail";
+import {BillingInfoData} from "@/app/components/tables/BillingInfo/columns_billingInfo";
 
 
 export function createRandomUser() {
@@ -23,7 +24,7 @@ export function createRandomUser() {
     };
 }
 
-async function getData(): Promise<CustomerServiceInfoData[]> {
+async function getCustomerInfoData(): Promise<CustomerServiceInfoData[]> {
     // Fetch data from your API here.
     return [
         /*3개의 비어있는 데이터 추가 */
@@ -76,6 +77,43 @@ async function getData(): Promise<CustomerServiceInfoData[]> {
     ]
 }
 
+async function getBillingInfoData(): Promise<BillingInfoData[]> {
+    return[
+        /*make 5 leer data*/
+        {
+            billingDate: '',
+            billingAmount: '',
+            unpaidBalance: '',
+            serviceNumber: '',
+        },
+        {
+            billingDate: '',
+            billingAmount: '',
+            unpaidBalance: '',
+            serviceNumber: '',
+        },
+        {
+            billingDate: '',
+            billingAmount: '',
+            unpaidBalance: '',
+            serviceNumber: '',
+        },
+        {
+            billingDate: '',
+            billingAmount: '',
+            unpaidBalance: '',
+            serviceNumber: '',
+        },
+        {
+            billingDate: '',
+            billingAmount: '',
+            unpaidBalance: '',
+            serviceNumber: '',
+        },
+    ]
+
+}
+
 export default async function Page() {
     const [users, setUsers] = useState([]);
     const [showTable, setShowTable] = useState(false);
@@ -91,7 +129,8 @@ export default async function Page() {
         setShowTable(true);
     };
 
-    const data = await getData()
+    const customerServiceInfoData = await getCustomerInfoData()
+    const billingInfoData = await getCustomerInfoData()
 
 
     return (
@@ -105,16 +144,16 @@ export default async function Page() {
             <SearchCustomerService/>
 
             {/*고객상담 정보*/}
-                <CustomerServiceInfo data={data}/>
+            <CustomerServiceInfo data={customerServiceInfoData}/>
 
             {/*고객상담 상세정보, 청구정보, 납부정보, 상담이력저장 섹션ㅐ*/}
-            <div>
-                <div className="flex flex-row space-x-2 justify-between   m-1 ">
+            <div className="w-full">
+                <div className="flex w-full flex-row space-x-2 justify-between m-1">
                     <div className="w-1/2 border rounded-sm overflow-clip ">
                         <CustomerServiceDetail data={null}/>
                     </div>
-                    <div className="w-1/2 bg-green-300">
-                        <BillingInformation/>
+                    <div className="w-1/2 border rounded-sm overflow-clip ">
+                        <BillingInformation data={billingInfoData}/>
                     </div>
                 </div>
                 <div className="flex flex-row">
