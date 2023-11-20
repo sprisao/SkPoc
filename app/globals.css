@@ -19,7 +19,6 @@ input[type='number'] {
 .mainContainer{
   min-width: 1024px;
   max-width: 1920px;
-  margin: 0 auto;
 }
 
 @layer base {
