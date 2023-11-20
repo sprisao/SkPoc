@@ -24,11 +24,11 @@ export type CustomerServiceDetailData = {
 type CustomerServiceDetailProps = {
     data: CustomerServiceDetailData;
 };
-const RowComponent = ({title, contents}) => {
+export const GridRowComponent = ({title, contents}) => {
     return (
         <div className="flex flex-row w-full justify-center">
-            <div className="w-2/5 mr-1.5">
-                <p className="text-right">{title}</p>
+            <div className="flex items-center  justify-end w-2/5 mr-1.5 ">
+                <p className="text-right text-sm">{title}</p>
             </div>
             <div className="flex flex-row w-full justify-evenly space-x-0.5 ">
                 {contents.map((content, index) => (
@@ -114,12 +114,12 @@ const CustomerServiceDetail = ({data}: CustomerServiceDetailProps) => {
             <div className="flex flex-row justify-between py-2 px-2">
                 <div className="flex flex-col w-1/2 space-y-0.5">
                     {rows1.map((row, index) => (
-                        <RowComponent key={index} {...row} />
+                        <GridRowComponent key={index} {...row} />
                     ))}
                 </div>
                 <div className="flex flex-col w-1/2 space-y-0.5">
                     {rows2.map((row, index) => (
-                        <RowComponent key={index} {...row} />
+                        <GridRowComponent key={index} {...row} />
                     ))}
                 </div>
             </div>
