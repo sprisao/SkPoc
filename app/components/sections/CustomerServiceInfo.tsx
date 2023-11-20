@@ -6,7 +6,7 @@ import SectionTitle from "@/app/components/ui/SectionTitle";
 }
 const CustomerServiceInfo = ({data}) => {
     return (
-        <div className="bg-blue-100 mt-4">
+        <div className="w-full border rounded-sm overflow-clip m-1 ">
 
             <SectionTitle title="고객상담 정보"/>
 

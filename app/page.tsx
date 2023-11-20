@@ -95,7 +95,7 @@ export default async function Page() {
 
 
     return (
-        <div className="bg-amber-200 mainContainer px-3">
+        <div className=" mainContainer px-3">
 
             <div className="px-3 py-1 rounded-md border-b-2 border-x-2 border-black">
                 <p>고객상담</p>
@@ -105,12 +105,12 @@ export default async function Page() {
             <SearchCustomerService/>
 
             {/*고객상담 정보*/}
-            <CustomerServiceInfo data={data}/>
+                <CustomerServiceInfo data={data}/>
 
             {/*고객상담 상세정보, 청구정보, 납부정보, 상담이력저장 섹션ㅐ*/}
             <div>
-                <div className="flex flex-row justify-between">
-                    <div className="w-1/2 bg-amber-600">
+                <div className="flex flex-row space-x-2 justify-between   m-1 ">
+                    <div className="w-1/2 border rounded-sm overflow-clip ">
                         <CustomerServiceDetail data={null}/>
                     </div>
                     <div className="w-1/2 bg-green-300">

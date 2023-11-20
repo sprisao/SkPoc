@@ -1,23 +1,24 @@
 import SectionTitle from "@/app/components/ui/SectionTitle";
+import CommonButton from "@/app/components/ui/CommonButton";
 
 {/*고객상담관리 조회 Container*/
 }
 const SearchCustomerService = () => {
     return (
 
-        <div className="bg-blue-100 mt-4">
+        <div className="w-full border rounded-sm overflow-clip m-1 mt-4 ">
             <SectionTitle title="고객상담관리 조회"/>
 
             {/*고객상담관리 조회 아이템*/}
-            <div className="flex flex-row bg-blue-500 py-2 px-5 justify-between">
+            <div className="flex flex-row py-2 px-5 justify-between">
 
                 {/*조회구분*/}
-                <div className="flex flex-row items-center">
+                <div className="flex flex-row items-center space-x-0.5">
                     <div>
                         <p>조회구분</p>
                     </div>
                     <div className="ml-2">
-                        <select className="h-6">
+                        <select className="h-6 bg-pink-100 border-2 ">
                             <option>서비스 번호</option>
                             <option>고객상담</option>
                             <option>고객상담</option>
@@ -25,7 +26,7 @@ const SearchCustomerService = () => {
                         </select>
                     </div>
                     <div>
-                        <select className="h-6">
+                        <select className="h-6 bg-pink-100 border-2">
                             <option>010</option>
                             <option>123</option>
                             <option>456</option>
@@ -34,14 +35,14 @@ const SearchCustomerService = () => {
                     </div>
                     <div>
                         <input
-                            className="w-10 h-6"
+                            className="w-12 h-6 bg-pink-100 border-2"
                             type="number"
                             placeholder="1234"
                         />
                     </div>
                     <div>
                         <input
-                            className="w-10 h-6"
+                            className="w-12 h-6 bg-pink-100 border-2"
                             type="number"
                             placeholder="5678"
                         />
@@ -62,7 +63,7 @@ const SearchCustomerService = () => {
                     </div>
                     <div className="ml-2">
                         <input
-                            className="w-[120px] rounded-sm"
+                            className="w-[150px] bg-blue-200 border-2 h-6"
                             type="text"
                         />
                     </div>
@@ -73,26 +74,25 @@ const SearchCustomerService = () => {
                     <div>
                         <p>생년/법인/사업자 번호</p>
                     </div>
-                    <div className="ml-2 h-6 ">
+                    <div className="ml-2">
                         <input
-                            className="rounded-sm px-2"
+                            className=" bg-blue-200 border-2 h-6"
                             type="text"
                         />
                     </div>
                     <div className="flex justify-center items-center h-6 border-2 ml-2 rounded-sm">
-                        <button className="text-sm">
+                        <CommonButton>
                             고객인증
-                        </button>
+                        </CommonButton>
                     </div>
                 </div>
 
                 {/*조회 버튼*/}
-                <div className="flex flex-row p-2">
-                    <div className="border-2 rounded-md px-10">
-                        <button className="">
-                            조회
-                        </button>
-                    </div>
+                <div className="flex flex-row w-24">
+                    <button className="bg-gray-400 w-full rounded-sm text-white">
+                        조회
+                    </button>
+
                 </div>
 
             </div>
