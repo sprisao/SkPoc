@@ -1,6 +1,6 @@
 const CommonButton = ({children}) => {
     return (
-        <button className="flex justify-center items-center w-full rounded-sm bg-gray-400 px-1 text-gray-200 text-sm ">
+        <button className="rounded-sm bg-gray-500 px-2 text-gray-200 text-sm py-0.5 ">
             {children}
         </button>
     )

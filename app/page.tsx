@@ -3,7 +3,7 @@ import {CustomerServiceInfoData} from "@/app/components/tables/CustomerServiceIn
 import CustomerServiceInfo from "@/app/components/sections/CustomerServiceInfo";
 import SearchCustomerService from "@/app/components/sections/SearchCustomerService";
 import BillingInformation from "@/app/components/sections/BillingInformation";
-import PaymentInformation from "@/app/components/sections/PaymentInformation";
+import PaymentInformation, {PaymentInformationData} from "@/app/components/sections/PaymentInformation";
 import SaveServiceHistory from "@/app/components/sections/SaveServiceHistory";
 import CustomerServiceDetail from "@/app/components/sections/CustomerServiceDetail";
 import {BillingInfoData} from "@/app/components/tables/BillingInfo/columns_billingInfo";
@@ -109,7 +109,17 @@ async function getBillingInfoData(): Promise<BillingInfoData[]> {
             serviceNumber: '',
         },
     ]
+}
 
+async function getPaymentInfoData(): Promise<PaymentInformationData> {
+    return {
+        billType: '청구서 발행유형 데이터',
+        billAddress: '',
+        taxBill: false,
+        paymentMethod: '',
+        bank: '',
+        cardNumber: '',
+    }
 }
 
 export default async function Page() {
@@ -129,6 +139,7 @@ export default async function Page() {
 
     const customerServiceInfoData = await getCustomerInfoData()
     const billingInfoData = await getBillingInfoData()
+    const paymentInfoData = await getPaymentInfoData()
 
 
     return (
@@ -154,9 +165,9 @@ export default async function Page() {
                         <BillingInformation data={billingInfoData}/>
                     </div>
                 </div>
-                <div className="flex flex-row">
-                    <div className="w-2/5 bg-purple-200">
-                        <PaymentInformation/>
+                <div className="flex w-full flex-row space-x-2 justify-between m-1">
+                    <div className="w-1/2 border rounded-sm overflow-clip ">
+                        <PaymentInformation data={paymentInfoData}/>
                     </div>
                     <div className="w-3/5 bg-pink-300">
                         <SaveServiceHistory/>
