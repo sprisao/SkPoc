@@ -10,7 +10,7 @@ const SearchCustomerService = () => {
             <SectionTitle title="고객상담관리 조회"/>
 
             {/*고객상담관리 조회 아이템*/}
-            <div className="flex flex-row py-2 px-5 justify-between">
+            <div className="flex flex-row py-2 px-2 justify-between text-sm space-x-1">
 
                 {/*조회구분*/}
                 <div className="flex flex-row items-center space-x-0.5">
@@ -48,11 +48,10 @@ const SearchCustomerService = () => {
                         />
                     </div>
                     {/*검색 아이콘 버튼 추가 */}
-                    <div className="flex justify-center items-center border-2 border-amber-300 h-6">
-                        <button
-                            className="text-sm bg-amber-200"
+                    <div className="flex justify-center items-center h-6">
+                        <CommonButton
                         >검색
-                        </button>
+                        </CommonButton>
                     </div>
                 </div>
 
@@ -61,26 +60,26 @@ const SearchCustomerService = () => {
                     <div>
                         <p>고객명</p>
                     </div>
-                    <div className="ml-2">
+                    <div className="ml-2 min-w-min">
                         <input
-                            className="w-[150px] bg-blue-200 border-2 h-6"
+                            className=" bg-blue-200 border-2 h-6"
                             type="text"
                         />
                     </div>
                 </div>
 
                 {/*생년/법인/사업자 번호*/}
-                <div className="flex flex-row items-center">
-                    <div>
-                        <p>생년/법인/사업자 번호</p>
+                <div className="flex flex-row items-center space-x-1">
+                    <div className="overflow-ellipsis">
+                        <p>생년/법인/사업자번호</p>
                     </div>
-                    <div className="ml-2">
+                    <div className="">
                         <input
-                            className=" bg-blue-200 border-2 h-6"
+                            className="bg-blue-200 border-2 h-6 w-max-[100px]"
                             type="text"
                         />
                     </div>
-                    <div className="flex justify-center items-center h-6 border-2 ml-2 rounded-sm">
+                    <div className="">
                         <CommonButton>
                             고객인증
                         </CommonButton>
