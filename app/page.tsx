@@ -9,6 +9,10 @@ import CustomerServiceDetail from "@/app/components/sections/CustomerServiceDeta
 import {BillingInfoData} from "@/app/components/tables/BillingInfo/columns_billingInfo";
 import WidthDisplay from "@/app/utils/WidthDisplay";
 import SectionTitle from "@/app/components/ui/SectionTitle";
+import History from "@/app/components/sections/History";
+import {
+    CustomerServiceHistoryData
+} from "@/app/components/tables/CustomerServiceHistory/columns_customerServiceHistory";
 
 
 // export function createRandomUser() {
@@ -123,6 +127,359 @@ async function getPaymentInfoData(): Promise<PaymentInformationData> {
     }
 }
 
+async function getCustomerServiceDetailData(): Promise<CustomerServiceHistoryData[]> {
+    // consultationDate: string; // 상담일자
+    // consultationTime: string; // 상담시각
+    // phoneNumber: string; // 통화번호
+    // consultationType: string; // 상담유형
+    // notes: string; // 메모
+    // status: string; // 처리상태
+    // consultant: string; // 상담원
+    // contactType: string; // 접촉구분
+    return [
+        {
+            consultationDate: '2020-01-01',
+            consultationTime: '10:00',
+            phoneNumber: '010-1234-5678',
+            consultationType: '상담유형',
+            notes: '메모',
+            status: '처리상태',
+            consultant: '상담원',
+            contactType: '접촉구분',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+        {
+            consultationDate: '',
+            consultationTime: '',
+            phoneNumber: '',
+            consultationType: '',
+            notes: '',
+            status: '',
+            consultant: '',
+            contactType: '',
+        },
+    ]
+}
+
 export default async function Page() {
     // const [users, setUsers] = useState([]);
     // const [showTable, setShowTable] = useState(false);
@@ -141,6 +498,8 @@ export default async function Page() {
     const customerServiceInfoData = await getCustomerInfoData()
     const billingInfoData = await getBillingInfoData()
     const paymentInfoData = await getPaymentInfoData()
+
+    const customerHistoryData = await getCustomerServiceDetailData()
 
 
     return (
@@ -177,6 +536,8 @@ export default async function Page() {
                     </div>
                 </div>
             </div>
+
+            <History customerHistoryData={customerHistoryData} customerSMSHistoryData="" customerUnpaidHistoryData=""/>
 
 
             {/*<button*/}

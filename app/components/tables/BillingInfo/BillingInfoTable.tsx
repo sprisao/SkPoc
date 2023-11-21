@@ -9,6 +9,7 @@ interface DataTableProps<TData, TValue> {
 export function BillingInfoTable<TData, TValue>({
                                                     columns, data
                                                 }: DataTableProps<TData, TValue>) {
+
     const table = useReactTable({
         data,
         columns,
