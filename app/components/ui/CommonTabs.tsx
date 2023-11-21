@@ -6,7 +6,7 @@ export default function CommonTabs({
     return (
         <div className="flex h-full text-sm items-end mx-0.5 ">
             <button
-                className={`px-5 py-1 ${activeTab === 'tab1' ? 'border text-white bg-blue-400 rounded-t-md  border-blue-200 ' : ''}`}
+                className={`px-5 py-1 ${activeTab === 'tab1' ? 'text-white bg-blue-400 rounded-t-md  border-blue-200 ' : ''}`}
                 onClick={() => setActiveTab('tab1')}>고객상담이력
             </button>
             <button
