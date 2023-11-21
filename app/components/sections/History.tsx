@@ -22,14 +22,14 @@ const History = ({customerHistoryData, customerUnpaidHistoryData, customerSMSHis
     return (
         <div className="w-full border rounded-sm overflow-clip m-1">
             <SectionTitle title="이력조회"/>
-            <div className="flex justify-between">
+            <div className="flex flex-row justify-between items-center h-10">
                 <CommonTabs activeTab={activeTab} setActiveTab={setActiveTab}/>
-                <div className="flex flex-row space-x-5">
+                <div className="flex flex-row space-x-5 h-8 items-center px-2">
                     <CommonButton>번호관리 이력조회</CommonButton>
                     <CommonButton>고객접촉이력</CommonButton>
                     <CommonButton>고객정보현행화</CommonButton>
                     <CommonButton>SMS발송</CommonButton>
-                    <Button onClick={toggleNumber} className="w-50">
+                    <Button onClick={toggleNumber} className="w-50 h-8">
                         {showMore ? '10개씩 보기' : '50개씩 보기'}
                     </Button>
                 </div>

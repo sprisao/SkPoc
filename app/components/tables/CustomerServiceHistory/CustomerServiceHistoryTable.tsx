@@ -72,7 +72,7 @@ export function CustomerServiceHistoryTable<TData, TValue>({
                                 {
                                     headerGroup.headers.map((header) => {
                                         return (
-                                            <TableHead className="text-center border text-white h-4 text-sm"
+                                            <TableHead className="text-center border-x text-white h-4 text-sm"
                                                        key={header.id}>
                                                 {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                                             </TableHead>
