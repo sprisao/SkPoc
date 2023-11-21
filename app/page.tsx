@@ -28,14 +28,14 @@ async function getCustomerInfoData(): Promise<CustomerServiceInfoData[]> {
         /*3개의 비어있는 데이터 추가 */
         {
             select: false,
-            accountNumber: '',
-            serviceType: '',
-            serviceNumber: '',
-            serviceStatus: "",
-            ratePlan: "",
-            deviceName: "",
-            businessNumber: "",
-            businessName: "",
+            accountNumber: '2020',
+            serviceType: '몰러',
+            serviceNumber: '10',
+            serviceStatus: "좋은상태",
+            ratePlan: "무제한",
+            deviceName: "아이폰",
+            businessNumber: "010-1234-5678",
+            businessName: "테스트",
         },
         {
             select: false,
@@ -79,10 +79,10 @@ async function getBillingInfoData(): Promise<BillingInfoData[]> {
     return [
         /*make 5 leer data*/
         {
-            billingDate: '',
-            billingAmount: '',
-            unpaidBalance: '',
-            serviceNumber: '',
+            billingDate: '2020-01-01',
+            billingAmount: '100,000',
+            unpaidBalance: '100,000',
+            serviceNumber: '010-1234-5678',
         },
         {
             billingDate: '',

@@ -13,19 +13,27 @@ export type BillingInfoData = {
 
 export const columns: ColumnDef<BillingInfoData, string>[] = [
     {
-        id: 'billingDate', header: '청구일자', cell: ({row}) =>
+        id: 'billingDate',
+        accessorKey: 'billingDate',
+        header: '청구일자', cell: ({row}) =>
             <div className="text-center">{row.getValue("billingDate")}</div>
     },
     {
-        id: 'billingAmount', header: '청구금액', cell: ({row}) =>
+        id: 'billingAmount',
+        accessorKey: 'billingAmount',
+        header: '청구금액', cell: ({row}) =>
             <div className="text-center">{row.getValue("billingAmount")}</div>
     },
     {
-        id: 'unpaidBalance', header: '미납잔액', cell: ({row}) =>
+        id: 'unpaidBalance',
+        accessorKey: 'unpaidBalance',
+        header: '미납잔액', cell: ({row}) =>
             <div className="text-center">{row.getValue("unpaidBalance")}</div>
     },
     {
-        id: 'serviceNumber', header: '서비스 수', cell: ({row}) =>
+        id: 'serviceNumber',
+        accessorKey: 'serviceNumber',
+        header: '서비스 수', cell: ({row}) =>
             <div className="text-center">{row.getValue("serviceNumber")}</div>
     },
 ];
