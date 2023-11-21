@@ -22,73 +22,73 @@ const PaymentInformation = ({data}: PaymentInformationProps) => {
         <div className="flex flex-col h-full w-full justify-between">
             <SectionTitle title="납부정보"/>
             <div className="px-5 py-1 space-y-1">
-                <div className="grid grid-cols-4 gap-1 text-sm">
+                <div className="grid grid-cols-3 gap-1 text-sm">
                     <div className="flex items-center justify-end col-span-1">
                         <p className="text-right">
-                            청구서 발행유형
+                            청구서발행유형
                         </p>
                     </div>
-                    <div className="flex items-center border col-span-3 px-0.5">
+                    <div className="flex items-center border col-span-2 px-0.5">
                         <p>
                             {data.billType}
                         </p>
                     </div>
                 </div>
-                <div className="grid grid-cols-4 gap-1 text-sm">
+                <div className="grid grid-cols-3 gap-1 text-sm">
                     <div className="flex items-center justify-end col-span-1">
                         <p className="text-right">
                             청구주소
                         </p>
                     </div>
-                    <div className="flex items-center border col-span-3 px-0.5">
+                    <div className="flex items-center border col-span-2 px-0.5">
                         <p>
                             {data.billAddress}
                         </p>
                     </div>
                 </div>
-                <div className="grid grid-cols-4 gap-1 text-sm">
+                <div className="grid grid-cols-3 gap-1 text-sm">
                     <div className="flex items-center justify-end col-span-1">
                         <p className="text-right">
                             세금계산서발행
                         </p>
                     </div>
-                    <div className="flex items-center border col-span-3 px-0.5">
+                    <div className="flex items-center border col-span-2 px-0.5">
                         <p>
                             {data.taxBill ? "발행" : "미발행"}
                         </p>
                     </div>
                 </div>
-                <div className="grid grid-cols-4 gap-1 text-sm">
+                <div className="grid grid-cols-3 gap-1 text-sm">
                     <div className="flex items-center justify-end col-span-1">
                         <p className="text-right">
                             납부방법
                         </p>
                     </div>
-                    <div className="flex items-center border col-span-3 px-0.5">
+                    <div className="flex items-center border col-span-2 px-0.5">
                         <p>
                             {data.paymentMethod}
                         </p>
                     </div>
                 </div>
-                <div className="grid grid-cols-4 gap-1 text-sm">
+                <div className="grid grid-cols-3 gap-1 text-sm">
                     <div className="flex items-center justify-end col-span-1">
                         <p className="text-right">
                             은행/카드사
                         </p>
                     </div>
-                    <div className="flex items-center border col-span-3 px-0.5">
+                    <div className="flex items-center border col-span-2 px-0.5">
                         <p>
                             {data.bank}
                         </p>
                     </div>
                 </div>
-                <div className="grid grid-cols-4 gap-1 text-sm">
+                <div className="grid grid-cols-3 gap-1 text-sm">
                     <div className="flex items-center justify-end col-span-1">
                         <p className="text-right">
                             카드/계좌번호
                         </p>
                     </div>
-                    <div className="flex items-center border col-span-3 px-0.5">
+                    <div className="flex items-center border col-span-2 px-0.5">
                         <p>
                             {data.cardNumber}
                         </p>

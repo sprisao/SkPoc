@@ -169,10 +169,10 @@ export default async function Page() {
                     </div>
                 </div>
                 <div className="flex w-full flex-row space-x-1.5 justify-between m-1">
-                    <div className="w-1/2 border rounded-sm overflow-clip ">
+                    <div className="w-2/5 border rounded-sm overflow-clip ">
                         <PaymentInformation data={paymentInfoData}/>
                     </div>
-                    <div className="w-3/5 bg-pink-300">
+                    <div className="w-3/5 border rounded-sm overflow-clip ">
                         <SaveServiceHistory/>
                     </div>
                 </div>
