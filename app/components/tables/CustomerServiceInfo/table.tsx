@@ -40,7 +40,7 @@ export function CustomerServiceInfoTable<TData, TValue>({
                         {headerGroup.headers.map((header) => {
                             return (
                                 <TableHead
-                                    className="text-center border h-7 text-white"
+                                    className="text-center border h-6 text-white"
                                     key={header.id}>
                                     {header.isPlaceholder
                                         ? null
@@ -62,11 +62,14 @@ export function CustomerServiceInfoTable<TData, TValue>({
                             key={row.id}
                             data-state={row.getIsSelected() && "selected"}
                         >
-                            {row.getVisibleCells().map((cell) => (
-                                <TableCell className="border text-center h-7" key={cell.id}>
-                                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                                </TableCell>
-                            ))}
+                            {row.getVisibleCells().map((cell) => {
+                                    return (
+                                        <TableCell className="text-center border" key={cell.id}>
+                                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                        </TableCell>
+                                    )
+                                }
+                            )}
                         </TableRow>
                     ))
                 ) : (
