@@ -18,7 +18,7 @@ export function CustomerServiceHistoryTable<TData, TValue>({
         getCoreRowModel: getCoreRowModel(),
     });
 
-    let tHeight = showMore ? 1200 : 250;
+    let tHeight = showMore ? 1500 : 300;
 
     // Function to render rows
     const renderRows = () => {
@@ -61,7 +61,9 @@ export function CustomerServiceHistoryTable<TData, TValue>({
     };
 
     return (
-        <div className={`max-h-[300px] overflow-y-scroll`}>
+        <div
+            style={{maxHeight: `${tHeight}px`, overflowY: "scroll"}}
+                >
             <Table className="table-auto">
                 <TableHeader className="bg-blue-300 sticky top-0">
                     {
@@ -81,7 +83,7 @@ export function CustomerServiceHistoryTable<TData, TValue>({
                         ))
                     }
                 </TableHeader>
-                <TableBody className="border-2 border-amber-900">
+                <TableBody className="">
                     {table.getRowModel().rows.length ? renderRows() : (
                         <tr>
                             <td className="text-center border" colSpan={columns.length}>

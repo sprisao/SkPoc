@@ -29,8 +29,8 @@ const History = ({customerHistoryData, customerUnpaidHistoryData, customerSMSHis
                     <CommonButton>고객접촉이력</CommonButton>
                     <CommonButton>고객정보현행화</CommonButton>
                     <CommonButton>SMS발송</CommonButton>
-                    <Button onClick={toggleNumber}>
-                        50개씩 보기
+                    <Button onClick={toggleNumber} className="w-50">
+                        {showMore ? '10개씩 보기' : '50개씩 보기'}
                     </Button>
                 </div>
             </div>

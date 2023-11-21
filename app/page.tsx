@@ -503,8 +503,7 @@ export default async function Page() {
 
 
     return (
-        <div className=" mainContainer px-3">
-            <WidthDisplay/>
+        <div className="flex flex-col mainContainer px-3 space-y-5">
             <div className="flex w-full flex-row space-x-2 justify-between m-1">
                 <div className="w-full border rounded-sm overflow-clip ">
                     <SectionTitle title="고객상담"/>
