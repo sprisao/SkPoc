@@ -34,13 +34,13 @@ export function CustomerServiceInfoTable<TData, TValue>({
 
     return (
         <Table className="">
-            <TableHeader className="bg-blue-200">
+            <TableHeader className="bg-blue-300">
                 {table.getHeaderGroups().map((headerGroup) => (
                     <TableRow key={headerGroup.id}>
                         {headerGroup.headers.map((header) => {
                             return (
                                 <TableHead
-                                    className="text-center border h-7"
+                                    className="text-center border h-7 text-white"
                                     key={header.id}>
                                     {header.isPlaceholder
                                         ? null
