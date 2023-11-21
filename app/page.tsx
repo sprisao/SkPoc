@@ -8,6 +8,7 @@ import SaveServiceHistory from "@/app/components/sections/SaveServiceHistory";
 import CustomerServiceDetail from "@/app/components/sections/CustomerServiceDetail";
 import {BillingInfoData} from "@/app/components/tables/BillingInfo/columns_billingInfo";
 import WidthDisplay from "@/app/utils/WidthDisplay";
+import SectionTitle from "@/app/components/ui/SectionTitle";
 
 
 // export function createRandomUser() {
@@ -145,8 +146,10 @@ export default async function Page() {
     return (
         <div className=" mainContainer px-3">
             <WidthDisplay/>
-            <div className="px-3 py-1 rounded-md border-b-2 border-x-2 border-black">
-                <p>고객상담</p>
+            <div className="flex w-full flex-row space-x-2 justify-between m-1">
+                <div className="w-full border rounded-sm overflow-clip ">
+                    <SectionTitle title="고객상담"/>
+                </div>
             </div>
 
             {/*고객상담관리 조회 Container*/}
@@ -157,7 +160,7 @@ export default async function Page() {
 
             {/*고객상담 상세정보, 청구정보, 납부정보, 상담이력저장 섹션ㅐ*/}
             <div className="w-full">
-                <div className="flex w-full flex-row space-x-2 justify-between m-1">
+                <div className="flex w-full flex-row space-x-1.5 justify-between m-1">
                     <div className="w-1/2 border rounded-sm overflow-clip ">
                         <CustomerServiceDetail data={null}/>
                     </div>
@@ -165,7 +168,7 @@ export default async function Page() {
                         <BillingInformation data={billingInfoData}/>
                     </div>
                 </div>
-                <div className="flex w-full flex-row space-x-2 justify-between m-1">
+                <div className="flex w-full flex-row space-x-1.5 justify-between m-1">
                     <div className="w-1/2 border rounded-sm overflow-clip ">
                         <PaymentInformation data={paymentInfoData}/>
                     </div>
