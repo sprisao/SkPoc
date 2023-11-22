@@ -1,6 +1,7 @@
 /*납부정보*/
 import SectionTitle from "@/app/components/ui/SectionTitle";
 import CommonButton from "@/app/components/ui/CommonButton";
+import ResultContainer from "@/app/components/ui/ResultContainer";
 
 export type PaymentInformationData = {
     /*청구서 발행유형, 청구주소, 세금계산서발행유무, 납부방법, 은행/카드사, 카드/계좌번호*/
@@ -28,10 +29,8 @@ const PaymentInformation = ({data}: PaymentInformationProps) => {
                             청구서발행유형
                         </p>
                     </div>
-                    <div className="flex items-center border col-span-2 px-0.5">
-                        <p>
-                            {data.billType}
-                        </p>
+                    <div className="flex items-center  col-span-2 ">
+                    <ResultContainer content={data.billType} key={data.billType}/>
                     </div>
                 </div>
                 <div className="grid grid-cols-3 gap-1 text-sm">
@@ -40,10 +39,8 @@ const PaymentInformation = ({data}: PaymentInformationProps) => {
                             청구주소
                         </p>
                     </div>
-                    <div className="flex items-center border col-span-2 px-0.5">
-                        <p>
-                            {data.billAddress}
-                        </p>
+                    <div className="flex items-center  col-span-2 ">
+                        <ResultContainer content={data.billAddress} key={data.billAddress}/>
                     </div>
                 </div>
                 <div className="grid grid-cols-3 gap-1 text-sm">
@@ -52,10 +49,8 @@ const PaymentInformation = ({data}: PaymentInformationProps) => {
                             세금계산서발행
                         </p>
                     </div>
-                    <div className="flex items-center border col-span-2 px-0.5">
-                        <p>
-                            {data.taxBill ? "발행" : "미발행"}
-                        </p>
+                    <div className="flex items-center  col-span-2 ">
+                        <ResultContainer content={data.taxBill ? "발행" : "미발행"} key={data.taxBill ? "발행" : "미발행"}/>
                     </div>
                 </div>
                 <div className="grid grid-cols-3 gap-1 text-sm">
@@ -64,10 +59,8 @@ const PaymentInformation = ({data}: PaymentInformationProps) => {
                             납부방법
                         </p>
                     </div>
-                    <div className="flex items-center border col-span-2 px-0.5">
-                        <p>
-                            {data.paymentMethod}
-                        </p>
+                    <div className="flex items-center col-span-2 ">
+                        <ResultContainer content={data.paymentMethod} key={data.paymentMethod}/>
                     </div>
                 </div>
                 <div className="grid grid-cols-3 gap-1 text-sm">
@@ -76,10 +69,8 @@ const PaymentInformation = ({data}: PaymentInformationProps) => {
                             은행/카드사
                         </p>
                     </div>
-                    <div className="flex items-center border col-span-2 px-0.5">
-                        <p>
-                            {data.bank}
-                        </p>
+                    <div className="flex items-center col-span-2 ">
+                        <ResultContainer content={data.bank} key={data.bank}/>
                     </div>
                 </div>
                 <div className="grid grid-cols-3 gap-1 text-sm">
@@ -88,10 +79,8 @@ const PaymentInformation = ({data}: PaymentInformationProps) => {
                             카드/계좌번호
                         </p>
                     </div>
-                    <div className="flex items-center border col-span-2 px-0.5">
-                        <p>
-                            {data.cardNumber}
-                        </p>
+                    <div className="flex items-center col-span-2 ">
+                        <ResultContainer content={data.cardNumber} key={data.cardNumber}/>
                     </div>
                 </div>
             </div>
