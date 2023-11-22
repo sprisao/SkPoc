@@ -58,7 +58,7 @@ export function CustomerServiceInfoTable<TData, TValue>({
                 {table.getRowModel().rows?.length ? (
                     table.getRowModel().rows.map((row) => (
                         <TableRow
-                            className={row.index % 2 === 0 ? "bg-white h-5" : "bg-gray-100"}
+                            className={row.index % 2 === 0 ? "bg-white" : "bg-gray-100"}
                             key={row.id}
                             data-state={row.getIsSelected() && "selected"}
                         >

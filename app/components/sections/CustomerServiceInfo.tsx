@@ -11,7 +11,7 @@ const CustomerServiceInfo = ({data}) => {
             <SectionTitle title="고객상담 정보"/>
 
             {/*고객상담 정보 아이템*/}
-            <div className="flex flex-row bg-blue-500 justify-between">
+            <div className="flex flex-row justify-between">
                 <CustomerServiceInfoTable columns={columns_customerServiceInfo} data={data}/>
             </div>
         </div>

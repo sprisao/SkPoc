@@ -34,7 +34,7 @@ const History = ({customerHistoryData, customerUnpaidHistoryData, customerSMSHis
                     </Button>
                 </div>
             </div>
-            <div className="bg-yellow-200">
+            <div className="">
                 {activeTab === 'tab1' &&
                     <CustomerServiceHistoryTable columns={customerServiceHistoryColumns} data={customerHistoryData}
                                                  showMore={showMore}/>}
