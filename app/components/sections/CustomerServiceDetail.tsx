@@ -32,7 +32,7 @@ export const GridRowComponent = ({title, contents}) => {
                 <p className="text-right text-sm">{title}</p>
             </div>
             <div className="col-span-2 flex flex-row w-full justify-evenly space-x-0.5 ">
-                {contents.map(({content, index}) => (
+                {contents.map((content, index) => (
                     <ResultContainer key={index} content={content}/>
                 ))}
             </div>
