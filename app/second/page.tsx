@@ -2,6 +2,7 @@ import InputBox from "@/app/components/ui/InputBox";
 import {Button} from "@/components/ui/button";
 import SelectBox from "@/app/components/ui/SelectBox";
 import ImageSlider from "@/app/components/ui/ImageSlider";
+import Accordion from "@/app/components/ui/Accordion";
 
 export default function SecondPage() {
     return (
@@ -43,9 +44,7 @@ export default function SecondPage() {
                 </div>
             </div>
             <ImageSlider/>
-            <div className="col-span-4 h-52 bg-green-100 flex justify-center items-center">
-                Accordian
-            </div>
+            <Accordion/>
         </div>
     )
 }
