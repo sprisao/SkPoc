@@ -475,7 +475,7 @@ export default async function Page() {
 
 
     return (
-        <div className="flex flex-col mainContainer px-3 space-y-5">
+        <div className="flex flex-col px-3 space-y-5">
 
             {/*고객상담관리 조회 Container*/}
             <SearchCustomerService/>
