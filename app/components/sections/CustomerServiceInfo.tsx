@@ -1,5 +1,5 @@
-import {CustomerServiceInfoTable} from "@/app/components/tables/CustomerServiceInfo/table";
-import {columns} from "@/app/components/tables/CustomerServiceInfo/columns";
+import {CustomerServiceInfoTable} from "@/app/components/tables/CustomerServiceInfo/CustomerServiceInfoTable";
+import {columns_customerServiceInfo} from "@/app/components/tables/CustomerServiceInfo/columns_customerServiceInfo";
 import SectionTitle from "@/app/components/ui/SectionTitle";
 
 {/*고객상담 정보*/
@@ -12,7 +12,7 @@ const CustomerServiceInfo = ({data}) => {
 
             {/*고객상담 정보 아이템*/}
             <div className="flex flex-row bg-blue-500 justify-between">
-                <CustomerServiceInfoTable columns={columns} data={data}/>
+                <CustomerServiceInfoTable columns={columns_customerServiceInfo} data={data}/>
             </div>
         </div>
     );

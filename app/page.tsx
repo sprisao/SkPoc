@@ -1,5 +1,5 @@
 import {faker} from '@faker-js/faker';
-import {CustomerServiceInfoData} from "@/app/components/tables/CustomerServiceInfo/columns";
+import {CustomerServiceInfoData} from "@/app/components/tables/CustomerServiceInfo/columns_customerServiceInfo";
 import CustomerServiceInfo from "@/app/components/sections/CustomerServiceInfo";
 import SearchCustomerService from "@/app/components/sections/SearchCustomerService";
 import BillingInformation from "@/app/components/sections/BillingInformation";

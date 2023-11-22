@@ -25,7 +25,7 @@ export type CustomerServiceInfoData = {
     businessName: string
 }
 
-export const columns: ColumnDef<CustomerServiceInfoData>[] = [
+export const columns_customerServiceInfo: ColumnDef<CustomerServiceInfoData>[] = [
     {
         id: "select",
         header: ({table}) => (
@@ -169,7 +169,7 @@ export const columns: ColumnDef<CustomerServiceInfoData>[] = [
 //     email: string
 // }
 //
-// export const columns: ColumnDef<Payment>[] = [
+// export const columns_customerServiceInfo: ColumnDef<Payment>[] = [
 //     {
 //         id: "select",
 //         header: ({ table }) => (
@@ -268,7 +268,7 @@ export const columns: ColumnDef<CustomerServiceInfoData>[] = [
 //
 //     const table = useReactTable({
 //         data,
-//         columns,
+//         columns_customerServiceInfo,
 //         onSortingChange: setSorting,
 //         onColumnFiltersChange: setColumnFilters,
 //         getCoreRowModel: getCoreRowModel(),
@@ -363,7 +363,7 @@ export const columns: ColumnDef<CustomerServiceInfoData>[] = [
 //                         ) : (
 //                             <TableRow>
 //                                 <TableCell
-//                                     colSpan={columns.length}
+//                                     colSpan={columns_customerServiceInfo.length}
 //                                     className="h-24 text-center"
 //                                 >
 //                                     No results.
