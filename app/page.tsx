@@ -1,15 +1,16 @@
-import {CustomerServiceInfoData} from "@/app/components/tables/CustomerServiceInfo/columns_customerServiceInfo";
 import CustomerServiceInfo from "@/app/components/sections/CustomerServiceInfo";
 import SearchCustomerService from "@/app/components/sections/SearchCustomerService";
 import BillingInformation from "@/app/components/sections/BillingInformation";
-import PaymentInformation, {PaymentInformationData} from "@/app/components/sections/PaymentInformation";
 import SaveServiceHistory from "@/app/components/sections/SaveServiceHistory";
 import CustomerServiceDetail from "@/app/components/sections/CustomerServiceDetail";
-import {BillingInfoData} from "@/app/components/tables/BillingInfo/columns_billingInfo";
 import History from "@/app/components/sections/History";
 import {
-    CustomerServiceHistoryData
-} from "@/app/components/tables/CustomerServiceHistory/columns_customerServiceHistory";
+    BillingInfoData,
+    CustomerServiceHistoryData,
+    CustomerServiceInfoData,
+    PaymentInformationData
+} from "@/app/models/models";
+import PaymentInformation from "@/app/components/sections/PaymentInformation";
 
 
 async function getCustomerInfoData(): Promise<CustomerServiceInfoData[]> {

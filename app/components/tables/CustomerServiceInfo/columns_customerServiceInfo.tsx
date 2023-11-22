@@ -2,26 +2,9 @@
 
 import {ColumnDef} from "@tanstack/react-table"
 import {Checkbox} from "@/components/ui/checkbox";
+import {CustomerServiceInfoData} from "@/app/models/models";
 
 /*고객상담정보 타입*/
-export type CustomerServiceInfoData = {
-    /*서비스계정정보*/
-    serviceAccountNumber: number
-    /*서비스구분*/
-    serviceName: string
-    /*서비스 번호*/
-    serviceNumber: string
-    /*서비스상태*/
-    serviceStatusName: string
-    /*요금제*/
-    feeName: string
-    /*단말기*/
-    equipmentName: string
-    /*사업자번호*/
-    businessNumber: string
-    /*사업자명*/
-    businessName: string
-}
 
 export const columns_customerServiceInfo: ColumnDef<CustomerServiceInfoData>[] = [
     {

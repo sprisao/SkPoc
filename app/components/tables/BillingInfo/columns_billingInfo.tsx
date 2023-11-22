@@ -1,12 +1,6 @@
 import {ColumnDef} from "@tanstack/react-table";
+import {BillingInfoData} from "@/app/models/models";
 
-export type BillingInfoData = {
-    /*청구일자, 청구금액, 미납잔액, 서비스 수*/
-    invoiceDate: string;
-    invoiceAmount: string;
-    collectionBalanceAmount: string;
-    serviceNumber: string;
-}
 
 
 export const columns: ColumnDef<BillingInfoData, string>[] = [

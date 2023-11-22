@@ -1,17 +1,6 @@
 import {ColumnDef} from "@tanstack/react-table";
+import {CustomerServiceHistoryData} from "@/app/models/models";
 
-export type CustomerServiceHistoryData = {
-    consultationSerialNumber: number;  // 상담일련번호, NUMBER(10)
-    serviceNumber: string; // 서비스번호
-    consultationDate: string; // 상담일자
-    consultationTime: string; // 상담시각
-    serviceConsultationNumber: string; // 통화번호
-    consultationType: string; // 상담유형
-    notes: string; // 메모
-    processingStatus: string; // 처리상태
-    consultantName: string; // 상담원
-    contactType: string; // 접촉구분
-};
 
 export const customerServiceHistoryColumns: ColumnDef<CustomerServiceHistoryData>[] = [
     {

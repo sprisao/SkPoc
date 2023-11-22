@@ -1,16 +1,6 @@
 import {ColumnDef} from "@tanstack/react-table";
+import {ServiceAccountSearchData} from "@/app/models/models";
 
-export type ServiceAccountSearchData = {
-    serviceNumber: string;        // 서비스번호, VARCHAR2(20)
-    customerCorporateNumber: number; // 고객법인번호, NUMBER(20)
-    sexCode: string;              // 성별코드, VARCHAR2(4)
-    customerAccountNumber: number; // 고객계정번호, NUMBER(10)
-    customerName: string;         // 고객명, VARCHAR2(80)
-    billingAccountNumber: number; // 청구계정번호, NUMBER(10)
-    billingCustomerName: string;  // 청구고객명, VARCHAR2(80)
-    serviceAccountNumber: number; // 서비스계정번호, NUMBER(10)
-    serviceSubscriptionDate: string; // 서비스가입일자, VARCHAR2(8)
-};
 
 export const serviceAccountSearchColumns: ColumnDef<ServiceAccountSearchData>[] = [
     {
