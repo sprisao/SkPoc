@@ -1,10 +1,11 @@
 import InputBox from "@/app/components/ui/InputBox";
 import {Button} from "@/components/ui/button";
 import SelectBox from "@/app/components/ui/SelectBox";
+import ImageSlider from "@/app/components/ui/ImageSlider";
 
 export default function SecondPage() {
     return (
-        <div className="px-5">
+        <div className="px-5 space-y-4">
             <div className="grid grid-cols-[250px_auto] gap-3">
                 <div className="col-span-3 col-start-2 flex flex-row bg-yellow-200 justify-between">
                     <div className="flex flex-row space-x-2">
@@ -40,12 +41,10 @@ export default function SecondPage() {
                         <div className="h-60 bg-pink-100">4</div>
                     </div>
                 </div>
-                <div className="col-span-4 h-52 bg-purple-300 flex justify-center items-center">
-                    Image slider
-                </div>
-                <div className="col-span-4 h-52 bg-green-100 flex justify-center items-center">
-                    Accordian
-                </div>
+            </div>
+            <ImageSlider/>
+            <div className="col-span-4 h-52 bg-green-100 flex justify-center items-center">
+                Accordian
             </div>
         </div>
     )

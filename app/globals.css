@@ -21,6 +21,10 @@ html{
   max-width: 1920px;
 }
 
+.slick-next:before{
+  color: peru;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
