@@ -2,31 +2,31 @@ import {ColumnDef} from "@tanstack/react-table";
 
 export type BillingInfoData = {
     /*청구일자, 청구금액, 미납잔액, 서비스 수*/
-    billingDate: string;
-    billingAmount: string;
-    unpaidBalance: string;
+    invoiceDate: string;
+    invoiceAmount: string;
+    collectionBalanceAmount: string;
     serviceNumber: string;
 }
 
 
 export const columns: ColumnDef<BillingInfoData, string>[] = [
     {
-        id: 'billingDate',
-        accessorKey: 'billingDate',
+        id: 'invoiceDate',
+        accessorKey: 'invoiceDate',
         header: '청구일자', cell: ({row}) =>
-            <div className="text-center">{row.getValue("billingDate")}</div>
+            <div className="text-center">{row.getValue("invoiceDate")}</div>
     },
     {
-        id: 'billingAmount',
-        accessorKey: 'billingAmount',
+        id: 'invoiceAmount',
+        accessorKey: 'invoiceAmount',
         header: '청구금액', cell: ({row}) =>
-            <div className="text-center">{row.getValue("billingAmount")}</div>
+            <div className="text-center">{row.getValue("invoiceAmount")}</div>
     },
     {
-        id: 'unpaidBalance',
-        accessorKey: 'unpaidBalance',
+        id: 'collectionBalanceAmount',
+        accessorKey: 'collectionBalanceAmount',
         header: '미납잔액', cell: ({row}) =>
-            <div className="text-center">{row.getValue("unpaidBalance")}</div>
+            <div className="text-center">{row.getValue("collectionBalanceAmount")}</div>
     },
     {
         id: 'serviceNumber',

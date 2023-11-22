@@ -5,20 +5,18 @@ import {Checkbox} from "@/components/ui/checkbox";
 
 /*고객상담정보 타입*/
 export type CustomerServiceInfoData = {
-    /*선택유무*/
-    select: boolean
     /*서비스계정정보*/
-    accountNumber: string
+    serviceAccountNumber: number
     /*서비스구분*/
-    serviceType: string
+    serviceName: string
     /*서비스 번호*/
     serviceNumber: string
     /*서비스상태*/
-    serviceStatus: string
+    serviceStatusName: string
     /*요금제*/
-    ratePlan: string
+    feeName: string
     /*단말기*/
-    deviceName: string
+    equipmentName: string
     /*사업자번호*/
     businessNumber: string
     /*사업자명*/
@@ -49,14 +47,14 @@ export const columns_customerServiceInfo: ColumnDef<CustomerServiceInfoData>[] =
         enableHiding: false,
     },
     {
-        accessorKey: "accountNumber",
+        accessorKey: "serviceAccountNumber",
         header: "서비스계정정보",
-        cell: ({row}) => <div className="lowercase">{row.getValue("accountNumber")}</div>,
+        cell: ({row}) => <div className="lowercase">{row.getValue("serviceAccountNumber")}</div>,
     },
     {
-        accessorKey: "serviceType",
+        accessorKey: "serviceName",
         header: "서비스구분",
-        cell: ({row}) => <div className="lowercase">{row.getValue("serviceType")}</div>,
+        cell: ({row}) => <div className="lowercase">{row.getValue("serviceName")}</div>,
     },
     {
         accessorKey: "serviceNumber",
@@ -64,19 +62,20 @@ export const columns_customerServiceInfo: ColumnDef<CustomerServiceInfoData>[] =
         cell: ({row}) => <div className="lowercase">{row.getValue("serviceNumber")}</div>,
     },
     {
-        accessorKey: "serviceStatus",
+        accessorKey: "serviceStatusName",
         header: "서비스상태",
-        cell: ({row}) => <div className="lowercase">{row.getValue("serviceStatus")}</div>,
+        cell: ({row}) => <div className="lowercase">{row.getValue("serviceStatusName")}</div>,
     },
     {
-        accessorKey: "ratePlan",
+        accessorKey: "feeName",
         header: "요금제",
-        cell: ({row}) => <div className="lowercase">{row.getValue("ratePlan")}</div>,
+        cell: ({row}) => <div className="lowercase">{row.getValue("feeName")}</div>,
     },
     {
-        accessorKey: "deviceName",
+        accessorKey: "equipmentName",
         header: "단말기",
-        cell: ({row}) => <div className="lowercase">{row.getValue("deviceName")}</div>,
+        cell: ({row}) => <div className="lowercase">{row.getValue("equipmentName" +
+            "")}</div>,
     },
     {
         accessorKey: "businessNumber",

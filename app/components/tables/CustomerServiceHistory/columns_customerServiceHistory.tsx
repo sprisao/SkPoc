@@ -1,13 +1,15 @@
 import {ColumnDef} from "@tanstack/react-table";
 
 export type CustomerServiceHistoryData = {
+    consultationSerialNumber: number;  // 상담일련번호, NUMBER(10)
+    serviceNumber: string; // 서비스번호
     consultationDate: string; // 상담일자
     consultationTime: string; // 상담시각
-    phoneNumber: string; // 통화번호
+    serviceConsultationNumber: string; // 통화번호
     consultationType: string; // 상담유형
     notes: string; // 메모
-    status: string; // 처리상태
-    consultant: string; // 상담원
+    processingStatus: string; // 처리상태
+    consultantName: string; // 상담원
     contactType: string; // 접촉구분
 };
 
@@ -27,11 +29,11 @@ export const customerServiceHistoryColumns: ColumnDef<CustomerServiceHistoryData
             <div className="">{row.getValue("consultationTime")}</div>
     },
     {
-        id: "phoneNumber",
-        accessorKey: "phoneNumber",
+        id: "serviceConsultationNumber",
+        accessorKey: "serviceConsultationNumber",
         header: "통화번호",
         cell: ({row}) =>
-            <div className="">{row.getValue("phoneNumber")}</div>
+            <div className="">{row.getValue("serviceConsultationNumber")}</div>
     },
     {
         id: "consultationType",
@@ -48,18 +50,18 @@ export const customerServiceHistoryColumns: ColumnDef<CustomerServiceHistoryData
             <div className="">{row.getValue("notes")}</div>
     },
     {
-        id: "status",
-        accessorKey: "status",
+        id: "processingStatus",
+        accessorKey: "processingStatus",
         header: "처리상태",
         cell: ({row}) =>
-            <div className="">{row.getValue("status")}</div>
+            <div className="">{row.getValue("processingStatus")}</div>
     },
     {
-        id: "consultant",
-        accessorKey: "consultant",
+        id: "consultantName",
+        accessorKey: "consultantName",
         header: "상담원",
         cell: ({row}) =>
-            <div className="">{row.getValue("consultant")}</div>
+            <div className="">{row.getValue("consultantName")}</div>
     },
     {
         id: "contactType",
