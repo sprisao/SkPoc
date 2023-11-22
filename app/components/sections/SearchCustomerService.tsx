@@ -14,8 +14,7 @@ import InputBox from "@/app/components/ui/InputBox";
 import SelectBox from "@/app/components/ui/SelectBox";
 import {Checkbox} from "@/components/ui/checkbox";
 
-{/*고객상담관리 조회 Container*/
-}
+/*고객상담관리 조회 섹션*/
 const SearchCustomerService = () => {
     return (
 
