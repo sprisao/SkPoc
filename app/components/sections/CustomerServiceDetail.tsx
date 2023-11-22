@@ -1,5 +1,6 @@
 import SectionTitle from "@/app/components/ui/SectionTitle";
 import CommonButton from "@/app/components/ui/CommonButton";
+import ResultContainer from "@/app/components/ui/ResultContainer";
 
 export type CustomerServiceDetailData = {
     corporationName: string; // 소속법인명
@@ -26,15 +27,13 @@ type CustomerServiceDetailProps = {
 };
 export const GridRowComponent = ({title, contents}) => {
     return (
-        <div className="flex flex-row w-full justify-center">
-            <div className="flex items-center  justify-end w-2/5 mr-1.5 ">
+        <div className="grid grid-cols-3 w-full justify-center gap-2">
+            <div className="col-span-1 flex items-center justify-end shrink-0 ">
                 <p className="text-right text-sm">{title}</p>
             </div>
-            <div className="flex flex-row w-full justify-evenly space-x-0.5 ">
-                {contents.map((content, index) => (
-                    <div key={index} className="w-full border-2 h-6">
-                        <p className="text-center">{content}</p>
-                    </div>
+            <div className="col-span-2 flex flex-row w-full justify-evenly space-x-0.5 ">
+                {contents.map(({content, index}) => (
+                    <ResultContainer key={index} content={content}/>
                 ))}
             </div>
         </div>
@@ -111,30 +110,25 @@ const CustomerServiceDetail = ({data}: CustomerServiceDetailProps) => {
     return (
         <div>
             <SectionTitle title="고객상담 상세정보"/>
-            <div className="flex flex-row justify-between py-2 px-2">
-                <div className="flex flex-col w-1/2 space-y-0.5">
+            <div className="grid grid-cols-2 py-2 px-2">
+                <div className="col-span-1 flex flex-col space-y-0.5">
                     {rows1.map((row, index) => (
                         <GridRowComponent key={index} {...row} />
                     ))}
                 </div>
-                <div className="flex flex-col w-1/2 space-y-0.5">
+                <div className="col-span-1 flex flex-col space-y-0.5">
                     {rows2.map((row, index) => (
                         <GridRowComponent key={index} {...row} />
                     ))}
                 </div>
-            </div>
-            <div className="flex flex-row px-5 my-2">
-                <div className="w-1/2 px-1">
+                <div className="col-end-3 flex flex-row my-2 justify-end space-x-1">
                     <CommonButton><p>
                         이동전화변경
                     </p></CommonButton>
-                </div>
-                <div className="w-1/2 px-1">
                     <CommonButton><p>
                         단말할부
                     </p></CommonButton>
                 </div>
-
             </div>
         </div>
     );
