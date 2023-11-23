@@ -20,6 +20,14 @@ html{
   min-width: 1024px;
   max-width: 1920px;
 }
+.slick-slide {
+  margin: 0 5px;
+}
+
+/* the parent */
+.slick-list {
+  margin: 0 -5px;
+}
 
 .slick-next:before{
   color: peru;
