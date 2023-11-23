@@ -31,6 +31,9 @@ const options = {
             display: true,
             text: '월별 신규 가입자',
         },
+        datalabels: {
+            display:false
+        }
     },
 };
 

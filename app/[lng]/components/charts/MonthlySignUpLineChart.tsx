@@ -44,6 +44,9 @@ const lineOptions = {
             display: true,
             text: '월별 가입자 수',
         },
+        datalabels: {
+            display:false
+        }
     },
 };
 
