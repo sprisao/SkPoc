@@ -32,7 +32,7 @@ export default function RootLayout({
                                    }: LayoutProps) {
     return (
         <html lang={lng} className={`${notoSansKR.className}`}>
-        <body className="py-5">
+        <body className="py-3">
         <header>
             <NavBar/>
         </header>

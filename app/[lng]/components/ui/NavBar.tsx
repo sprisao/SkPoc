@@ -3,23 +3,23 @@ import {Button} from "@/components/ui/button";
 
 export default function NavBar() {
     return (
-        <nav className="flex flex-row justify-end mx-4">
+        <nav className="flex flex-row justify-end mx-4 pb-3">
             <ul className="flex gap-2">
                 <li>
-                    <Button variant="outline">
-                        <Link href="/"
-                              className=" hover:underline">
+                    <Link href="/"
+                          className=" hover:underline">
+                        <Button variant="outline">
                             첫번째 화면
-                        </Link>
-                    </Button>
+                        </Button>
+                    </Link>
                 </li>
                 <li className="ml-auto">
-                    <Button variant="outline">
-                        <Link href="/second"
-                              className=" hover:underline">
+                    <Link href="/second"
+                          className=" hover:underline">
+                        <Button variant="outline">
                             두번째 화면
-                        </Link>
-                    </Button>
+                        </Button>
+                    </Link>
                 </li>
             </ul>
         </nav>
