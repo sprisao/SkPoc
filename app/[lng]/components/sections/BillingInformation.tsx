@@ -1,10 +1,10 @@
 /*청구정보*/
 'use client'
-import SectionTitle from "@/app/components/ui/SectionTitle";
-import {columns} from "@/app/components/tables/BillingInfo/columns_billingInfo";
-import {BillingInfoTable} from "@/app/components/tables/BillingInfo/BillingInfoTable";
-import {GridRowComponent} from "@/app/components/sections/CustomerServiceDetail";
-import CommonButton from "@/app/components/ui/CommonButton";
+import SectionTitle from "@/app/[lng]/components/ui/SectionTitle";
+import {columns} from "@/app/[lng]/components/tables/BillingInfo/columns_billingInfo";
+import {BillingInfoTable} from "@/app/[lng]/components/tables/BillingInfo/BillingInfoTable";
+import {GridRowComponent} from "@/app/[lng]/components/sections/CustomerServiceDetail";
+import CommonButton from "@/app/[lng]/components/ui/CommonButton";
 
 
 const BillingInformation = ({data}) => {

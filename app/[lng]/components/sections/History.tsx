@@ -1,15 +1,15 @@
 'use client';
-import SectionTitle from "@/app/components/ui/SectionTitle";
-import CommonTabs from "@/app/components/ui/CommonTabs";
+import SectionTitle from "@/app/[lng]/components/ui/SectionTitle";
+import CommonTabs from "@/app/[lng]/components/ui/CommonTabs";
 import {useState} from "react";
-import CustomerUnpaidHistoryTable from "@/app/components/tables/CustomerUnpaidHistory/CustomerUnpaidHistoryTable";
-import CustomerSMSHistoryTable from "@/app/components/tables/CustomerSMSHistory/CustomerSMSHistoryTable";
-import CommonButton from "@/app/components/ui/CommonButton";
+import CustomerUnpaidHistoryTable from "@/app/[lng]/components/tables/CustomerUnpaidHistory/CustomerUnpaidHistoryTable";
+import CustomerSMSHistoryTable from "@/app/[lng]/components/tables/CustomerSMSHistory/CustomerSMSHistoryTable";
+import CommonButton from "@/app/[lng]/components/ui/CommonButton";
 import {Button} from "@/components/ui/button";
-import {CustomerServiceHistoryTable} from "@/app/components/tables/CustomerServiceHistory/CustomerServiceHistoryTable";
+import {CustomerServiceHistoryTable} from "@/app/[lng]/components/tables/CustomerServiceHistory/CustomerServiceHistoryTable";
 import {
     customerServiceHistoryColumns
-} from "@/app/components/tables/CustomerServiceHistory/columns_customerServiceHistory";
+} from "@/app/[lng]/components/tables/CustomerServiceHistory/columns_customerServiceHistory";
 
 
 const History = ({customerHistoryData, customerUnpaidHistoryData, customerSMSHistoryData}) => {

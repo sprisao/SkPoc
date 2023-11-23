@@ -1,22 +1,25 @@
 'use client'
-import InputBox from "@/app/components/ui/InputBox";
+import InputBox from "@/app/[lng]/components/ui/InputBox";
 import {Button} from "@/components/ui/button";
-import SelectBox from "@/app/components/ui/SelectBox";
-import ImageSlider from "@/app/components/ui/ImageSlider";
-import Accordion from "@/app/components/ui/Accordion";
+import SelectBox from "@/app/[lng]/components/ui/SelectBox";
+import ImageSlider from "@/app/[lng]/components/ui/ImageSlider";
 import {useEffect, useRef, useState} from "react";
 import {Dialog, DialogContent, DialogHeader, DialogTrigger} from "@/components/ui/dialog";
 
 import Image from "next/image";
 import profilePic from '@/app/public/assets/images/user.png'
+import {Accordion} from "@/app/[lng]/components/Accordion/client";
+import {useTranslation} from "@/app/i18n/client";
 
-export default function SecondPage() {
+export default function SecondPage({params: {lng}}) {
     const [isMenuActive, setIsMenuActive] = useState(false)
     const dialogTriggerRef = useRef(null);
     const [imageSrc, setImageSrc] = useState(''); // Adjusted default image path
     const fileInputRef = useRef(null);
 
-    // Function to handle file selection
+    const {t}= useTranslation(lng, 'translation', 'common')
+
+
     const handleFileChange = (event) => {
         const file = event.target.files[0];
         if (file && file.type.startsWith('image/')) {
@@ -49,7 +52,6 @@ export default function SecondPage() {
             window.removeEventListener('keydown', handleKeyDown)
         }
     }, [isMenuActive]);
-
 
     return (
         <Dialog>
@@ -104,7 +106,7 @@ export default function SecondPage() {
                     </div>
                 </div>
                 <ImageSlider/>
-                <Accordion/>
+                <Accordion lng={lng}/>
             </div>
             <DialogContent>
                 <DialogHeader>

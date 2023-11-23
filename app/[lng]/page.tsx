@@ -1,16 +1,17 @@
-import CustomerServiceInfo from "@/app/components/sections/CustomerServiceInfo";
-import SearchCustomerService from "@/app/components/sections/SearchCustomerService";
-import BillingInformation from "@/app/components/sections/BillingInformation";
-import SaveServiceHistory from "@/app/components/sections/SaveServiceHistory";
-import CustomerServiceDetail from "@/app/components/sections/CustomerServiceDetail";
-import History from "@/app/components/sections/History";
+import CustomerServiceInfo from "@/app/[lng]/components/sections/CustomerServiceInfo";
+import SearchCustomerService from "@/app/[lng]/components/sections/SearchCustomerService";
+import BillingInformation from "@/app/[lng]/components/sections/BillingInformation";
+import SaveServiceHistory from "@/app/[lng]/components/sections/SaveServiceHistory";
+import CustomerServiceDetail from "@/app/[lng]/components/sections/CustomerServiceDetail";
+import History from "@/app/[lng]/components/sections/History";
 import {
     BillingInfoData,
     CustomerServiceHistoryData,
     CustomerServiceInfoData,
     PaymentInformationData
 } from "@/app/models/models";
-import PaymentInformation from "@/app/components/sections/PaymentInformation";
+import PaymentInformation from "@/app/[lng]/components/sections/PaymentInformation";
+import {useTranslation} from "@/app/i18n";
 
 
 async function getCustomerInfoData(): Promise<CustomerServiceInfoData[]> {
@@ -194,14 +195,15 @@ async function getCustomerServiceDetailData(): Promise<CustomerServiceHistoryDat
     ]
 }
 
-export default async function Page() {
+export default async function Page({params:{lng}}) {
+
+    const {t} =  await useTranslation(lng, 'translation')
 
     const customerServiceInfoData = await getCustomerInfoData()
     const billingInfoData = await getBillingInfoData()
     const paymentInfoData = await getPaymentInfoData()
 
     const customerHistoryData = await getCustomerServiceDetailData()
-
 
     return (
         <div className="flex flex-col px-3 space-y-5">

@@ -27,21 +27,21 @@ const AccordionItem = ({title, children, isOpen, onClick}) => {
         </div>
     );
 };
-const Accordion = () => {
+const Accordion = ({t, lng}) => {
     const [openItem, setOpenItem] = useState(null);
 
     const accordionItems = [
         {
-            title: '아이템 1',
-            content: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl sed aliquam dapibus, lorem arcu aliquet nunc, vitae aliquam nisl nunc quis nunc. Sed euismod, nisl sed aliquam dapibus, lorem arcu aliquet nunc, vitae aliquam nisl nunc quis nunc.',
+            title: `${t('title')} 1`,
+            content: `${t('description')} 1`,
         },
         {
-            title: '아이템 2',
-            content: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl sed aliquam dapibus, lorem arcu aliquet nunc, vitae aliquam nisl nunc quis nunc. Sed euismod, nisl sed aliquam dapibus, lorem arcu aliquet nunc, vitae aliquam nisl nunc quis nunc.',
+            title: `${t('title')} 2`,
+            content: `${t('description')} 2`,
         },
         {
-            title: '아이템 3',
-            content: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl sed aliquam dapibus, lorem arcu aliquet nunc, vitae aliquam nisl nunc quis nunc. Sed euismod, nisl sed aliquam dapibus, lorem arcu aliquet nunc, vitae aliquam nisl nunc quis nunc.',
+            title: `${t('title')} 3`,
+            content: `${t('description')} 3`,
         },
     ];
 

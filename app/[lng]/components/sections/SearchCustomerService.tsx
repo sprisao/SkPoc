@@ -1,6 +1,6 @@
 'use client'
-import SectionTitle from "@/app/components/ui/SectionTitle";
-import CommonButton from "@/app/components/ui/CommonButton";
+import SectionTitle from "@/app/[lng]/components/ui/SectionTitle";
+import CommonButton from "@/app/[lng]/components/ui/CommonButton";
 import {Button} from "@/components/ui/button"
 import {
     Dialog, DialogClose,
@@ -10,8 +10,8 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
-import InputBox from "@/app/components/ui/InputBox";
-import SelectBox from "@/app/components/ui/SelectBox";
+import InputBox from "@/app/[lng]/components/ui/InputBox";
+import SelectBox from "@/app/[lng]/components/ui/SelectBox";
 import {Checkbox} from "@/components/ui/checkbox";
 
 /*고객상담관리 조회 섹션*/

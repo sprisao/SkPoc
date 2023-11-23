@@ -1,6 +1,6 @@
-import SectionTitle from "@/app/components/ui/SectionTitle";
-import CommonButton from "@/app/components/ui/CommonButton";
-import ResultContainer from "@/app/components/ui/ResultContainer";
+import SectionTitle from "@/app/[lng]/components/ui/SectionTitle";
+import CommonButton from "@/app/[lng]/components/ui/CommonButton";
+import ResultContainer from "@/app/[lng]/components/ui/ResultContainer";
 
 export type CustomerServiceDetailData = {
     corporationName: string; // 소속법인명
