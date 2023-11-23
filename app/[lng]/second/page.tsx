@@ -1,7 +1,6 @@
 'use client'
 import InputBox from "@/app/[lng]/components/ui/InputBox";
 import {Button} from "@/components/ui/button";
-import SelectBox from "@/app/[lng]/components/ui/SelectBox";
 import ImageSlider from "@/app/[lng]/components/ui/ImageSlider";
 import {useEffect, useRef, useState} from "react";
 import {Dialog, DialogContent, DialogHeader, DialogTrigger} from "@/components/ui/dialog";
@@ -17,6 +16,11 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
+import MonthlySignUpChart from "@/app/[lng]/components/charts/MonthlySignUpChart";
+import MonthlySignUpLineChart from "@/app/[lng]/components/charts/MonthlySignUpLineChart";
+import RegionPiChart from "@/app/[lng]/components/charts/RegionPieChart";
+import RegionPieChart from "@/app/[lng]/components/charts/RegionPieChart";
+import RegionRadarChart from "@/app/[lng]/components/charts/RegionRadarChart";
 
 export default function SecondPage({params: {lng}}) {
     const [isMenuActive, setIsMenuActive] = useState(false)
@@ -92,7 +96,7 @@ export default function SecondPage({params: {lng}}) {
                         <div className="w-full flex border grow h-72 items-center justify-center">
                             <div className="w-full h-full relative flex justify-center items-center">
                                 {imageSrc === '' ? (
-                                    <Image src={profilePic} alt="Image" objectFit="cover" style={{width:'50%'}}/>
+                                    <Image src={profilePic} alt="Image" objectFit="cover" style={{width: '50%'}}/>
                                 ) : (
                                     <Image src={imageSrc} alt="Image" layout="fill" objectFit="cover"/>
                                 )}
@@ -109,10 +113,10 @@ export default function SecondPage({params: {lng}}) {
                     </div>
                     <div className="col-span-3">
                         <div className="grid grid-cols-2 gap-3">
-                            <div className="h-72 bg-pink-100">1</div>
-                            <div className="h-72 bg-pink-100">2</div>
-                            <div className="h-72 bg-pink-100">3</div>
-                            <div className="h-72 bg-pink-100">4</div>
+                            <div className="h-80 border p-5 flex justify-center"><MonthlySignUpChart/></div>
+                            <div className="flex h-80 border p-5 justify-center"><RegionPieChart/></div>
+                            <div className="h-80 border p-5 flex justify-center"><MonthlySignUpLineChart/></div>
+                            <div className="h-80 border p-5 flex justify-center"><RegionRadarChart/></div>
                         </div>
                     </div>
                 </div>
