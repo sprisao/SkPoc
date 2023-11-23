@@ -21,6 +21,7 @@ import MonthlySignUpLineChart from "@/app/[lng]/components/charts/MonthlySignUpL
 import RegionPiChart from "@/app/[lng]/components/charts/RegionPieChart";
 import RegionPieChart from "@/app/[lng]/components/charts/RegionPieChart";
 import RegionRadarChart from "@/app/[lng]/components/charts/RegionRadarChart";
+import {HiOutlineGlobeAlt} from "react-icons/hi2";
 
 export default function SecondPage({params: {lng}}) {
     const [isMenuActive, setIsMenuActive] = useState(false)
@@ -80,7 +81,10 @@ export default function SecondPage({params: {lng}}) {
                         </div>
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                                <Button variant="outline">언어</Button>
+                                <Button className="flex flex-row justify-center items-center space-x-1"
+                                        variant="outline"><HiOutlineGlobeAlt fontSize={20}/>
+                                    <p>언어</p>
+                                </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent className="w-56">
                                 <Link href="/en/second">
