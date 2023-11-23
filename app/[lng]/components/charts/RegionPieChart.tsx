@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {Pie} from 'react-chartjs-2';
-import {Chart as ChartJS, ArcElement, Tooltip, Legend} from 'chart.js';
+import {Chart as ChartJS, ArcElement, Tooltip, Legend, ChartOptions} from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 
@@ -30,13 +30,13 @@ const pieData = {
     ],
 };
 
-const pieOptions = {
+const pieOptions : ChartOptions = {
     plugins: {
         datalabels: {
             color: '#fff',
             textAlign: 'right',
             font: {
-                weight: 'regular',
+                weight: 'bold',
             },
             formatter: (value, context) => {
                 return context.chart.data.labels[context.dataIndex];
@@ -53,6 +53,7 @@ const pieOptions = {
 };
 
 const RegionPieChart = () => {
+    // @ts-ignore
     return <Pie data={pieData} options={pieOptions}/>;
 };
 

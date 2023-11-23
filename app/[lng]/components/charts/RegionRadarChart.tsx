@@ -2,7 +2,16 @@
 
 import React from 'react';
 import {Radar} from 'react-chartjs-2';
-import {Chart as ChartJS, RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend} from 'chart.js';
+import {
+    Chart as ChartJS,
+    RadialLinearScale,
+    PointElement,
+    LineElement,
+    Filler,
+    Tooltip,
+    Legend,
+    ChartOptions
+} from 'chart.js';
 
 ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
 
@@ -19,7 +28,7 @@ const radarData = {
     ],
 };
 
-const radarOptions = {
+const radarOptions: ChartOptions = {
     elements: {
         line: {
             borderWidth: 3
@@ -48,12 +57,12 @@ const radarOptions = {
         datalabels: {
             display: false,
         }
+    },
 
-
-    }
 };
 
 const RegionRadarChart = () => {
+    // @ts-ignore
     return <Radar data={radarData} options={radarOptions}/>;
 };
 
