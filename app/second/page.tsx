@@ -7,17 +7,39 @@ import Accordion from "@/app/components/ui/Accordion";
 import {useEffect, useRef, useState} from "react";
 import {Dialog, DialogContent, DialogHeader, DialogTrigger} from "@/components/ui/dialog";
 
+import Image from "next/image";
+import profilePic from '@/app/public/assets/images/user.png'
+
 export default function SecondPage() {
     const [isMenuActive, setIsMenuActive] = useState(false)
     const dialogTriggerRef = useRef(null);
+    const [imageSrc, setImageSrc] = useState(''); // Adjusted default image path
+    const fileInputRef = useRef(null);
 
+    // Function to handle file selection
+    const handleFileChange = (event) => {
+        const file = event.target.files[0];
+        if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImageSrc(reader.result as string);
+            };
+            reader.readAsDataURL(file);
+        }
+    };
     const handleKeyDown = (e: KeyboardEvent) => {
         if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
             e.preventDefault()
             setIsMenuActive(!isMenuActive)
-            if(dialogTriggerRef.current) {
+            if (dialogTriggerRef.current) {
                 dialogTriggerRef.current.click()
             }
+        }
+    }
+
+    const handleFileInputClick = () => {
+        if (fileInputRef.current) {
+            fileInputRef.current.click();
         }
     }
 
@@ -33,14 +55,14 @@ export default function SecondPage() {
         <Dialog>
             <div className="px-5 space-y-4">
                 <div className="grid grid-cols-[250px_auto] gap-3">
-                    <div className="col-span-3 col-start-2 flex flex-row bg-yellow-200 justify-between">
+                    <div className="col-span-3 col-start-2 flex flex-row justify-between">
                         <div className="flex flex-row space-x-2">
                             <InputBox
                                 className="rounded h-full"
                                 type="text"
                                 placeholder="Search"
                             />
-                            <DialogTrigger asChild ref={dialogTriggerRef} >
+                            <DialogTrigger asChild ref={dialogTriggerRef}>
                                 <Button variant="outline" className=" h-full">
                                     메뉴 검색
                                 </Button>
@@ -53,20 +75,31 @@ export default function SecondPage() {
                             <option value="en">영문</option>
                         </SelectBox>
                     </div>
-                    <div className="col-span-1 flex flex-col space-y-3">
-                        <div className="bg-pink-100 grow">
-                            hi
+                    <div className="col-span-1 flex-col space-y-3 ">
+                        <div className="w-full flex bg-blue-100 grow h-72 items-center justify-center">
+                            <div className="w-full h-full relative">
+                                {imageSrc === '' ? (
+                                    <Image src={profilePic} alt="Image" layout="fill" objectFit="cover"/>
+                                ) : (
+                                    <Image src={imageSrc} alt="Image" layout="fill" objectFit="cover"/>
+                                )}
+                            </div>
                         </div>
-                        <Button>
+
+                        <input
+                            ref={fileInputRef}
+                            id="file-upload" type="file" accept="image/*" onChange={handleFileChange}
+                            style={{display: 'none'}}/>
+                        <Button className="w-full" onClick={handleFileInputClick}>
                             찾기
                         </Button>
                     </div>
                     <div className="col-span-3">
                         <div className="grid grid-cols-2 gap-3">
-                            <div className="h-60 bg-pink-100">1</div>
-                            <div className="h-60 bg-pink-100">2</div>
-                            <div className="h-60 bg-pink-100">3</div>
-                            <div className="h-60 bg-pink-100">4</div>
+                            <div className="h-72 bg-pink-100">1</div>
+                            <div className="h-72 bg-pink-100">2</div>
+                            <div className="h-72 bg-pink-100">3</div>
+                            <div className="h-72 bg-pink-100">4</div>
                         </div>
                     </div>
                 </div>
