@@ -8,7 +8,7 @@ import {
     BillingInfoData,
     CustomerServiceHistoryData,
     CustomerServiceInfoData,
-    PaymentInformationData
+    PaymentInformationData, ServiceAccountSearchData
 } from "@/app/models/models";
 import PaymentInformation from "@/app/[lng]/components/sections/PaymentInformation";
 import {useTranslation} from "@/app/i18n";
@@ -195,6 +195,65 @@ async function getCustomerServiceDetailData(): Promise<CustomerServiceHistoryDat
     ]
 }
 
+async function getServiceAccountSearchData(): Promise<ServiceAccountSearchData[]> {
+    return [
+        {
+            serviceNumber: '010-1234-5678',
+            customerCorporateNumber: 1,
+            sexCode: '남',
+            customerAccountNumber: 1,
+            customerName: '홍길동',
+            billingAccountNumber: 1,
+            billingCustomerName: '홍길동',
+            serviceAccountNumber: 1,
+            serviceSubscriptionDate: '2021-09-01',
+        },
+        {
+            serviceNumber: '010-1234-5678',
+            customerCorporateNumber: 2,
+            sexCode: '남',
+            customerAccountNumber: 2,
+            customerName: '홍길동',
+            billingAccountNumber: 2,
+            billingCustomerName: '홍길동',
+            serviceAccountNumber: 2,
+            serviceSubscriptionDate: '2021-09-01',
+        },
+        {
+            serviceNumber: '010-1234-5678',
+            customerCorporateNumber: 3,
+            sexCode: '남',
+            customerAccountNumber: 3,
+            customerName: '홍길동',
+            billingAccountNumber: 3,
+            billingCustomerName: '홍길동',
+            serviceAccountNumber: 3,
+            serviceSubscriptionDate: '2021-09-01',
+        },
+        {
+            serviceNumber: '010-1234-5678',
+            customerCorporateNumber: 4,
+            sexCode: '남',
+            customerAccountNumber: 4,
+            customerName: '홍길동',
+            billingAccountNumber: 4,
+            billingCustomerName: '홍길동',
+            serviceAccountNumber: 4,
+            serviceSubscriptionDate: '2021-09-01',
+        },
+        {
+            serviceNumber: '010-1234-5678',
+            customerCorporateNumber: 5,
+            sexCode: '남',
+            customerAccountNumber: 5,
+            customerName: '홍길동',
+            billingAccountNumber: 5,
+            billingCustomerName: '홍길동',
+            serviceAccountNumber: 5,
+            serviceSubscriptionDate: '2021-09-01',
+        }
+    ]
+}
 export default async function Page({params:{lng}}) {
 
     const {t} =  await useTranslation(lng, 'translation')
@@ -202,14 +261,14 @@ export default async function Page({params:{lng}}) {
     const customerServiceInfoData = await getCustomerInfoData()
     const billingInfoData = await getBillingInfoData()
     const paymentInfoData = await getPaymentInfoData()
-
     const customerHistoryData = await getCustomerServiceDetailData()
+    const servcieAccountSearchData = await getServiceAccountSearchData();
 
     return (
         <div className="flex flex-col px-3 space-y-5">
 
             {/*고객상담관리 조회 Container*/}
-            <SearchCustomerService/>
+            <SearchCustomerService data={servcieAccountSearchData}/>
 
             {/*고객상담 정보*/}
             <CustomerServiceInfo data={customerServiceInfoData}/>

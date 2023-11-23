@@ -13,9 +13,13 @@ import {
 import InputBox from "@/app/[lng]/components/ui/InputBox";
 import SelectBox from "@/app/[lng]/components/ui/SelectBox";
 import {Checkbox} from "@/components/ui/checkbox";
+import {ServiceAccountSearchTable} from "@/app/[lng]/components/tables/ServiceAccountSearch/ServiceAccountSearchTable";
+import {
+    serviceAccountSearchColumns
+} from "@/app/[lng]/components/tables/ServiceAccountSearch/columns_serviceAccountSearch";
 
 /*고객상담관리 조회 섹션*/
-const SearchCustomerService = () => {
+const SearchCustomerService = ({data}) => {
     return (
 
         <Dialog>
@@ -111,6 +115,7 @@ const SearchCustomerService = () => {
                     </div>
                     <div className=" border rounded-sm overflow-clip mb-4 ">
                         <SectionTitle title="결과"/>
+                        <ServiceAccountSearchTable columns={serviceAccountSearchColumns} data={data}/>
                     </div>
                     <DialogFooter className="flex flex-row justify-center items-center space-x-1">
                         <Button type="submit">적용</Button>
