@@ -89,10 +89,10 @@ export default function SecondPage({params: {lng}}) {
                         </DropdownMenu>
                     </div>
                     <div className="col-span-1 flex-col space-y-3 ">
-                        <div className="w-full flex bg-blue-100 grow h-72 items-center justify-center">
-                            <div className="w-full h-full relative">
+                        <div className="w-full flex border grow h-72 items-center justify-center">
+                            <div className="w-full h-full relative flex justify-center items-center">
                                 {imageSrc === '' ? (
-                                    <Image src={profilePic} alt="Image" layout="fill" objectFit="cover"/>
+                                    <Image src={profilePic} alt="Image" objectFit="cover" style={{width:'50%'}}/>
                                 ) : (
                                     <Image src={imageSrc} alt="Image" layout="fill" objectFit="cover"/>
                                 )}
