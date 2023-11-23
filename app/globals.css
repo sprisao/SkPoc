@@ -26,6 +26,7 @@ html{
 
 /* the parent */
 .slick-list {
+  height: 180px;
   margin: 0 -5px;
 }
 

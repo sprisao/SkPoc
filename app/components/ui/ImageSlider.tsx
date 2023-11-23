@@ -66,7 +66,7 @@ export default function ImageSlider() {
             <button className="flex justify-center  items-center w-[50px]" onClick={prev}>
                 <HiArrowLeftCircle fontSize="30px" />
             </button>
-            <Slider ref={sliderRef} {...settings} className=" w-[80%] h-[180px] grow">
+            <Slider ref={sliderRef} {...settings} className=" w-[80%] grow">
                 {images.map((image, index) => (
                     <div key={index} className="h-[180px] bg-pink-100 relative">
                         <Image src={image.url} alt={`Image ${index}`} layout="fill" objectFit="cover"/>
