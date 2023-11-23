@@ -121,7 +121,9 @@ export default function SecondPage({params: {lng}}) {
                     </div>
                 </div>
                 <ImageSlider/>
-                <Accordion lng={lng}/>
+                <div className="p-5 border bg-gray-50">
+                    <Accordion lng={lng}/>
+                </div>
             </div>
             <DialogContent>
                 <DialogHeader>

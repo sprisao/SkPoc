@@ -1,5 +1,6 @@
 'use client'
 import React, {useEffect, useRef, useState} from 'react';
+import {HiChevronDown, HiChevronUp} from "react-icons/hi2";
 
 const AccordionItem = ({title, children, isOpen, onClick}) => {
     const contentRef = useRef(null);
@@ -13,14 +14,15 @@ const AccordionItem = ({title, children, isOpen, onClick}) => {
         <div className={`overflow-hidden shadow ${isOpen ? 'mb-4' : ''} text-sm`}>
             <button
                 onClick={onClick}
-                className="p-4 w-full text-left font-bold transition duration-300 ease-in-out hover:bg-gray-100"
+                className="p-4 w-full text-left font-bold transition duration-300 ease-in-out hover:bg-gray-100 bg-white flex flex-row justify-between items-center"
             >
-                {title}
+                <p>{title}</p>
+                {isOpen ? <HiChevronUp/> : <HiChevronDown/>}
             </button>
             <div
                 ref={contentRef}
                 style={{height: `${contentHeight}px`}}
-                className="transition-height duration-300 ease-in-out"
+                className="transition-height duration-300 ease-in-out bg-white"
             >
                 <div className="py-2 px-4">{children}</div>
             </div>
