@@ -13,7 +13,7 @@ const AccordionItem = ({title, children, isOpen, onClick}) => {
         <div className={`overflow-hidden shadow ${isOpen ? 'mb-4' : ''} text-sm`}>
             <button
                 onClick={onClick}
-                className="p-4 w-full text-left transition duration-300 ease-in-out hover:bg-gray-100"
+                className="p-4 w-full text-left font-bold transition duration-300 ease-in-out hover:bg-gray-100"
             >
                 {title}
             </button>
@@ -32,16 +32,16 @@ const Accordion = ({t, lng}) => {
 
     const accordionItems = [
         {
-            title: `${t('title')} 1`,
-            content: `${t('description')} 1`,
+            title: t('firstAccordionTitle'),
+            content: t('firstAccordionContent'),
         },
         {
-            title: `${t('title')} 2`,
-            content: `${t('description')} 2`,
+            title: t('secondAccordionTitle'),
+            content: t('secondAccordionContent'),
         },
         {
-            title: `${t('title')} 3`,
-            content: `${t('description')} 3`,
+            title: t('thirdAccordionTitle'),
+            content: t('thirdAccordionContent'),
         },
     ];
 
@@ -63,7 +63,13 @@ const Accordion = ({t, lng}) => {
                     isOpen={openItem === index}
                     onClick={() => handleClick(index)}
                 >
-                    {item.content}
+                    {item.content.split('\n').map((line, index) => (
+                        <span key={index}>
+    {line}
+                            <br/>
+  </span>
+                    ))}
+
                 </AccordionItem>
             ))}
         </div>
