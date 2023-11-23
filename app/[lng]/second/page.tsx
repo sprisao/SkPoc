@@ -9,16 +9,20 @@ import {Dialog, DialogContent, DialogHeader, DialogTrigger} from "@/components/u
 import Image from "next/image";
 import profilePic from '@/app/public/assets/images/user.png'
 import {Accordion} from "@/app/[lng]/components/Accordion/client";
-import {useTranslation} from "@/app/i18n/client";
+import Link from "next/link";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuLabel, DropdownMenuRadioGroup, DropdownMenuRadioItem,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger
+} from "@/components/ui/dropdown-menu";
 
 export default function SecondPage({params: {lng}}) {
     const [isMenuActive, setIsMenuActive] = useState(false)
     const dialogTriggerRef = useRef(null);
     const [imageSrc, setImageSrc] = useState(''); // Adjusted default image path
     const fileInputRef = useRef(null);
-
-    const {t}= useTranslation(lng, 'translation', 'common')
-
 
     const handleFileChange = (event) => {
         const file = event.target.files[0];
@@ -70,12 +74,19 @@ export default function SecondPage({params: {lng}}) {
                                 </Button>
                             </DialogTrigger>
                         </div>
-                        <SelectBox
-                            className=" max-w-[100px] text-center px-2 h-10 rounded-md"
-                        >
-                            <option value="ko">한글</option>
-                            <option value="en">영문</option>
-                        </SelectBox>
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Button variant="outline">언어</Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent className="w-56">
+                                <Link href="/en/second">
+                                    <DropdownMenuLabel>영어</DropdownMenuLabel>
+                                </Link>
+                                <Link href="/kr/second">
+                                    <DropdownMenuLabel>한국어</DropdownMenuLabel>
+                                </Link>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
                     </div>
                     <div className="col-span-1 flex-col space-y-3 ">
                         <div className="w-full flex bg-blue-100 grow h-72 items-center justify-center">
