@@ -1,19 +1,36 @@
+'use client'
 import {ColumnDef, flexRender, getCoreRowModel, useReactTable} from "@tanstack/react-table";
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table";
+import {useEffect, useState} from "react";
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[]
+    onSelect: (selectedItem: TData) => void
 }
 
 export function ServiceAccountSearchTable<TData, TValue>({
-                                                             columns, data
+                                                             columns, data, onSelect
                                                          }: DataTableProps<TData, TValue>) {
+    const [rowSelection, setRowSelection] = useState({})
+
+
     const table = useReactTable({
         data,
         columns,
         getCoreRowModel: getCoreRowModel(),
+        enableRowSelection: true,
+        onRowSelectionChange: setRowSelection,
+        state:{
+            rowSelection
+        }
     });
+    //
+    useEffect(() => {
+        if (rowSelection && table.getFilteredSelectedRowModel().rows.length === 1) {
+            onSelect(table.getFilteredSelectedRowModel().rows[0].original)
+        }
+    }, [rowSelection]);
 
 
     return (
@@ -42,6 +59,10 @@ export function ServiceAccountSearchTable<TData, TValue>({
                 {table.getRowModel().rows?.length ? (
                     table.getRowModel().rows.map((row) => (
                         <TableRow
+                            data-state={row.getIsSelected() && "selected"}
+                            onDoubleClick={() => {
+                                onSelect(row.original)
+                            }}
                             className={row.index % 2 === 0 ? "bg-white" : "bg-gray-100"}
                             key={row.id}>
                             {row.getVisibleCells().map(cell => (
@@ -62,5 +83,4 @@ export function ServiceAccountSearchTable<TData, TValue>({
             </TableBody>
         </Table>
     )
-
 }

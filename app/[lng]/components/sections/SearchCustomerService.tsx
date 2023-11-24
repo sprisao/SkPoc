@@ -3,7 +3,8 @@ import SectionTitle from "@/app/[lng]/components/ui/SectionTitle";
 import CommonButton from "@/app/[lng]/components/ui/CommonButton";
 import {Button} from "@/components/ui/button"
 import {
-    Dialog, DialogClose,
+    Dialog,
+    DialogClose,
     DialogContent,
     DialogFooter,
     DialogHeader,
@@ -22,11 +23,52 @@ import {HiMagnifyingGlass} from "react-icons/hi2";
 import {useRouter} from "next/navigation";
 
 /*고객상담관리 조회 섹션*/
+
+/*1. 메인화면에서 Dialog로 전화번호 전달*/
+/*2. Dialog에서 전달받은 전화번호로 조회*/
+/*3. 조회된 결과를 Dialog에 표시*/
+/*4. Dialog에서 선택된 결과를 메인화면으로 전달*/
+
 const SearchCustomerService = ({data}) => {
     const router = useRouter();
 
+
     const [midNumber, setMidNumber] = useState('')
     const [lastNumber, setLastNumber] = useState('')
+
+    const [selectedServiceNumber, setSelectedServiceNumber] = useState('')
+
+    // useEffect(() => {
+    //     // fetch data from API
+    //     // (async () => {
+    //     //         const res = await fetch('/api/...');
+    //     //         const data = await res.json();
+    //     //         setSearchResult(data);
+    //     //     }
+    //     // )();
+    //     console.log(query)
+    // }, [query]);
+
+
+    function searchUser() {
+        const query = `010${midNumber}${lastNumber}`
+        console.log(`searchUser: ${query}`)
+    }
+
+    function fetchData() {
+        // fetch data from API
+        console.log(`fetchData: ${selectedServiceNumber}`)
+    }
+
+    const handleSelect = (selectedItem) => {
+        setSelectedServiceNumber(selectedItem.serviceNumber); // 예시로 'serviceNumber' 필드를 사용
+        console.log(`handleSelect: ${selectedItem.serviceNumber}`)
+    };
+
+    useEffect(() => {
+        setMidNumber(selectedServiceNumber.substring(3, 7));
+        setLastNumber(selectedServiceNumber.substring(7, 11));
+    }, [selectedServiceNumber]);
 
     return (
         <Dialog>
@@ -126,19 +168,30 @@ const SearchCustomerService = ({data}) => {
                                     <p>번호별이력</p>
                                 </div>
                             </div>
-                            <Button className="w-16 h-8">검색</Button>
+                            <Button className="w-16 h-8" onClick={(e) => {
+                                searchUser();
+                            }}>검색</Button>
                         </div>
                     </div>
                     <div className=" border rounded-sm overflow-clip mb-4 ">
                         <SectionTitle title="결과"/>
-                        <ServiceAccountSearchTable columns={serviceAccountSearchColumns} data={data}/>
+                        <ServiceAccountSearchTable columns={serviceAccountSearchColumns} data={data}
+                                                   onSelect={handleSelect}/>
                     </div>
                     <DialogFooter className="flex flex-row justify-center items-center space-x-1">
-                        <Button type="submit">적용</Button>
+                        <DialogClose asChild>
+                            <Button type="submit"
+                                    onClick={(e) => {
+                                        fetchData()
+                                    }
+                                    }
+                            >적용</Button>
+                        </DialogClose>
                         <DialogClose asChild>
                             <Button type="button" variant="secondary" onClick={(e) => {
                                 setMidNumber('');
                                 setLastNumber('');
+                                setSelectedServiceNumber('');
                             }}>
                                 취소
                             </Button>

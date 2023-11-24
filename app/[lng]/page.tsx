@@ -198,7 +198,7 @@ async function getCustomerServiceDetailData(): Promise<CustomerServiceHistoryDat
 async function getServiceAccountSearchData(): Promise<ServiceAccountSearchData[]> {
     return [
         {
-            serviceNumber: '010-1234-5678',
+            serviceNumber: '01012345678',
             customerCorporateNumber: 1,
             sexCode: '남',
             customerAccountNumber: 1,
@@ -209,7 +209,7 @@ async function getServiceAccountSearchData(): Promise<ServiceAccountSearchData[]
             serviceSubscriptionDate: '2021-09-01',
         },
         {
-            serviceNumber: '010-1234-5678',
+            serviceNumber: '01099991188',
             customerCorporateNumber: 2,
             sexCode: '남',
             customerAccountNumber: 2,
@@ -219,39 +219,6 @@ async function getServiceAccountSearchData(): Promise<ServiceAccountSearchData[]
             serviceAccountNumber: 2,
             serviceSubscriptionDate: '2021-09-01',
         },
-        {
-            serviceNumber: '010-1234-5678',
-            customerCorporateNumber: 3,
-            sexCode: '남',
-            customerAccountNumber: 3,
-            customerName: '홍길동',
-            billingAccountNumber: 3,
-            billingCustomerName: '홍길동',
-            serviceAccountNumber: 3,
-            serviceSubscriptionDate: '2021-09-01',
-        },
-        {
-            serviceNumber: '010-1234-5678',
-            customerCorporateNumber: 4,
-            sexCode: '남',
-            customerAccountNumber: 4,
-            customerName: '홍길동',
-            billingAccountNumber: 4,
-            billingCustomerName: '홍길동',
-            serviceAccountNumber: 4,
-            serviceSubscriptionDate: '2021-09-01',
-        },
-        {
-            serviceNumber: '010-1234-5678',
-            customerCorporateNumber: 5,
-            sexCode: '남',
-            customerAccountNumber: 5,
-            customerName: '홍길동',
-            billingAccountNumber: 5,
-            billingCustomerName: '홍길동',
-            serviceAccountNumber: 5,
-            serviceSubscriptionDate: '2021-09-01',
-        }
     ]
 }
 export default async function Page({params:{lng}}) {
