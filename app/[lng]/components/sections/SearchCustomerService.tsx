@@ -17,11 +17,16 @@ import {ServiceAccountSearchTable} from "@/app/[lng]/components/tables/ServiceAc
 import {
     serviceAccountSearchColumns
 } from "@/app/[lng]/components/tables/ServiceAccountSearch/columns_serviceAccountSearch";
+import {useEffect, useState} from "react";
+import {HiMagnifyingGlass} from "react-icons/hi2";
 
 /*고객상담관리 조회 섹션*/
 const SearchCustomerService = ({data}) => {
-    return (
 
+    const [midNumber, setMidNumber] = useState('')
+    const [lastNumber, setLastNumber] = useState('')
+
+    return (
         <Dialog>
             <div className="w-full border rounded-sm overflow-clip m-1 mt-4 ">
                 <SectionTitle title="고객상담관리 조회"/>
@@ -47,13 +52,17 @@ const SearchCustomerService = ({data}) => {
                             <InputBox
                                 className="max-w-[100px]"
                                 type="number"
+                                value={midNumber}
+                                onChange={(e) => setMidNumber(e.target.value)}
                                 placeholder="4636"/>
                             <InputBox
                                 className="max-w-[100px]"
                                 type="number"
+                                value={lastNumber}
+                                onChange={(e) => setLastNumber(e.target.value)}
                                 placeholder="3519"/>
                             <DialogTrigger asChild>
-                                <Button variant="outline" className="w-14 h-full">검색</Button>
+                                <Button className="h-7 px-2 rounded-sm py-1"><HiMagnifyingGlass fontSize={23}/></Button>
                             </DialogTrigger>
                         </div>
                     </div>
@@ -79,7 +88,10 @@ const SearchCustomerService = ({data}) => {
                     </div>
                     <div className="col-span-1">
                         <DialogTrigger asChild>
-                            <Button variant="outline" className="w-28">조회</Button>
+                            <Button className="w-28" onClick={(e) => {
+                                setMidNumber('');
+                                setLastNumber('');
+                            }}>조회</Button>
                         </DialogTrigger>
                     </div>
                 </div>
@@ -104,7 +116,12 @@ const SearchCustomerService = ({data}) => {
                                 <InputBox
                                     className="grow"
                                     type="number"
-                                    placeholder="01046363519"/>
+                                    value={`010${midNumber}${lastNumber}`}
+                                    onChange={(e) => {
+                                        setMidNumber(e.target.value.substring(3, 7));
+                                        setLastNumber(e.target.value.substring(7, 11));
+                                    }}
+                                />
                                 <div className="flex flex-row justify-center items-center w-full space-x-1">
                                     <Checkbox></Checkbox>
                                     <p>번호별이력</p>

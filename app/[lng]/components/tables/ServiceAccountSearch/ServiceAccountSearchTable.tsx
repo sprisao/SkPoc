@@ -24,7 +24,7 @@ export function ServiceAccountSearchTable<TData, TValue>({
                         {headerGroup.headers.map((header) => {
                             return (
                                 <TableHead
-                                    className="text-center border h-6 text-white"
+                                    className="text-center border h-6 text-white px-0"
                                     key={header.id}>
                                     {header.isPlaceholder
                                         ? null
@@ -45,7 +45,7 @@ export function ServiceAccountSearchTable<TData, TValue>({
                             className={row.index % 2 === 0 ? "bg-white" : "bg-gray-100"}
                             key={row.id}>
                             {row.getVisibleCells().map(cell => (
-                                <TableCell className="text-center border" key={cell.id}>
+                                <TableCell className="text-center border text-sm" key={cell.id}>
                                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                 </TableCell>
                             ))}

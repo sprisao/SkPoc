@@ -1,8 +1,24 @@
 import {ColumnDef} from "@tanstack/react-table";
 import {ServiceAccountSearchData} from "@/app/models/models";
+import {Checkbox} from "@/components/ui/checkbox";
 
 
 export const serviceAccountSearchColumns: ColumnDef<ServiceAccountSearchData>[] = [
+    {
+        id: "select",
+        header: ({table}) => (
+            <p className="">선택</p>
+        ),
+        cell: ({row}) => (
+            <Checkbox
+                checked={row.getIsSelected()}
+                onCheckedChange={(value) => row.toggleSelected(!!value)}
+                aria-label="Select row"
+            />
+        ),
+        enableSorting: false,
+        enableHiding: false,
+    },
     {
         id: "serviceNumber",
         accessorKey: "serviceNumber",
