@@ -114,14 +114,14 @@ const SearchCustomerService = ({data}) => {
                             <InputBox
                                 className="max-w-[100px] grow"
                                 type="text"
-                                placeholder="홍길동"/>
+                                placeholder=""/>
                         </div>
                         <div className="flex flex-row space-x-1 items-center">
                             <p className="shrink-0">생년/법인/사업자번호</p>
                             <InputBox
                                 className="max-w-[120px] grow"
                                 type="text"
-                                placeholder="901208"/>
+                                placeholder=""/>
                         </div>
                         <CommonButton>
                             고객인증
