@@ -19,9 +19,11 @@ import {
 } from "@/app/[lng]/components/tables/ServiceAccountSearch/columns_serviceAccountSearch";
 import {useEffect, useState} from "react";
 import {HiMagnifyingGlass} from "react-icons/hi2";
+import {useRouter} from "next/navigation";
 
 /*고객상담관리 조회 섹션*/
 const SearchCustomerService = ({data}) => {
+    const router = useRouter();
 
     const [midNumber, setMidNumber] = useState('')
     const [lastNumber, setLastNumber] = useState('')
@@ -44,9 +46,6 @@ const SearchCustomerService = ({data}) => {
                             </SelectBox>
                             <SelectBox className="max-w-[100px]">
                                 <option>010</option>
-                                <option>011</option>
-                                <option>017</option>
-                                <option>016</option>
                             </SelectBox>
 
                             <InputBox
@@ -54,13 +53,13 @@ const SearchCustomerService = ({data}) => {
                                 type="number"
                                 value={midNumber}
                                 onChange={(e) => setMidNumber(e.target.value)}
-                                placeholder="4636"/>
+                            />
                             <InputBox
                                 className="max-w-[100px]"
                                 type="number"
                                 value={lastNumber}
                                 onChange={(e) => setLastNumber(e.target.value)}
-                                placeholder="3519"/>
+                            />
                             <DialogTrigger asChild>
                                 <Button className="h-7 px-2 rounded-sm py-1"><HiMagnifyingGlass fontSize={23}/></Button>
                             </DialogTrigger>
@@ -127,7 +126,7 @@ const SearchCustomerService = ({data}) => {
                                     <p>번호별이력</p>
                                 </div>
                             </div>
-                            <CommonButton>검색</CommonButton>
+                            <Button className="w-16 h-8">검색</Button>
                         </div>
                     </div>
                     <div className=" border rounded-sm overflow-clip mb-4 ">
@@ -137,7 +136,10 @@ const SearchCustomerService = ({data}) => {
                     <DialogFooter className="flex flex-row justify-center items-center space-x-1">
                         <Button type="submit">적용</Button>
                         <DialogClose asChild>
-                            <Button type="button" variant="secondary">
+                            <Button type="button" variant="secondary" onClick={(e) => {
+                                setMidNumber('');
+                                setLastNumber('');
+                            }}>
                                 취소
                             </Button>
                         </DialogClose>
