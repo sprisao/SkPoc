@@ -5,7 +5,7 @@ import path from "path";
 
 export async function getHistoryData(): Promise<CustomerConsultationHistory[]> {
 
-    const response = await fetch('https://seoulforest946d11193b74484098fc836b62a80eb783206-dev.s3.ap-northeast-2.amazonaws.com/data.json',{cache: "no-cache"});
+    const response = await fetch('https://storage.googleapis.com/skpoc/data.json',{cache: "no-cache"});
     const data = await response.json();
 
     return data.map((item: any) => {
