@@ -95,12 +95,12 @@ const CustomerServiceDetail = ({data}: CustomerServiceDetailProps) => {
             <div className="grid grid-cols-2 py-2 px-2">
                 <div className="col-span-1 flex flex-col space-y-0.5">
                     {rows1.map((row, index) => (
-                        <GridRowComponent key={index} {...row} />
+                        <GridRowComponent key={`detail-row1-${index}`} {...row} />
                     ))}
                 </div>
                 <div className="col-span-1 flex flex-col space-y-0.5">
                     {rows2.map((row, index) => (
-                        <GridRowComponent key={index} {...row} />
+                        <GridRowComponent key={`detail-row2-${index}`} {...row} />
                     ))}
                 </div>
                 <div className="col-end-3 flex flex-row my-2 justify-end space-x-1">

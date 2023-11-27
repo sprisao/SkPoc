@@ -56,13 +56,13 @@ const BillingInformation = ({
             <div className="flex flex-col">
                 <div className="flex flex-row w-full justify-between py-2 px-2 ">
                     <div className="flex flex-col w-full text-sm justify-evenly space-y-2">
-                        {rows1.map((row) => (
-                            <GridRowComponent title={row.title} contents={row.contents}/>
+                        {rows1.map((row, index) => (
+                            <GridRowComponent title={row.title} contents={row.contents} key={`billing-row1-${index}`}/>
                         ))}
                     </div>
                     <div className="flex flex-col w-full text-sm justify-evenly space-y-2">
-                        {rows2.map((row) => (
-                            <GridRowComponent title={row.title} contents={row.contents}/>))}
+                        {rows2.map((row,index) => (
+                            <GridRowComponent title={row.title} contents={row.contents} key={`billing-row2-${index}`}/>))}
                     </div>
                 </div>
                 <div className="grid grid-cols-4 gap-1 justify-evenly p-2 h-full">

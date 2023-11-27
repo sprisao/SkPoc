@@ -1,11 +1,11 @@
 interface ResultContainerProps {
     content: string;
-    key: number | string;
 }
-export default function ResultContainer({content, key} : ResultContainerProps) {
+
+export default function ResultContainer({content}: ResultContainerProps) {
     return (
-        <div key={key} className="flex items-center justify-center w-full border h-6">
-            <p className="text-center text-sm">{content}</p>
+        <div className="flex items-center justify-center w-full border h-6">
+            <p className="text-center text-sm">{content != null ? content : ""}</p>
         </div>
     )
 }
