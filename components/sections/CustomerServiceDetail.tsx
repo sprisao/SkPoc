@@ -1,29 +1,11 @@
 import SectionTitle from "@/components/ui/sectionTitle";
 import CommonButton from "@/components/ui/commonButton";
 import ResultContainer from "@/components/ui/resultContainer";
+import {CustomerConsultationDetail} from "@/lib/types";
 
-export type CustomerServiceDetailData = {
-    corporationName: string; // 소속법인명
-    welfareDiscount: boolean; // 복지할인
-    subscriptionDate: Date; // 가입일
-    terminationDate: Date; // 해지일
-    planType: string; // 요금제
-    serviceStatus: string; // 서비스상태
-    usageType: string; // 이용종류
-    simType: string; // SIM유형
-    deviceNickname: string; // 단말기애칭
-    manufacturer: string; // 제조사
-    OS: string; // OS
-    serialNumber: string; // 일련번호
-    usageDays: string; // 사용일
-    isMinor: boolean; // 미성년자
-    method: string; // 방식
-    legalRepresentative: string; // 법정대리인
-    numberPortability: string; // 번호이동
-};
 
 type CustomerServiceDetailProps = {
-    data: CustomerServiceDetailData;
+    data: CustomerConsultationDetail;
 };
 export const GridRowComponent = ({title, contents}) => {
     return (
@@ -44,33 +26,33 @@ const CustomerServiceDetail = ({data}: CustomerServiceDetailProps) => {
     const rows1 = [
         {
             title: "소속법인명",
-            contents: ["삼성"]
+            contents: [data?.postCorpName || ""]
         },
         {
             title: "가입/해지일",
-            contents: ["삼성", "삼성"]
+            contents: [data?.serviceSubscribeDate || "", data?.serviceTerminateDate || ""]
         },
         /*서비스상태, 제조사/OS, 일력/사용일, 방식, 번호이동 Row 추가 */
 
         {
             title: "서비스상태",
-            contents: [""]
+            contents: [data?.serviceStatusName || ""]
         },
         {
             title: "제조사/OS",
-            contents: ["", ""]
+            contents: [data?.equipmentManufacturer || "", data?.equipmentOS || ""]
         },
         {
             title: "일련/사용일",
-            contents: ["", ""]
+            contents: [data?.serviceSequence || "", data?.serviceUseDate || ""]
         },
         {
             title: "방식",
-            contents: ["", ""]
+            contents: [data?.equipmentMethod1 || "", data?.equipmentMethod2 || ""]
         },
         {
             title: "번호이동",
-            contents: ["", ""]
+            contents: [data?.serviceNumberPortability1 || "", data?.serviceNumberPortability2 || ""]
         },
     ];
 
@@ -78,31 +60,31 @@ const CustomerServiceDetail = ({data}: CustomerServiceDetailProps) => {
         /*복지할인, 요금제, 이용종류, SIM유형, 단말기애칭, 미성년자, 법정대리인*/
         {
             title: "복지할인",
-            contents: [""]
+            contents: [data?.welfareDiscount || ""]
         },
         {
             title: "요금제",
-            contents: [""]
+            contents: [data?.feeDetailName || ""]
         },
         {
             title: "이용종류",
-            contents: [""]
+            contents: [data?.serviceType || ""]
         },
         {
             title: "SIM유형",
-            contents: ["", "", "", ""]
+            contents: [data?.simType1 || "", data?.simType2 || "", data?.simType3 || "", data?.simType4 || ""]
         },
         {
             title: "단말기애칭",
-            contents: ["", ""]
+            contents: [data?.equipmentNickname1 || "", data?.equipmentNickname2 || ""]
         },
         {
             title: "미성년자",
-            contents: [""]
+            contents: [data?.minorClass || ""]
         },
         {
             title: "법정대리인",
-            contents: [""]
+            contents: [data?.legalGuardian || ""]
         },
     ];
 

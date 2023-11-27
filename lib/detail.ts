@@ -1,5 +1,5 @@
 import 'server-only'
-import {CustomerConsultationDetail, PaymentInformationData} from "@/lib/types";
+import {CustomerConsultationDetail } from "@/lib/types";
 
 export async function getConsultationDetailData(): Promise<CustomerConsultationDetail> {
     return {
@@ -12,10 +12,10 @@ export async function getConsultationDetailData(): Promise<CustomerConsultationD
         serviceStatusName: '서비스상태명',
         serviceSubscribeClass: '서비스구분',
         serviceType: '이용종류',
-        simType1: 'SIM유형1',
-        simType2: 'SIM유형2',
-        simType3: 'SIM유형3',
-        simType4: 'SIM유형4',
+        simType1: '유형1',
+        simType2: '유형2',
+        simType3: '유형3',
+        simType4: '유형4',
         equipmentManufacturer: '제조사',
         equipmentOS: 'OS',
         equipmentNickname1: '단말기애칭1',
@@ -43,16 +43,5 @@ export async function getConsultationDetailData(): Promise<CustomerConsultationD
         paymentMethod3: '납부방법3',
         bankOrCardCompany: '은행/카드사',
         bankOrCardNumber: '카드/계좌번호',
-    }
-}
-
-async function getPaymentInfoData(): Promise<PaymentInformationData> {
-    return {
-        billType: '청구서 발행유형 데이터',
-        billAddress: '',
-        taxBill: false,
-        paymentMethod: '',
-        bank: '',
-        cardNumber: '',
     }
 }

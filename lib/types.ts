@@ -86,13 +86,3 @@ export type BillingInfoData = {
     serviceCount: number; // 서비스수
 };
 
-
-export type PaymentInformationData = {
-    /*청구서 발행유형, 청구주소, 세금계산서발행유무, 납부방법, 은행/카드사, 카드/계좌번호*/
-    billType: string; // 청구서 발행유형
-    billAddress: string; // 청구주소
-    taxBill: boolean; // 세금계산서발행유무
-    paymentMethod: string; // 납부방법
-    bank: string; // 은행/카드사
-    cardNumber: string; // 카드/계좌번호
-};
