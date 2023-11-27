@@ -5,7 +5,7 @@ export async function getHistoryData(): Promise<CustomerConsultationHistory[]> {
     const s3Url = 'https://seoulforest946d11193b74484098fc836b62a80eb783206-dev.s3.ap-northeast-2.amazonaws.com/data.json'
     const googleCloudUrl = 'https://storage.googleapis.com/skpoc/data.json';
 
-    const response = await fetch(googleCloudUrl,{
+    const response = await fetch(s3Url,{
         cache: 'no-cache',
         method: 'GET',
         headers: {
