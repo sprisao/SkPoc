@@ -1,6 +1,6 @@
 import {ColumnDef, flexRender, getCoreRowModel, useReactTable} from "@tanstack/react-table";
-import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table";
-import {useState} from "react";
+import {useRef, useState} from "react";
+import {useVirtualizer} from "@tanstack/react-virtual";
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
@@ -16,83 +16,63 @@ export function CustomerServiceHistoryTable<TData, TValue>({
         data,
         columns,
         getCoreRowModel: getCoreRowModel(),
+        debugTable: true,
     });
 
-    let tHeight = showMore ? 1500 : 300;
+    const {rows} = table.getRowModel();
 
-    // Function to render rows
-    const renderRows = () => {
-        const rows = table.getRowModel().rows;
-        let additionalRows = [];
+    const parentRef = useRef();
 
-        // Determine the number of rows to add
-        let rowCount = showMore ? 50 : 10;
-        if (rows.length < rowCount) {
-            for (let i = rows.length; i < rowCount; i++) {
-                additionalRows.push(
-                    <tr key={`empty-${i}`}>
-                        {columns.map((_, index) => (
-                            <td className="text-center border" key={`empty-cell-${index}`}>-</td>
-                        ))}
-                    </tr>
-                );
-            }
-        } else if (showMore && rows.length >= 50) {
-            // If there are more than 50 rows and showMore is true, display all rows
-            additionalRows = [];
-        }
+    const virtualizer = useVirtualizer({
+        count: rows.length,
+        getScrollElement: () => parentRef.current,
+        estimateSize: () => 25,
+    })
 
-        return (
-            <>
-                {rows.map(row => (
-                    <TableRow
-                        className={row.index % 2 === 0 ? "bg-white" : "bg-gray-100"}
-                        key={row.id}>
-                        {row.getVisibleCells().map(cell => (
-                            <TableCell className="text-center border" key={cell.id}>
-                                {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                            </TableCell>
-                        ))}
-                    </TableRow>
-                ))}
-                {additionalRows}
-            </>
-        );
-    };
-
+    let tHeight = showMore ? 1250 : 275;
     return (
-        <div
-            style={{maxHeight: `${tHeight}px`, overflowY: "scroll"}}
-                >
-            <Table className="table-auto">
-                <TableHeader className="bg-blue-300 sticky top-0">
+        <div ref={parentRef} className={`w-full h-[${tHeight}px] overflow-y-scroll bg-purple-300`}>
+                <table className="w-full bg-yellow-200" >
+                    <thead className="bg-blue-300 text-sm h-[25px]">
                     {
                         table.getHeaderGroups().map((headerGroup) => (
-                            <tr key={headerGroup.id}>
+                            <tr key={headerGroup.id} className="border">
                                 {
                                     headerGroup.headers.map((header) => {
                                         return (
-                                            <TableHead className="text-center border-x text-white h-4 text-sm"
-                                                       key={header.id}>
+                                            <th className=""
+                                                key={header.id}>
                                                 {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-                                            </TableHead>
+                                            </th>
                                         )
                                     })
                                 }
                             </tr>
                         ))
                     }
-                </TableHeader>
-                <TableBody className="">
-                    {table.getRowModel().rows.length ? renderRows() : (
-                        <tr>
-                            <td className="text-center border" colSpan={columns.length}>
-                                No Data
-                            </td>
-                        </tr>
-                    )}
-                </TableBody>
-            </Table>
-        </div>
+                    </thead>
+                    <tbody className="text-sm">
+                    {virtualizer.getVirtualItems().map((virtualRow, index) => {
+                        const row = rows[virtualRow.index];
+                        return (
+                            <tr key={row.id} id=""
+                                style={{
+                                    height: `${virtualRow.size}px`,
+                                    transform: `translateY(${virtualRow.start - index * virtualRow.size}px)`,
+                                }}
+                            >
+                                {row.getVisibleCells().map((cell) => {
+                                    return (
+                                        <td className="text-center border" key={cell.id}>
+                                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                        </td>
+                                    )
+                                })}
+                            </tr>
+                        )
+                    })}
+                    </tbody>
+                </table>
+            </div>
     );
 }
