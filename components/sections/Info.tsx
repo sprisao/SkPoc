@@ -5,8 +5,9 @@ import SectionTitle from "@/components/ui/sectionTitle";
 import Detail from "@/components/sections/Detail";
 import Billing from "@/components/sections/Billing";
 import Payment from "@/components/sections/Payment";
-import History from "@/components/sections/Save";
+import Save from "@/components/sections/Save";
 import {useEffect, useState} from "react";
+import History from "@/components/sections/History";
 
 {/*고객상담 정보*/
 }
@@ -14,6 +15,7 @@ const Info = ({data}) => {
 
     const [detailData, setDetailData] = useState(null)
     const [billingData, setBillingData] = useState([])
+    const [historyData, setHistoryData] = useState([])
     const [getDetailData, setGetDetailData] = useState(false)
 
     useEffect(() => {
@@ -22,12 +24,13 @@ const Info = ({data}) => {
         (async () => {
             const detailResponse = await fetch('/api/consultation/detail')
             const billingResponse = await fetch('/api/consultation/billing')
+            const historyResponse = await fetch('/api/consultation/history')
             const detailData = await detailResponse.json()
             const billingData = await billingResponse.json()
-            console.log(detailData)
-            console.log(billingData)
+            const historyData = await historyResponse.json()
             setDetailData(detailData)
             setBillingData(billingData)
+            setHistoryData(historyData)
         })()
         setGetDetailData(false)
         return () => {
@@ -73,10 +76,12 @@ const Info = ({data}) => {
                         <Payment data={detailData}/>
                     </div>
                     <div className="w-3/5 border rounded-sm overflow-clip ">
-                        <History/>
+                        <Save/>
                     </div>
                 </div>
             </div>
+            {/*이력조회*/}
+            <History customerHistoryData={historyData} customerSMSHistoryData="" customerUnpaidHistoryData=""/>
         </>
     );
 }

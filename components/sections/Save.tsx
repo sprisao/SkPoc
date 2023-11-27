@@ -5,7 +5,7 @@ import SelectBox from "@/components/ui/selectBox";
 import InputBox from "@/components/ui/inputBox";
 import TextAreaBox from "@/components/ui/textAreaBox";
 
-const History = () => {
+const Save = () => {
     return (
         <div className="">
             <SectionTitle title="상담이력저장"/>
@@ -96,4 +96,4 @@ const History = () => {
     )
 }
 
-export default History
+export default Save

@@ -9,8 +9,6 @@ export default async function Page() {
             {/*고객상담관리 조회 Container*/}
             <Search/>
 
-            {/*이력조회*/}
-            <History customerHistoryData={customerHistoryData} customerSMSHistoryData="" customerUnpaidHistoryData=""/>
         </div>
     );
 }
