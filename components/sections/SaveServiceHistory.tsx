@@ -1,9 +1,9 @@
 /*상담이력저장*/
-import SectionTitle from "@/app/[lng]/components/ui/SectionTitle";
-import CommonButton from "@/app/[lng]/components/ui/CommonButton";
-import SelectBox from "@/app/[lng]/components/ui/SelectBox";
-import InputBox from "@/app/[lng]/components/ui/InputBox";
-import TextAreaBox from "@/app/[lng]/components/ui/TextAreaBox";
+import SectionTitle from "@/components/ui/sectionTitle";
+import CommonButton from "@/components/ui/commonButton";
+import SelectBox from "@/components/ui/selectBox";
+import InputBox from "@/components/ui/inputBox";
+import TextAreaBox from "@/components/ui/textAreaBox";
 
 const SaveServiceHistory = () => {
     return (

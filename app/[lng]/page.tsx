@@ -1,16 +1,16 @@
-import CustomerServiceInfo from "@/app/[lng]/components/sections/CustomerServiceInfo";
-import SearchCustomerService from "@/app/[lng]/components/sections/SearchCustomerService";
-import BillingInformation from "@/app/[lng]/components/sections/BillingInformation";
-import SaveServiceHistory from "@/app/[lng]/components/sections/SaveServiceHistory";
-import CustomerServiceDetail from "@/app/[lng]/components/sections/CustomerServiceDetail";
-import History from "@/app/[lng]/components/sections/History";
+import CustomerServiceInfo from "@/components/sections/CustomerServiceInfo";
+import SearchCustomerService from "@/components/sections/SearchCustomerService";
+import BillingInformation from "@/components/sections/BillingInformation";
+import SaveServiceHistory from "@/components/sections/SaveServiceHistory";
+import CustomerServiceDetail from "@/components/sections/CustomerServiceDetail";
+import History from "@/components/sections/History";
 import {
     BillingInfoData,
     CustomerServiceHistoryData,
     CustomerServiceInfoData,
     PaymentInformationData, ServiceAccountSearchData
-} from "@/app/models/models";
-import PaymentInformation from "@/app/[lng]/components/sections/PaymentInformation";
+} from "@/lib/types";
+import PaymentInformation from "@/components/sections/PaymentInformation";
 import {useTranslation} from "@/app/i18n";
 
 

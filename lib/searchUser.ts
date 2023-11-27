@@ -1,5 +1,5 @@
 import 'server-only'
-import {ServiceAccountSearchData} from "@/app/models/models";
+import {ServiceAccountSearchData} from "@/lib/types";
 
 export async function getServiceAccountSearchData(): Promise<ServiceAccountSearchData[]> {
     return [

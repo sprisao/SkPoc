@@ -1,5 +1,5 @@
 import {ColumnDef} from "@tanstack/react-table";
-import {CustomerServiceHistoryData} from "@/app/models/models";
+import {CustomerServiceHistoryData} from "@/lib/types";
 
 
 export const customerServiceHistoryColumns: ColumnDef<CustomerServiceHistoryData>[] = [

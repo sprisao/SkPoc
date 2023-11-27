@@ -1,4 +1,4 @@
-export default function CommonTabs({
+export default function CommonTab({
                                        activeTab, setActiveTab = (tab: string) => {
     }
                                    }: { activeTab: string, setActiveTab: (tab: string) => void }) {

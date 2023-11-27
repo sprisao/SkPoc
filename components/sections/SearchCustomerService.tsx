@@ -1,6 +1,6 @@
 'use client'
-import SectionTitle from "@/app/[lng]/components/ui/SectionTitle";
-import CommonButton from "@/app/[lng]/components/ui/CommonButton";
+import SectionTitle from "@/components/ui/sectionTitle";
+import CommonButton from "@/components/ui/commonButton";
 import {Button} from "@/components/ui/button"
 import {
     Dialog,
@@ -11,13 +11,13 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
-import InputBox from "@/app/[lng]/components/ui/InputBox";
-import SelectBox from "@/app/[lng]/components/ui/SelectBox";
+import InputBox from "@/components/ui/inputBox";
+import SelectBox from "@/components/ui/selectBox";
 import {Checkbox} from "@/components/ui/checkbox";
-import {ServiceAccountSearchTable} from "@/app/[lng]/components/tables/ServiceAccountSearch/ServiceAccountSearchTable";
+import {ServiceAccountSearchTable} from "@/components/tables/ServiceAccountSearch/ServiceAccountSearchTable";
 import {
     serviceAccountSearchColumns
-} from "@/app/[lng]/components/tables/ServiceAccountSearch/columns_serviceAccountSearch";
+} from "@/components/tables/ServiceAccountSearch/columns_serviceAccountSearch";
 import {useEffect, useState} from "react";
 import {HiMagnifyingGlass} from "react-icons/hi2";
 import {useRouter} from "next/navigation";
@@ -45,7 +45,7 @@ const SearchCustomerService = () => {
         const controller = new AbortController();
         if (!startSearch) return
         (async () => {
-            const response = await fetch('en/api/searchUser')
+            const response = await fetch('/api/searchUser')
             const data = await response.json()
             setSearchResult(data)
             console.log(data)

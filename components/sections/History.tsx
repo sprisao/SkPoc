@@ -1,15 +1,15 @@
 'use client';
-import SectionTitle from "@/app/[lng]/components/ui/SectionTitle";
-import CommonTabs from "@/app/[lng]/components/ui/CommonTabs";
+import SectionTitle from "@/components/ui/sectionTitle";
+import CommonTab from "@/components/ui/commonTab";
 import {useState} from "react";
-import CustomerUnpaidHistoryTable from "@/app/[lng]/components/tables/CustomerUnpaidHistory/CustomerUnpaidHistoryTable";
-import CustomerSMSHistoryTable from "@/app/[lng]/components/tables/CustomerSMSHistory/CustomerSMSHistoryTable";
-import CommonButton from "@/app/[lng]/components/ui/CommonButton";
+import CustomerUnpaidHistoryTable from "@/components/tables/CustomerUnpaidHistory/CustomerUnpaidHistoryTable";
+import CustomerSMSHistoryTable from "@/components/tables/CustomerSMSHistory/CustomerSMSHistoryTable";
+import CommonButton from "@/components/ui/commonButton";
 import {Button} from "@/components/ui/button";
-import {CustomerServiceHistoryTable} from "@/app/[lng]/components/tables/CustomerServiceHistory/CustomerServiceHistoryTable";
+import {CustomerServiceHistoryTable} from "@/components/tables/CustomerServiceHistory/CustomerServiceHistoryTable";
 import {
     customerServiceHistoryColumns
-} from "@/app/[lng]/components/tables/CustomerServiceHistory/columns_customerServiceHistory";
+} from "@/components/tables/CustomerServiceHistory/columns_customerServiceHistory";
 
 
 const History = ({customerHistoryData, customerUnpaidHistoryData, customerSMSHistoryData}) => {
@@ -23,7 +23,7 @@ const History = ({customerHistoryData, customerUnpaidHistoryData, customerSMSHis
         <div className="w-full border rounded-sm overflow-clip m-1">
             <SectionTitle title="이력조회"/>
             <div className="flex flex-row justify-between items-center h-10">
-                <CommonTabs activeTab={activeTab} setActiveTab={setActiveTab}/>
+                <CommonTab activeTab={activeTab} setActiveTab={setActiveTab}/>
                 <div className="flex flex-row space-x-2 h-8 items-center px-5">
                     <div className="flex flex-row space-x-2 h-8 items-center px-2">
                         <CommonButton>번호관리 이력조회</CommonButton>

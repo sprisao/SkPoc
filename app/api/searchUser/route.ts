@@ -1,6 +1,6 @@
 import {NextResponse} from "next/server";
-import searchCustomerService from "@/app/[lng]/components/sections/SearchCustomerService";
-import {getServiceAccountSearchData} from "@/app/lib/searchUser";
+import searchCustomerService from "@/components/sections/SearchCustomerService";
+import {getServiceAccountSearchData} from "@/lib/searchUser";
 
 /* api/searchUser*/
 export async function GET(request) {

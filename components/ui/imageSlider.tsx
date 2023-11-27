@@ -6,16 +6,16 @@ import React, {useEffect, useState} from "react";
 
 import Image from "next/image";
 import {HiArrowLeftCircle, HiArrowRightCircle, HiArrowUpCircle} from "react-icons/hi2";
-import image1 from '@/app/public/assets/images/slide/1.jpg'
-import image2 from '@/app/public/assets/images/slide/2.jpg'
-import image3 from '@/app/public/assets/images/slide/3.jpg'
-import image4 from '@/app/public/assets/images/slide/4.jpg'
-import image5 from '@/app/public/assets/images/slide/5.jpg'
-import image6 from '@/app/public/assets/images/slide/6.jpg'
-import image7 from '@/app/public/assets/images/slide/7.jpg'
-import image8 from '@/app/public/assets/images/slide/8.jpg'
-import image9 from '@/app/public/assets/images/slide/9.jpg'
-import image10 from '@/app/public/assets/images/slide/10.jpg'
+import image1 from '@/public/assets/images/slide/1.jpg'
+import image2 from '@/public/assets/images/slide/2.jpg'
+import image3 from '@/public/assets/images/slide/3.jpg'
+import image4 from '@/public/assets/images/slide/4.jpg'
+import image5 from '@/public/assets/images/slide/5.jpg'
+import image6 from '@/public/assets/images/slide/6.jpg'
+import image7 from '@/public/assets/images/slide/7.jpg'
+import image8 from '@/public/assets/images/slide/8.jpg'
+import image9 from '@/public/assets/images/slide/9.jpg'
+import image10 from '@/public/assets/images/slide/10.jpg'
 
 
 export default function ImageSlider() {

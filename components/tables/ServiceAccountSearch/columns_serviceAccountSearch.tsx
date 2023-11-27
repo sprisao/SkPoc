@@ -1,5 +1,5 @@
 import {ColumnDef} from "@tanstack/react-table";
-import {ServiceAccountSearchData} from "@/app/models/models";
+import {ServiceAccountSearchData} from "@/lib/types";
 import {Checkbox} from "@/components/ui/checkbox";
 
 

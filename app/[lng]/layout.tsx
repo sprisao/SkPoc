@@ -2,7 +2,7 @@ import '../globals.css'
 import {ReactNode} from "react";
 import {Metadata} from "next";
 import {notoSansKR} from "@/app/fonts";
-import NavBar from "@/app/[lng]/components/ui/NavBar";
+import NavBar from "@/components/ui/navBar";
 import {languages} from "@/app/i18n/settings";
 
 

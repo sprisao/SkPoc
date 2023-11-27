@@ -1,5 +1,5 @@
 import {ColumnDef} from "@tanstack/react-table";
-import {BillingInfoData} from "@/app/models/models";
+import {BillingInfoData} from "@/lib/types";
 
 
 

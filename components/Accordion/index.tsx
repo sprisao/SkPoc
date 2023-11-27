@@ -1,4 +1,4 @@
-import AccordionBase from "@/app/[lng]/components/Accordion/AccordionBase";
+import AccordionBase from "@/components/Accordion/AccordionBase";
 import {useTranslation} from "@/app/i18n";
 
 export const Accordion= async ({lng}) =>{

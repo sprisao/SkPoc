@@ -2,7 +2,7 @@
 
 import {ColumnDef} from "@tanstack/react-table"
 import {Checkbox} from "@/components/ui/checkbox";
-import {CustomerServiceInfoData} from "@/app/models/models";
+import {CustomerServiceInfoData} from "@/lib/types";
 
 /*고객상담정보 타입*/
 

@@ -1,8 +1,8 @@
 /*납부정보*/
-import SectionTitle from "@/app/[lng]/components/ui/SectionTitle";
-import CommonButton from "@/app/[lng]/components/ui/CommonButton";
-import ResultContainer from "@/app/[lng]/components/ui/ResultContainer";
-import {PaymentInformationData} from "@/app/models/models";
+import SectionTitle from "@/components/ui/sectionTitle";
+import CommonButton from "@/components/ui/commonButton";
+import ResultContainer from "@/components/ui/resultContainer";
+import {PaymentInformationData} from "@/lib/types";
 
 
 type PaymentInformationProps = {

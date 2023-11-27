@@ -1,6 +1,6 @@
-import {CustomerServiceInfoTable} from "@/app/[lng]/components/tables/CustomerServiceInfo/CustomerServiceInfoTable";
-import {columns_customerServiceInfo} from "@/app/[lng]/components/tables/CustomerServiceInfo/columns_customerServiceInfo";
-import SectionTitle from "@/app/[lng]/components/ui/SectionTitle";
+import {CustomerServiceInfoTable} from "@/components/tables/CustomerServiceInfo/CustomerServiceInfoTable";
+import {columns_customerServiceInfo} from "@/components/tables/CustomerServiceInfo/columns_customerServiceInfo";
+import SectionTitle from "@/components/ui/sectionTitle";
 
 {/*고객상담 정보*/
 }

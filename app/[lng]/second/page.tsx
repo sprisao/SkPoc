@@ -1,13 +1,13 @@
 'use client'
-import InputBox from "@/app/[lng]/components/ui/InputBox";
+import InputBox from "@/components/ui/inputBox";
 import {Button} from "@/components/ui/button";
-import ImageSlider from "@/app/[lng]/components/ui/ImageSlider";
+import ImageSlider from "@/components/ui/imageSlider";
 import {useEffect, useRef, useState} from "react";
 import {Dialog, DialogContent, DialogHeader, DialogTrigger} from "@/components/ui/dialog";
 
 import Image from "next/image";
-import profilePic from '@/app/public/assets/images/user.png'
-import {Accordion} from "@/app/[lng]/components/Accordion/client";
+import profilePic from '@/public/assets/images/user.png'
+import {Accordion} from "@/components/Accordion/client";
 import Link from "next/link";
 import {
     DropdownMenu,
@@ -16,11 +16,11 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
-import MonthlySignUpChart from "@/app/[lng]/components/charts/MonthlySignUpChart";
-import MonthlySignUpLineChart from "@/app/[lng]/components/charts/MonthlySignUpLineChart";
-import RegionPiChart from "@/app/[lng]/components/charts/RegionPieChart";
-import RegionPieChart from "@/app/[lng]/components/charts/RegionPieChart";
-import RegionRadarChart from "@/app/[lng]/components/charts/RegionRadarChart";
+import MonthlySignUpChart from "@/components/charts/MonthlySignUpChart";
+import MonthlySignUpLineChart from "@/components/charts/MonthlySignUpLineChart";
+import RegionPiChart from "@/components/charts/RegionPieChart";
+import RegionPieChart from "@/components/charts/RegionPieChart";
+import RegionRadarChart from "@/components/charts/RegionRadarChart";
 import {HiOutlineGlobeAlt} from "react-icons/hi2";
 
 export default function SecondPage({params: {lng}}) {
