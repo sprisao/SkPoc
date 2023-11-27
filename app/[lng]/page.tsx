@@ -5,48 +5,50 @@ import SaveServiceHistory from "@/components/sections/SaveServiceHistory";
 import CustomerServiceDetail from "@/components/sections/CustomerServiceDetail";
 import History from "@/components/sections/History";
 import {
-    BillingInfoData,
-    CustomerServiceHistoryData,
-    CustomerServiceInfoData,
+    BillingInfoData, CustomerConsultationHistory,
     PaymentInformationData, ServiceAccountSearchData
 } from "@/lib/types";
 import PaymentInformation from "@/components/sections/PaymentInformation";
 import {useTranslation} from "@/app/i18n";
 
 
-
 async function getBillingInfoData(): Promise<BillingInfoData[]> {
     return [
         /*make 5 leer data*/
         {
-            invoiceDate: '2020-01-01',
-            invoiceAmount: '100,000',
-            collectionBalanceAmount: '100,000',
             serviceNumber: '010-1234-5678',
+            invoiceDate: 20200101,
+            invoiceAmount: 10000,
+            unpaidBalance: 10000,
+            serviceCount: 1,
         },
         {
-            invoiceDate: '',
-            invoiceAmount: '',
-            collectionBalanceAmount: '',
-            serviceNumber: '',
+            serviceNumber: '010-1234-5678',
+            invoiceDate: 20200101,
+            invoiceAmount: 10000,
+            unpaidBalance: 10000,
+            serviceCount: 1,
         },
         {
-            invoiceDate: '',
-            invoiceAmount: '',
-            collectionBalanceAmount: '',
-            serviceNumber: '',
+            serviceNumber: '010-1234-5678',
+            invoiceDate: 20200101,
+            invoiceAmount: 10000,
+            unpaidBalance: 10000,
+            serviceCount: 1,
         },
         {
-            invoiceDate: '',
-            invoiceAmount: '',
-            collectionBalanceAmount: '',
-            serviceNumber: '',
+            serviceNumber: '010-1234-5678',
+            invoiceDate: 20200101,
+            invoiceAmount: 10000,
+            unpaidBalance: 10000,
+            serviceCount: 1,
         },
         {
-            invoiceDate: '',
-            invoiceAmount: '',
-            collectionBalanceAmount: '',
-            serviceNumber: '',
+            serviceNumber: '010-1234-5678',
+            invoiceDate: 20200101,
+            invoiceAmount: 10000,
+            unpaidBalance: 10000,
+            serviceCount: 1,
         },
     ]
 }
@@ -62,72 +64,26 @@ async function getPaymentInfoData(): Promise<PaymentInformationData> {
     }
 }
 
-async function getCustomerServiceDetailData(): Promise<CustomerServiceHistoryData[]> {
-    // consultationSerialNumber: number;  // 상담일련번호, NUMBER(10)
-    // serviceNumber: string; // 서비스번호
-    // consultationDate: string; // 상담일자
-    // consultationTime: string; // 상담시각
-    // serviceConsultationNumber: string; // 통화번호
-    // consultationType: string; // 상담유형
-    // notes: string; // 메모
-    // processingStatus: string; // 처리상태
-    // consultantName: string; // 상담원
-    // contactType: string; // 접촉구분
+async function getCustomerServiceDetailData(): Promise<CustomerConsultationHistory[]> {
     return [
         {
-            consultationSerialNumber: 1,
+            consultationSequenceNumber: 1,
             serviceNumber: '010-1234-5678',
             consultationDate: '2020-01-01',
             consultationTime: '00:00:00',
             serviceConsultationNumber: '010-1234-5678',
             consultationType: '상담유형',
             notes: '메모',
-            processingStatus: '처리상태',
+            processStatus: '처리상태',
             consultantName: '상담원',
-            contactType: '접촉구분',
-        },
-        {
-            consultationSerialNumber: 2,
-            serviceNumber: '010-1234-5678',
-            consultationDate: '2020-01-01',
-            consultationTime: '00:00:00',
-            serviceConsultationNumber: '010-1234-5678',
-            consultationType: '상담유형',
-            notes: '메모',
-            processingStatus: '처리상태',
-            consultantName: '상담원',
-            contactType: '접촉구분',
-        },
-        {
-            consultationSerialNumber: 3,
-            serviceNumber: '010-1234-5678',
-            consultationDate: '2020-01-01',
-            consultationTime: '00:00:00',
-            serviceConsultationNumber: '010-1234-5678',
-            consultationType: '상담유형',
-            notes: '메모',
-            processingStatus: '처리상태',
-            consultantName: '상담원',
-            contactType: '접촉구분',
-        },
-        {
-            consultationSerialNumber: 4,
-            serviceNumber: '010-1234-5678',
-            consultationDate: '2020-01-01',
-            consultationTime: '00:00:00',
-            serviceConsultationNumber: '010-1234-5678',
-            consultationType: '상담유형',
-            notes: '메모',
-            processingStatus: '처리상태',
-            consultantName: '상담원',
-            contactType: '접촉구분',
+            contactCategory: '접촉구분',
         },
     ]
 }
 
-export default async function Page({params:{lng}}) {
+export default async function Page({params: {lng}}) {
 
-    const {t} =  await useTranslation(lng, 'translation')
+    const {t} = await useTranslation(lng, 'translation')
 
     const billingInfoData = await getBillingInfoData()
     const paymentInfoData = await getPaymentInfoData()
@@ -137,7 +93,7 @@ export default async function Page({params:{lng}}) {
         <div className="flex flex-col px-3 space-y-5">
 
             {/*고객상담관리 조회 Container*/}
-             <SearchCustomerService  />
+            <SearchCustomerService/>
 
             {/*고객상담 정보*/}
 

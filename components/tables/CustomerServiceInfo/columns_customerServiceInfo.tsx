@@ -2,20 +2,15 @@
 
 import {ColumnDef} from "@tanstack/react-table"
 import {Checkbox} from "@/components/ui/checkbox";
-import {CustomerServiceInfoData} from "@/lib/types";
+import {CustomerConsultationInfo} from "@/lib/types";
 
 /*고객상담정보 타입*/
 
-export const columns_customerServiceInfo: ColumnDef<CustomerServiceInfoData>[] = [
+export const columns_customerServiceInfo: ColumnDef<CustomerConsultationInfo>[] = [
     {
         id: "select",
         header: ({table}) => (
             <div className="flex flex-row justify-center">
-                {/*<Checkbox*/}
-                {/*    checked={table.getIsAllPageRowsSelected()}*/}
-                {/*    onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}*/}
-                {/*    aria-label="Select all"*/}
-                {/*/>*/}
                 <p className="">선택</p>
             </div>
         ),

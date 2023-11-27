@@ -1,7 +1,7 @@
 import 'server-only'
-import {CustomerServiceInfoData} from "@/lib/types";
+import {CustomerConsultationInfo} from "@/lib/types";
 
-export async function getCustomerInfoData(): Promise<CustomerServiceInfoData[]> {
+export async function getCustomerInfoData(): Promise<CustomerConsultationInfo[]> {
     return [
         {
             serviceAccountNumber: 111743938,

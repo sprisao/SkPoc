@@ -17,10 +17,10 @@ export const columns: ColumnDef<BillingInfoData, string>[] = [
             <div className="text-center">{row.getValue("invoiceAmount")}</div>
     },
     {
-        id: 'collectionBalanceAmount',
-        accessorKey: 'collectionBalanceAmount',
+        id: 'unpaidBalance',
+        accessorKey: 'unpaidBalance',
         header: '미납잔액', cell: ({row}) =>
-            <div className="text-center">{row.getValue("collectionBalanceAmount")}</div>
+            <div className="text-center">{row.getValue("unpaidBalance")}</div>
     },
     {
         id: 'serviceNumber',
