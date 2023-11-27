@@ -10,7 +10,7 @@ type PaymentInformationProps = {
 };
 
 
-const PaymentInformation = ({data}: PaymentInformationProps) => {
+const Payment = ({data}: PaymentInformationProps) => {
     return (
         <div className="flex flex-col h-full w-full justify-between">
             <SectionTitle title="납부정보"/>
@@ -96,4 +96,4 @@ const PaymentInformation = ({data}: PaymentInformationProps) => {
     )
 }
 
-export default PaymentInformation
+export default Payment

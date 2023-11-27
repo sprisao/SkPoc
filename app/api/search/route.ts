@@ -1,5 +1,5 @@
 import {NextResponse} from "next/server";
-import searchCustomerService from "@/components/sections/SearchCustomerService";
+import searchCustomerService from "@/components/sections/Search";
 import {getServiceAccountSearchData} from "@/lib/account";
 
 /* api/searchUser*/

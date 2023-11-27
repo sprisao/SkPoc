@@ -2,14 +2,14 @@
 import SectionTitle from "@/components/ui/sectionTitle";
 import CommonTab from "@/components/ui/commonTab";
 import {useState} from "react";
-import CustomerUnpaidHistoryTable from "@/components/tables/CustomerUnpaidHistory/CustomerUnpaidHistoryTable";
-import CustomerSMSHistoryTable from "@/components/tables/CustomerSMSHistory/CustomerSMSHistoryTable";
+import CustomerUnpaidHistoryTable from "@/components/tables/unpaid/CustomerUnpaidHistoryTable";
+import CustomerSMSHistoryTable from "@/components/tables/sms/CustomerSMSHistoryTable";
 import CommonButton from "@/components/ui/commonButton";
 import {Button} from "@/components/ui/button";
-import {CustomerServiceHistoryTable} from "@/components/tables/CustomerServiceHistory/CustomerServiceHistoryTable";
+import {CustomerServiceHistoryTable} from "@/components/tables/history/CustomerServiceHistoryTable";
 import {
     customerServiceHistoryColumns
-} from "@/components/tables/CustomerServiceHistory/columns_customerServiceHistory";
+} from "@/components/tables/history/columns_customerServiceHistory";
 
 
 const History = ({customerHistoryData, customerUnpaidHistoryData, customerSMSHistoryData}) => {

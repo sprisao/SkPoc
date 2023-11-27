@@ -21,7 +21,7 @@ export const GridRowComponent = ({title, contents}) => {
         </div>
     );
 };
-const CustomerServiceDetail = ({data}: CustomerServiceDetailProps) => {
+const Detail = ({data}: CustomerServiceDetailProps) => {
 
     const rows1 = [
         {
@@ -116,4 +116,4 @@ const CustomerServiceDetail = ({data}: CustomerServiceDetailProps) => {
     );
 }
 
-export default CustomerServiceDetail
+export default Detail

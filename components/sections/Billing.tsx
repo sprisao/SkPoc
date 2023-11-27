@@ -1,9 +1,9 @@
 /*청구정보*/
 'use client'
 import SectionTitle from "@/components/ui/sectionTitle";
-import {columns} from "@/components/tables/BillingInfo/columns_billingInfo";
-import {BillingInfoTable} from "@/components/tables/BillingInfo/BillingInfoTable";
-import {GridRowComponent} from "@/components/sections/CustomerServiceDetail";
+import {columns} from "@/components/tables/billing/columns_billingInfo";
+import {BillingInfoTable} from "@/components/tables/billing/BillingInfoTable";
+import {GridRowComponent} from "@/components/sections/Detail";
 import CommonButton from "@/components/ui/commonButton";
 import {BillingInfoData} from "@/lib/types";
 
@@ -16,7 +16,7 @@ interface BillingInformationProps {
 }
 
 
-const BillingInformation = ({
+const Billing = ({
                                 unpaidMonthCount,
                                 currentMonthCharge,
                                 unpaidAmount,
@@ -84,4 +84,4 @@ const BillingInformation = ({
     );
 }
 
-export default BillingInformation
+export default Billing

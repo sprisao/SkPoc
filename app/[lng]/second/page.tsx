@@ -7,7 +7,7 @@ import {Dialog, DialogContent, DialogHeader, DialogTrigger} from "@/components/u
 
 import Image from "next/image";
 import profilePic from '@/public/assets/images/user.png'
-import {Accordion} from "@/components/Accordion/client";
+import {Accordion} from "@/components/ui/accordion/client";
 import Link from "next/link";
 import {
     DropdownMenu,

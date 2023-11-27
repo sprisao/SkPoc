@@ -14,15 +14,15 @@ import {
 import InputBox from "@/components/ui/inputBox";
 import SelectBox from "@/components/ui/selectBox";
 import {Checkbox} from "@/components/ui/checkbox";
-import {ServiceAccountSearchTable} from "@/components/tables/ServiceAccountSearch/ServiceAccountSearchTable";
+import {ServiceAccountSearchTable} from "@/components/tables/search/ServiceAccountSearchTable";
 import {
     serviceAccountSearchColumns
-} from "@/components/tables/ServiceAccountSearch/columns_serviceAccountSearch";
+} from "@/components/tables/search/columns_serviceAccountSearch";
 import {ChangeEvent, useEffect, useState} from "react";
 import {HiMagnifyingGlass} from "react-icons/hi2";
-import CustomerServiceInfo from "@/components/sections/CustomerServiceInfo";
+import Info from "@/components/sections/Info";
 
-const SearchCustomerService = () => {
+const Search = () => {
 
     const [midNumber, setMidNumber] = useState('')
     const [lastNumber, setLastNumber] = useState('')
@@ -40,7 +40,7 @@ const SearchCustomerService = () => {
         const controller = new AbortController();
         if (!startSearch) return
         (async () => {
-            const response = await fetch('/api/account')
+            const response = await fetch('/api/search')
             const data = await response.json()
             setSearchResult(data)
             console.log(data)
@@ -225,9 +225,9 @@ const SearchCustomerService = () => {
                     </DialogFooter>
                 </div>
             </DialogContent>
-            <CustomerServiceInfo data={customerInfoData}/>
+            <Info data={customerInfoData}/>
         </Dialog>
     );
 }
 
-export default SearchCustomerService;
+export default Search;

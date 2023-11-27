@@ -1,16 +1,16 @@
 'use client'
-import {CustomerServiceInfoTable} from "@/components/tables/CustomerServiceInfo/CustomerServiceInfoTable";
-import {columns_customerServiceInfo} from "@/components/tables/CustomerServiceInfo/columns_customerServiceInfo";
+import {CustomerServiceInfoTable} from "@/components/tables/info/CustomerServiceInfoTable";
+import {columns_customerServiceInfo} from "@/components/tables/info/columns_customerServiceInfo";
 import SectionTitle from "@/components/ui/sectionTitle";
-import CustomerServiceDetail from "@/components/sections/CustomerServiceDetail";
-import BillingInformation from "@/components/sections/BillingInformation";
-import PaymentInformation from "@/components/sections/PaymentInformation";
-import SaveServiceHistory from "@/components/sections/SaveServiceHistory";
+import Detail from "@/components/sections/Detail";
+import Billing from "@/components/sections/Billing";
+import Payment from "@/components/sections/Payment";
+import History from "@/components/sections/Save";
 import {useEffect, useState} from "react";
 
 {/*고객상담 정보*/
 }
-const CustomerServiceInfo = ({data}) => {
+const Info = ({data}) => {
 
     const [detailData, setDetailData] = useState(null)
     const [billingData, setBillingData] = useState([])
@@ -56,10 +56,10 @@ const CustomerServiceInfo = ({data}) => {
             <div className="w-full">
                 <div className="flex w-full flex-row space-x-1.5 justify-between m-1">
                     <div className="w-1/2 border rounded-sm overflow-clip ">
-                        <CustomerServiceDetail data={detailData}/>
+                        <Detail data={detailData}/>
                     </div>
                     <div className="w-1/2 border rounded-sm overflow-clip ">
-                        <BillingInformation
+                        <Billing
                             unpaidMonthCount={detailData?.unpaidMonthCount}
                             currentMonthCharge={detailData?.currentMonthCharge}
                             unpaidAmount={detailData?.unpaidAmount}
@@ -70,10 +70,10 @@ const CustomerServiceInfo = ({data}) => {
                 </div>
                 <div className="flex w-full flex-row space-x-1.5 justify-between m-1">
                     <div className="w-2/5 border rounded-sm overflow-clip ">
-                        <PaymentInformation data={detailData}/>
+                        <Payment data={detailData}/>
                     </div>
                     <div className="w-3/5 border rounded-sm overflow-clip ">
-                        <SaveServiceHistory/>
+                        <History/>
                     </div>
                 </div>
             </div>
@@ -81,4 +81,4 @@ const CustomerServiceInfo = ({data}) => {
     );
 }
 
-export default CustomerServiceInfo;
+export default Info;

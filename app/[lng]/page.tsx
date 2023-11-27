@@ -1,4 +1,4 @@
-import SearchCustomerService from "@/components/sections/SearchCustomerService";
+import Search from "@/components/sections/Search";
 import History from "@/components/sections/History";
 import {getHistoryData} from "@/lib/history";
 
@@ -7,7 +7,7 @@ export default async function Page() {
     return (
         <div className="flex flex-col px-3 space-y-5">
             {/*고객상담관리 조회 Container*/}
-            <SearchCustomerService/>
+            <Search/>
 
             {/*이력조회*/}
             <History customerHistoryData={customerHistoryData} customerSMSHistoryData="" customerUnpaidHistoryData=""/>
