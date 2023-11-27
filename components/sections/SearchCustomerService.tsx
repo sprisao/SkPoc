@@ -18,9 +18,8 @@ import {ServiceAccountSearchTable} from "@/components/tables/ServiceAccountSearc
 import {
     serviceAccountSearchColumns
 } from "@/components/tables/ServiceAccountSearch/columns_serviceAccountSearch";
-import {useEffect, useState} from "react";
+import {ChangeEvent, useEffect, useState} from "react";
 import {HiMagnifyingGlass} from "react-icons/hi2";
-import {useRouter} from "next/navigation";
 import CustomerServiceInfo from "@/components/sections/CustomerServiceInfo";
 
 /*고객상담관리 조회 섹션*/
@@ -31,7 +30,6 @@ import CustomerServiceInfo from "@/components/sections/CustomerServiceInfo";
 /*4. Dialog에서 선택된 결과를 메인화면으로 전달*/
 
 const SearchCustomerService = () => {
-    const router = useRouter();
 
     const [midNumber, setMidNumber] = useState('')
     const [lastNumber, setLastNumber] = useState('')
@@ -100,7 +98,7 @@ const SearchCustomerService = () => {
 
     return (
         <Dialog onOpenChange={(e) => {
-            if(!e) {
+            if (!e) {
                 setSearchResult([])
             }
         }}>
@@ -126,13 +124,13 @@ const SearchCustomerService = () => {
                                 className="max-w-[100px]"
                                 type="number"
                                 value={midNumber}
-                                onChange={(e) => setMidNumber(e.target.value)}
+                                onChange={(e: ChangeEvent<HTMLInputElement>) => setMidNumber(e.target.value)}
                             />
                             <InputBox
                                 className="max-w-[100px]"
                                 type="number"
                                 value={lastNumber}
-                                onChange={(e) => setLastNumber(e.target.value)}
+                                onChange={(e: ChangeEvent<HTMLInputElement>) => setLastNumber(e.target.value)}
                             />
                             <DialogTrigger asChild>
                                 <Button className="h-7 px-2 rounded-sm py-1"><HiMagnifyingGlass fontSize={23}/></Button>
@@ -161,7 +159,7 @@ const SearchCustomerService = () => {
                     </div>
                     <div className="col-span-1">
                         <DialogTrigger asChild>
-                            <Button className="w-28" onClick={(e) => {
+                            <Button className="w-28" onClick={() => {
                                 setMidNumber('');
                                 setLastNumber('');
                             }}>조회</Button>
@@ -190,7 +188,7 @@ const SearchCustomerService = () => {
                                     className="grow"
                                     type="number"
                                     value={`010${midNumber}${lastNumber}`}
-                                    onChange={(e) => {
+                                    onChange={(e:ChangeEvent<HTMLInputElement>) => {
                                         setMidNumber(e.target.value.substring(3, 7));
                                         setLastNumber(e.target.value.substring(7, 11));
                                     }}
@@ -200,7 +198,7 @@ const SearchCustomerService = () => {
                                     <p>번호별이력</p>
                                 </div>
                             </div>
-                            <Button className="w-16 h-8" onClick={(e) => {
+                            <Button className="w-16 h-8" onClick={() => {
                                 setSearchResult([])
                                 searchUser();
                             }}>검색</Button>
@@ -214,7 +212,7 @@ const SearchCustomerService = () => {
                     <DialogFooter className="flex flex-row justify-center items-center space-x-1">
                         <DialogClose asChild>
                             <Button type="submit"
-                                    onClick={(e) => {
+                                    onClick={() => {
                                         setCustomerInfoData([])
                                         fetchData()
                                         setSearchResult([])
@@ -223,7 +221,7 @@ const SearchCustomerService = () => {
                             >적용</Button>
                         </DialogClose>
                         <DialogClose asChild>
-                            <Button type="button" variant="secondary" onClick={(e) => {
+                            <Button type="button" variant="secondary" onClick={() => {
                                 setMidNumber('');
                                 setLastNumber('');
                                 setSelectedServiceNumber('');
