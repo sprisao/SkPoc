@@ -32,47 +32,47 @@ export function CustomerServiceHistoryTable<TData, TValue>({
     let tHeight = showMore ? 1250 : 275;
     return (
         <div ref={parentRef} className={`w-full h-[${tHeight}px] overflow-y-scroll bg-purple-300`}>
-                <table className="w-full bg-yellow-200" >
-                    <thead className="bg-blue-300 text-sm h-[25px]">
-                    {
-                        table.getHeaderGroups().map((headerGroup) => (
-                            <tr key={headerGroup.id} className="border">
-                                {
-                                    headerGroup.headers.map((header) => {
-                                        return (
-                                            <th className=""
-                                                key={header.id}>
-                                                {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-                                            </th>
-                                        )
-                                    })
-                                }
-                            </tr>
-                        ))
-                    }
-                    </thead>
-                    <tbody className="text-sm">
-                    {virtualizer.getVirtualItems().map((virtualRow, index) => {
-                        const row = rows[virtualRow.index];
-                        return (
-                            <tr key={row.id} id=""
-                                style={{
-                                    height: `${virtualRow.size}px`,
-                                    transform: `translateY(${virtualRow.start - index * virtualRow.size}px)`,
-                                }}
-                            >
-                                {row.getVisibleCells().map((cell) => {
+            <table className="w-full bg-yellow-200">
+                <thead className="bg-blue-300 text-sm h-[25px]">
+                {
+                    table.getHeaderGroups().map((headerGroup) => (
+                        <tr key={headerGroup.id} className="border">
+                            {
+                                headerGroup.headers.map((header) => {
                                     return (
-                                        <td className="text-center border" key={cell.id}>
-                                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                                        </td>
+                                        <th className=""
+                                            key={header.id}>
+                                            {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+                                        </th>
                                     )
-                                })}
-                            </tr>
-                        )
-                    })}
-                    </tbody>
-                </table>
-            </div>
+                                })
+                            }
+                        </tr>
+                    ))
+                }
+                </thead>
+                <tbody className="text-sm">
+                {virtualizer.getVirtualItems().map((virtualRow, index) => {
+                    const row = rows[virtualRow.index];
+                    return (
+                        <tr key={row.id} id=""
+                            style={{
+                                height: `${virtualRow.size}px`,
+                                transform: `translateY(${virtualRow.start - index * virtualRow.size}px)`,
+                            }}
+                        >
+                            {row.getVisibleCells().map((cell) => {
+                                return (
+                                    <td className="text-center border" key={cell.id}>
+                                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                    </td>
+                                )
+                            })}
+                        </tr>
+                    )
+                })}
+                </tbody>
+            </table>
+        </div>
     );
 }
