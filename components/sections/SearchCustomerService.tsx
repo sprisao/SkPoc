@@ -21,6 +21,7 @@ import {
 import {useEffect, useState} from "react";
 import {HiMagnifyingGlass} from "react-icons/hi2";
 import {useRouter} from "next/navigation";
+import CustomerServiceInfo from "@/components/sections/CustomerServiceInfo";
 
 /*고객상담관리 조회 섹션*/
 
@@ -40,6 +41,9 @@ const SearchCustomerService = () => {
     const [startSearch, setStartSearch] = useState(false)
     const [SearchResult, setSearchResult] = useState([])
 
+    const [getCustomerInfoData, setGetCustomerInfoData] = useState(false)
+    const [customerInfoData, setCustomerInfoData] = useState([])
+
 
     useEffect(() => {
         const controller = new AbortController();
@@ -56,6 +60,21 @@ const SearchCustomerService = () => {
         }
     }, [startSearch]);
 
+    useEffect(() => {
+        const controller = new AbortController();
+        if (!getCustomerInfoData) return
+        (async () => {
+            const response = await fetch('/api/customerInfo')
+            const data = await response.json()
+            setCustomerInfoData(data)
+            console.log(data)
+        })()
+        setGetCustomerInfoData(false)
+        return () => {
+            controller.abort()
+        }
+    }, [getCustomerInfoData]);
+
     function searchUser() {
         console.log(`searchUser: ${selectedServiceNumber}`)
         const query = `010${midNumber}${lastNumber}`
@@ -65,7 +84,7 @@ const SearchCustomerService = () => {
 
     /*todo: 검색결과에 표시된 사용자를 클릭하고 적용하면 고객상담 정보에 데이터 표시*/
     function fetchData() {
-        // fetch data from API
+        setGetCustomerInfoData(true)
         console.log(`fetchData: ${selectedServiceNumber}`)
     }
 
@@ -196,6 +215,7 @@ const SearchCustomerService = () => {
                         <DialogClose asChild>
                             <Button type="submit"
                                     onClick={(e) => {
+                                        setCustomerInfoData([])
                                         fetchData()
                                         setSearchResult([])
                                     }
@@ -214,6 +234,7 @@ const SearchCustomerService = () => {
                     </DialogFooter>
                 </div>
             </DialogContent>
+            <CustomerServiceInfo data={customerInfoData}/>
         </Dialog>
     );
 }

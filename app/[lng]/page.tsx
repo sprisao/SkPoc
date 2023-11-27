@@ -14,76 +14,6 @@ import PaymentInformation from "@/components/sections/PaymentInformation";
 import {useTranslation} from "@/app/i18n";
 
 
-async function getCustomerInfoData(): Promise<CustomerServiceInfoData[]> {
-    // /*서비스계정정보*/
-    // serviceAccountNumber: number
-    // /*서비스구분*/
-    // serviceName: string
-    // /*서비스 번호*/
-    // serviceNumber: string
-    // /*서비스상태*/
-    // serviceStatusName: string
-    // /*요금제*/
-    // feeName: string
-    // /*단말기*/
-    // equipmentName: string
-    // /*사업자번호*/
-    // businessNumber: string
-    // /*사업자명*/
-    // businessName: string
-    return [
-        {
-            serviceAccountNumber: 1,
-            serviceName: '서비스구분',
-            serviceNumber: '010-1234-5678',
-            serviceStatusName: '서비스상태',
-            feeName: '요금제',
-            equipmentName: '단말기',
-            businessNumber: '사업자번호',
-            businessName: '사업자명',
-        },
-        {
-            serviceAccountNumber: 2,
-            serviceName: '서비스구분',
-            serviceNumber: '010-1234-5678',
-            serviceStatusName: '서비스상태',
-            feeName: '요금제',
-            equipmentName: '단말기',
-            businessNumber: '사업자번호',
-            businessName: '사업자명',
-        },
-        {
-            serviceAccountNumber: 3,
-            serviceName: '서비스구분',
-            serviceNumber: '010-1234-5678',
-            serviceStatusName: '서비스상태',
-            feeName: '요금제',
-            equipmentName: '단말기',
-            businessNumber: '사업자번호',
-            businessName: '사업자명',
-        },
-        {
-            serviceAccountNumber: 4,
-            serviceName: '서비스구분',
-            serviceNumber: '010-1234-5678',
-            serviceStatusName: '서비스상태',
-            feeName: '요금제',
-            equipmentName: '단말기',
-            businessNumber: '사업자번호',
-            businessName: '사업자명',
-        },
-        {
-            serviceAccountNumber: 5,
-            serviceName: '서비스구분',
-            serviceNumber: '010-1234-5678',
-            serviceStatusName: '서비스상태',
-            feeName: '요금제',
-            equipmentName: '단말기',
-            businessNumber: '사업자번호',
-            businessName: '사업자명',
-        }
-    ]
-}
 
 async function getBillingInfoData(): Promise<BillingInfoData[]> {
     return [
@@ -199,7 +129,6 @@ export default async function Page({params:{lng}}) {
 
     const {t} =  await useTranslation(lng, 'translation')
 
-    const customerServiceInfoData = await getCustomerInfoData()
     const billingInfoData = await getBillingInfoData()
     const paymentInfoData = await getPaymentInfoData()
     const customerHistoryData = await getCustomerServiceDetailData()
@@ -211,7 +140,6 @@ export default async function Page({params:{lng}}) {
              <SearchCustomerService  />
 
             {/*고객상담 정보*/}
-            <CustomerServiceInfo data={customerServiceInfoData}/>
 
             {/*고객상담 상세정보, 청구정보, 납부정보, 상담이력저장 섹션*/}
             <div className="w-full">
