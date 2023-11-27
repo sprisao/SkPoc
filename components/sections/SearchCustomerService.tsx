@@ -22,13 +22,6 @@ import {ChangeEvent, useEffect, useState} from "react";
 import {HiMagnifyingGlass} from "react-icons/hi2";
 import CustomerServiceInfo from "@/components/sections/CustomerServiceInfo";
 
-/*고객상담관리 조회 섹션*/
-
-/*1. 메인화면에서 Dialog로 전화번호 전달*/
-/*2. Dialog에서 전달받은 전화번호로 조회*/
-/*3. 조회된 결과를 Dialog에 표시*/
-/*4. Dialog에서 선택된 결과를 메인화면으로 전달*/
-
 const SearchCustomerService = () => {
 
     const [midNumber, setMidNumber] = useState('')
@@ -47,7 +40,7 @@ const SearchCustomerService = () => {
         const controller = new AbortController();
         if (!startSearch) return
         (async () => {
-            const response = await fetch('/api/searchUser')
+            const response = await fetch('/api/account')
             const data = await response.json()
             setSearchResult(data)
             console.log(data)
@@ -62,7 +55,7 @@ const SearchCustomerService = () => {
         const controller = new AbortController();
         if (!getCustomerInfoData) return
         (async () => {
-            const response = await fetch('/api/customerInfo')
+            const response = await fetch('/api/consultation/info')
             const data = await response.json()
             setCustomerInfoData(data)
             console.log(data)
