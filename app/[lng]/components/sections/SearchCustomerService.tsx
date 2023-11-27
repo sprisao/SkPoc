@@ -29,32 +29,41 @@ import {useRouter} from "next/navigation";
 /*3. 조회된 결과를 Dialog에 표시*/
 /*4. Dialog에서 선택된 결과를 메인화면으로 전달*/
 
-const SearchCustomerService = ({data}) => {
+const SearchCustomerService = () => {
     const router = useRouter();
-
 
     const [midNumber, setMidNumber] = useState('')
     const [lastNumber, setLastNumber] = useState('')
 
     const [selectedServiceNumber, setSelectedServiceNumber] = useState('')
 
-    // useEffect(() => {
-    //     // fetch data from API
-    //     // (async () => {
-    //     //         const res = await fetch('/api/...');
-    //     //         const data = await res.json();
-    //     //         setSearchResult(data);
-    //     //     }
-    //     // )();
-    //     console.log(query)
-    // }, [query]);
+    const [startSearch, setStartSearch] = useState(false)
+    const [SearchResult, setSearchResult] = useState([])
 
+
+    useEffect(() => {
+        const controller = new AbortController();
+        if (!startSearch) return
+        (async () => {
+            const response = await fetch('en/api/searchUser')
+            const data = await response.json()
+            setSearchResult(data)
+            console.log(data)
+        })()
+        setStartSearch(false)
+        return () => {
+            controller.abort()
+        }
+    }, [startSearch]);
 
     function searchUser() {
+        console.log(`searchUser: ${selectedServiceNumber}`)
         const query = `010${midNumber}${lastNumber}`
+        setStartSearch(true)
         console.log(`searchUser: ${query}`)
     }
 
+    /*todo: 검색결과에 표시된 사용자를 클릭하고 적용하면 고객상담 정보에 데이터 표시*/
     function fetchData() {
         // fetch data from API
         console.log(`fetchData: ${selectedServiceNumber}`)
@@ -71,7 +80,11 @@ const SearchCustomerService = ({data}) => {
     }, [selectedServiceNumber]);
 
     return (
-        <Dialog>
+        <Dialog onOpenChange={(e) => {
+            if(!e) {
+                setSearchResult([])
+            }
+        }}>
             <div className="w-full border rounded-sm overflow-clip m-1 mt-4 ">
                 <SectionTitle title="고객상담관리 조회"/>
                 <div className="flex flex-row py-2 px-2 justify-around text-sm space-x-3 w-full">
@@ -169,13 +182,14 @@ const SearchCustomerService = ({data}) => {
                                 </div>
                             </div>
                             <Button className="w-16 h-8" onClick={(e) => {
+                                setSearchResult([])
                                 searchUser();
                             }}>검색</Button>
                         </div>
                     </div>
                     <div className=" border rounded-sm overflow-clip mb-4 ">
                         <SectionTitle title="결과"/>
-                        <ServiceAccountSearchTable columns={serviceAccountSearchColumns} data={data}
+                        <ServiceAccountSearchTable columns={serviceAccountSearchColumns} data={SearchResult}
                                                    onSelect={handleSelect}/>
                     </div>
                     <DialogFooter className="flex flex-row justify-center items-center space-x-1">
@@ -183,6 +197,7 @@ const SearchCustomerService = ({data}) => {
                             <Button type="submit"
                                     onClick={(e) => {
                                         fetchData()
+                                        setSearchResult([])
                                     }
                                     }
                             >적용</Button>

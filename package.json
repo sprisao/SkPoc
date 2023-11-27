@@ -21,6 +21,7 @@
     "react-i18next": "^13.5.0",
     "react-icons": "^4.12.0",
     "react-slick": "^0.29.0",
+    "server-only": "^0.0.1",
     "slick-carousel": "^1.8.1",
     "tailwind-merge": "^2.0.0",
     "tailwindcss-animate": "^1.0.7"
