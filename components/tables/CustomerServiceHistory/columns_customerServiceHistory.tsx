@@ -1,8 +1,8 @@
 import {ColumnDef} from "@tanstack/react-table";
-import {CustomerServiceHistoryData} from "@/lib/types";
+import {CustomerConsultationHistory} from "@/lib/types";
 
 
-export const customerServiceHistoryColumns: ColumnDef<CustomerServiceHistoryData>[] = [
+export const customerServiceHistoryColumns: ColumnDef<CustomerConsultationHistory>[] = [
     {
         id: "consultationDate",
         accessorKey: "consultationDate",
