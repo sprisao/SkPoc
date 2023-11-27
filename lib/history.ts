@@ -4,13 +4,12 @@ import fs from "fs";
 import path from "path";
 
 export async function getHistoryData(): Promise<CustomerConsultationHistory[]> {
-    // JSON 파일 불러오기
-    const filePath = path.join(process.cwd(), '/lib/data/data.json');
-    const rawData = fs.readFileSync(filePath, 'utf-8');
-    const jsonData = JSON.parse(rawData);
+    // https://seoulforest946d11193b74484098fc836b62a80eb783206-dev.s3.ap-northeast-2.amazonaws.com/data.json
 
-    // 필요한 데이터 가공
-    return jsonData.map((item: any) => {
+    const response = await fetch('https://seoulforest946d11193b74484098fc836b62a80eb783206-dev.s3.ap-northeast-2.amazonaws.com/data.json');
+    const data = await response.json();
+
+    return data.map((item: any) => {
         return {
             consultationSequenceNumber: item.consultationSequenceNumber,
             serviceNumber: item.serviceNumber,
