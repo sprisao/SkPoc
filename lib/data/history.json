@@ -1,0 +1,38 @@
+[
+  {
+    "consultationSequenceNumber": 1,
+    "serviceNumber": "01012345678",
+    "consultationDate": "2021-09-01",
+    "consultationTime": "10:00",
+    "serviceConsultationNumber": "01012345678",
+    "consultationType": "상담유형",
+    "notes": "메모",
+    "processStatus": "처리상태",
+    "consultantName": "상담원",
+    "contactCategory": "접촉구분"
+  },
+  {
+    "consultationSequenceNumber": 2,
+    "serviceNumber": "01099991188",
+    "consultationDate": "2021-09-01",
+    "consultationTime": "10:00",
+    "serviceConsultationNumber": "01099991188",
+    "consultationType": "상담유형",
+    "notes": "메모",
+    "processStatus": "처리상태",
+    "consultantName": "상담원",
+    "contactCategory": "접촉구분"
+  },
+  {
+    "consultationSequenceNumber": 2,
+    "serviceNumber": "01099991188",
+    "consultationDate": "2021-09-01",
+    "consultationTime": "10:00",
+    "serviceConsultationNumber": "01099991188",
+    "consultationType": "상담유형",
+    "notes": "메모",
+    "processStatus": "처리상태",
+    "consultantName": "상담원",
+    "contactCategory": "접촉구분"
+  }
+]

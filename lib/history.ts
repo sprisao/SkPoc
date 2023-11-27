@@ -1,31 +1,27 @@
 import 'server-only'
 import {CustomerConsultationHistory} from "@/lib/types";
+import fs from "fs";
+import path from "path";
 
 export async function getHistoryData(): Promise<CustomerConsultationHistory[]> {
-    return [
-        {
-            consultationSequenceNumber: 1,
-            serviceNumber: '01012345678',
-            consultationDate: '2021-09-01',
-            consultationTime: '10:00',
-            serviceConsultationNumber: '01012345678',
-            consultationType: '상담유형',
-            notes: '메모',
-            processStatus: '처리상태',
-            consultantName: '상담원',
-            contactCategory: '접촉구분',
-        },
-        {
-            consultationSequenceNumber: 2,
-            serviceNumber: '01099991188',
-            consultationDate: '2021-09-01',
-            consultationTime: '10:00',
-            serviceConsultationNumber: '01099991188',
-            consultationType: '상담유형',
-            notes: '메모',
-            processStatus: '처리상태',
-            consultantName: '상담원',
-            contactCategory: '접촉구분',
-        },
-    ]
+    // JSON 파일 불러오기
+    const filePath = path.join(process.cwd(), '/lib/data/history.json');
+    const rawData = fs.readFileSync(filePath, 'utf-8');
+    const jsonData = JSON.parse(rawData);
+
+    // 필요한 데이터 가공
+    return jsonData.map((item: any) => {
+        return {
+            consultationSequenceNumber: item.consultationSequenceNumber,
+            serviceNumber: item.serviceNumber,
+            consultationDate: item.consultationDate,
+            consultationTime: item.consultationTime,
+            serviceConsultationNumber: item.serviceConsultationNumber,
+            consultationType: item.consultationType,
+            notes: item.notes,
+            processStatus: item.processStatus,
+            consultantName: item.consultantName,
+            contactCategory: item.contactCategory,
+        };
+    });
 }
