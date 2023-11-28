@@ -1,4 +1,3 @@
-'use client'
 import {ColumnDef, flexRender, getCoreRowModel, useReactTable} from "@tanstack/react-table";
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table";
 import {useEffect, useState} from "react";
@@ -62,7 +61,7 @@ export function ServiceAccountSearchTable<TData, TValue>({
                         <TableRow
                             data-state={row.getIsSelected() && "selected"}
                             onDoubleClick={() => {
-                                onDoubleClick && onDoubleClick(row.original)
+                                onDoubleClick(row.original)
                             }}
                             className={row.index % 2 === 0 ? "bg-white" : "bg-gray-100"}
                             key={row.id}>

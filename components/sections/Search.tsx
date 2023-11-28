@@ -80,8 +80,9 @@ const Search = () => {
         setGetCustomerInfoData(true)
         console.log(`fetchData: ${selectedServiceNumber}`)
     }
-    const handleDoubleClick = (selectedItem) => {
-        setSelectedServiceNumber(selectedItem.serviceNumber); // 예시로 'serviceNumber' 필드를 사용
+
+    const handleDoubleClick = async (selectedItem) => {
+        await setSelectedServiceNumber(selectedItem.serviceNumber); // 예시로 'serviceNumber' 필드를 사용
         console.log(`handleDoubleClick: ${selectedItem.serviceNumber}`)
         setCustomerInfoData([])
         fetchData()
@@ -94,6 +95,7 @@ const Search = () => {
     };
 
     useEffect(() => {
+        console.log(`useeffect selectedServiceNumber: ${selectedServiceNumber}`)
         setMidNumber(selectedServiceNumber.substring(3, 7));
         setLastNumber(selectedServiceNumber.substring(7, 11));
     }, [selectedServiceNumber]);
@@ -212,7 +214,7 @@ const Search = () => {
                                                    onSelect={handleSelect} onDoubleClick={handleDoubleClick}/>
                     </div>
                     <DialogFooter className="flex flex-row justify-center items-center space-x-1">
-                        <DialogClose asChild>
+                        <DialogClose asChild ref={closeButtonRef}>
                             <Button type="submit"
                                     onClick={() => {
                                         setCustomerInfoData([])
@@ -222,7 +224,7 @@ const Search = () => {
                                     }
                             >적용</Button>
                         </DialogClose>
-                        <DialogClose asChild ref={closeButtonRef}>
+                        <DialogClose asChild>
                             <Button type="button" variant="secondary" onClick={() => {
                                 setMidNumber('');
                                 setLastNumber('');
