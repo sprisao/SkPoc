@@ -7,10 +7,11 @@ interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[]
     onSelect: (selectedItem: TData) => void
+    onDoubleClick?: (selectedItem: TData) => void
 }
 
 export function ServiceAccountSearchTable<TData, TValue>({
-                                                             columns, data, onSelect
+                                                             columns, data, onSelect, onDoubleClick
                                                          }: DataTableProps<TData, TValue>) {
     const [rowSelection, setRowSelection] = useState({})
 
@@ -61,7 +62,7 @@ export function ServiceAccountSearchTable<TData, TValue>({
                         <TableRow
                             data-state={row.getIsSelected() && "selected"}
                             onDoubleClick={() => {
-                                onSelect(row.original)
+                                onDoubleClick && onDoubleClick(row.original)
                             }}
                             className={row.index % 2 === 0 ? "bg-white" : "bg-gray-100"}
                             key={row.id}>

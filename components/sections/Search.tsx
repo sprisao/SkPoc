@@ -18,7 +18,7 @@ import {ServiceAccountSearchTable} from "@/components/tables/search/ServiceAccou
 import {
     serviceAccountSearchColumns
 } from "@/components/tables/search/columns_serviceAccountSearch";
-import {ChangeEvent, useEffect, useState} from "react";
+import {ChangeEvent, useEffect, useRef, useState} from "react";
 import {HiMagnifyingGlass} from "react-icons/hi2";
 import Info from "@/components/sections/Info";
 
@@ -34,6 +34,8 @@ const Search = () => {
 
     const [getCustomerInfoData, setGetCustomerInfoData] = useState(false)
     const [customerInfoData, setCustomerInfoData] = useState([])
+
+    const closeButtonRef = useRef(null);
 
 
     useEffect(() => {
@@ -77,6 +79,13 @@ const Search = () => {
     function fetchData() {
         setGetCustomerInfoData(true)
         console.log(`fetchData: ${selectedServiceNumber}`)
+    }
+    const handleDoubleClick = (selectedItem) => {
+        setSelectedServiceNumber(selectedItem.serviceNumber); // 예시로 'serviceNumber' 필드를 사용
+        console.log(`handleDoubleClick: ${selectedItem.serviceNumber}`)
+        setCustomerInfoData([])
+        fetchData()
+        closeButtonRef.current.click();
     }
 
     const handleSelect = (selectedItem) => {
@@ -181,7 +190,7 @@ const Search = () => {
                                     className="grow"
                                     type="number"
                                     value={`010${midNumber}${lastNumber}`}
-                                    onChange={(e:ChangeEvent<HTMLInputElement>) => {
+                                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
                                         setMidNumber(e.target.value.substring(3, 7));
                                         setLastNumber(e.target.value.substring(7, 11));
                                     }}
@@ -200,7 +209,7 @@ const Search = () => {
                     <div className=" border rounded-sm overflow-clip mb-4 ">
                         <SectionTitle title="결과"/>
                         <ServiceAccountSearchTable columns={serviceAccountSearchColumns} data={SearchResult}
-                                                   onSelect={handleSelect}/>
+                                                   onSelect={handleSelect} onDoubleClick={handleDoubleClick}/>
                     </div>
                     <DialogFooter className="flex flex-row justify-center items-center space-x-1">
                         <DialogClose asChild>
@@ -213,7 +222,7 @@ const Search = () => {
                                     }
                             >적용</Button>
                         </DialogClose>
-                        <DialogClose asChild>
+                        <DialogClose asChild ref={closeButtonRef}>
                             <Button type="button" variant="secondary" onClick={() => {
                                 setMidNumber('');
                                 setLastNumber('');
