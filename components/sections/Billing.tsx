@@ -1,8 +1,8 @@
 /*청구정보*/
 'use client'
 import SectionTitle from "@/components/ui/sectionTitle";
-import {columns} from "@/components/tables/billing/columns_billingInfo";
-import {BillingInfoTable} from "@/components/tables/billing/BillingInfoTable";
+import {columns} from "@/components/tables/billing/billing_columns";
+import {BillingTable} from "@/components/tables/billing/BillingTable";
 import {GridRowComponent} from "@/components/sections/Detail";
 import CommonButton from "@/components/ui/commonButton";
 import {BillingInfoData} from "@/lib/types";
@@ -51,7 +51,7 @@ const Billing = ({
         <div className="flex flex-col h-full w-full justify-between">
             <div>
                 <SectionTitle title="청구정보"/>
-                <BillingInfoTable columns={columns} data={billingInfoData}/>
+                <BillingTable columns={columns} data={billingInfoData}/>
             </div>
             <div className="flex flex-col">
                 <div className="flex flex-row w-full justify-between py-2 px-2 ">

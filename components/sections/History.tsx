@@ -2,14 +2,14 @@
 import SectionTitle from "@/components/ui/sectionTitle";
 import CommonTab from "@/components/ui/commonTab";
 import {useState} from "react";
-import CustomerUnpaidHistoryTable from "@/components/tables/unpaid/CustomerUnpaidHistoryTable";
-import CustomerSMSHistoryTable from "@/components/tables/sms/CustomerSMSHistoryTable";
+import UnpaidTable from "@/components/tables/unpaid/UnpaidTable";
+import SMSTable from "@/components/tables/sms/SMSTable";
 import CommonButton from "@/components/ui/commonButton";
 import {Button} from "@/components/ui/button";
-import {CustomerServiceHistoryTable} from "@/components/tables/history/CustomerServiceHistoryTable";
+import {HistoryTable} from "@/components/tables/history/HistoryTable";
 import {
     customerServiceHistoryColumns
-} from "@/components/tables/history/columns_customerServiceHistory";
+} from "@/components/tables/history/history_columns";
 
 
 const History = ({customerHistoryData, customerUnpaidHistoryData, customerSMSHistoryData}) => {
@@ -38,10 +38,10 @@ const History = ({customerHistoryData, customerUnpaidHistoryData, customerSMSHis
             </div>
             <div className="">
                 {activeTab === 'tab1' &&
-                    <CustomerServiceHistoryTable columns={customerServiceHistoryColumns} data={customerHistoryData}
-                                                 showMore={showMore}/>}
-                {activeTab === 'tab2' && <CustomerUnpaidHistoryTable/>}
-                {activeTab === 'tab3' && <CustomerSMSHistoryTable/>}
+                    <HistoryTable columns={customerServiceHistoryColumns} data={customerHistoryData}
+                                  showMore={showMore}/>}
+                {activeTab === 'tab2' && <UnpaidTable/>}
+                {activeTab === 'tab3' && <SMSTable/>}
             </div>
         </div>
     );

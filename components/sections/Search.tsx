@@ -14,10 +14,10 @@ import {
 import InputBox from "@/components/ui/inputBox";
 import SelectBox from "@/components/ui/selectBox";
 import {Checkbox} from "@/components/ui/checkbox";
-import {ServiceAccountSearchTable} from "@/components/tables/search/ServiceAccountSearchTable";
+import {AccountTable} from "@/components/tables/search/AccountTable";
 import {
     serviceAccountSearchColumns
-} from "@/components/tables/search/columns_serviceAccountSearch";
+} from "@/components/tables/search/account_column";
 import {ChangeEvent, useEffect, useRef, useState} from "react";
 import {HiMagnifyingGlass} from "react-icons/hi2";
 import Info from "@/components/sections/Info";
@@ -210,8 +210,8 @@ const Search = () => {
                     </div>
                     <div className=" border rounded-sm overflow-clip mb-4 ">
                         <SectionTitle title="결과"/>
-                        <ServiceAccountSearchTable columns={serviceAccountSearchColumns} data={SearchResult}
-                                                   onSelect={handleSelect} onDoubleClick={handleDoubleClick}/>
+                        <AccountTable columns={serviceAccountSearchColumns} data={SearchResult}
+                                      onSelect={handleSelect} onDoubleClick={handleDoubleClick}/>
                     </div>
                     <DialogFooter className="flex flex-row justify-center items-center space-x-1">
                         <DialogClose asChild ref={closeButtonRef}>

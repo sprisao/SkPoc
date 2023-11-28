@@ -1,6 +1,6 @@
 'use client'
-import {CustomerServiceInfoTable} from "@/components/tables/info/CustomerServiceInfoTable";
-import {columns_customerServiceInfo} from "@/components/tables/info/columns_customerServiceInfo";
+import {InfoTable} from "@/components/tables/info/InfoTable";
+import {info_columns} from "@/components/tables/info/info_columns";
 import SectionTitle from "@/components/ui/sectionTitle";
 import Detail from "@/components/sections/Detail";
 import Billing from "@/components/sections/Billing";
@@ -51,8 +51,8 @@ const Info = ({data}) => {
 
                 {/*고객상담 정보 아이템*/}
                 <div className="flex flex-row justify-between">
-                    <CustomerServiceInfoTable columns={columns_customerServiceInfo} data={data}
-                                              onSelect={handleSelect}/>
+                    <InfoTable columns={info_columns} data={data}
+                               onSelect={handleSelect}/>
                 </div>
             </div>
             {/*고객상담 상세정보, 청구정보, 납부정보, 상담이력저장 섹션*/}

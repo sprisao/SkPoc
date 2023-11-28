@@ -7,7 +7,7 @@ interface DataTableProps<TData, TValue> {
     data: TData[]
 }
 
-export function BillingInfoTable<TData, TValue>({
+export function BillingTable<TData, TValue>({
                                                     columns, data
                                                 }: DataTableProps<TData, TValue>) {
 

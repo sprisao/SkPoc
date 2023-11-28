@@ -1,4 +1,4 @@
-export default function CustomerSMSHistoryTable() {
+export default function SMSTable() {
     return <>
         <h1>
             CustomerSMSHistory

@@ -21,7 +21,7 @@ interface DataTableProps<TData, TValue> {
     onSelect: (selectedItem: TData) => void
 }
 
-export function CustomerServiceInfoTable<TData, TValue>({
+export function InfoTable<TData, TValue>({
                                                             columns,
                                                             data,
                                                             onSelect

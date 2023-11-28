@@ -9,7 +9,7 @@ interface DataTableProps<TData, TValue> {
     onDoubleClick?: (selectedItem: TData) => void
 }
 
-export function ServiceAccountSearchTable<TData, TValue>({
+export function AccountTable<TData, TValue>({
                                                              columns, data, onSelect, onDoubleClick
                                                          }: DataTableProps<TData, TValue>) {
     const [rowSelection, setRowSelection] = useState({})

@@ -6,7 +6,7 @@ import {CustomerConsultationInfo} from "@/lib/types";
 
 /*고객상담정보 타입*/
 
-export const columns_customerServiceInfo: ColumnDef<CustomerConsultationInfo>[] = [
+export const info_columns: ColumnDef<CustomerConsultationInfo>[] = [
     {
         id: "select",
         header: ({table}) => (

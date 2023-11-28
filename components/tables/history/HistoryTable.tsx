@@ -8,7 +8,7 @@ interface DataTableProps<TData, TValue> {
     showMore: boolean
 }
 
-export function CustomerServiceHistoryTable<TData, TValue>({
+export function HistoryTable<TData, TValue>({
                                                                columns, data, showMore
                                                            }: DataTableProps<TData, TValue>) {
 
