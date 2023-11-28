@@ -27,20 +27,24 @@ export function HistoryTable<TData, TValue>({
         count: rows.length,
         getScrollElement: () => parentRef.current,
         estimateSize: () => 25,
+        overscan: 10,
     })
 
     let tHeight = showMore ? 1250 : 275;
     return (
-        <div ref={parentRef} className={`w-full h-[${tHeight}px] overflow-y-scroll bg-purple-300`}>
-            <table className="w-full bg-yellow-200">
-                <thead className="bg-blue-300 text-sm h-[25px]">
+        <div style={{height: `${tHeight}px`, width: "100%", overflowY: "scroll"}} ref={parentRef} >
+            <table
+                style={{width: "100%", tableLayout: "fixed", borderCollapse: "collapse"}}
+            >
+                <thead style={{backgroundColor: "rgb(147 197 253)", color:'white', height:'25px', fontSize:'13.5px', fontWeight:'300'}}>
                 {
                     table.getHeaderGroups().map((headerGroup) => (
-                        <tr key={headerGroup.id} className="border">
+                        <tr key={headerGroup.id}
+                        >
                             {
                                 headerGroup.headers.map((header) => {
                                     return (
-                                        <th className=""
+                                        <th
                                             key={header.id}>
                                             {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                                         </th>
@@ -51,7 +55,7 @@ export function HistoryTable<TData, TValue>({
                     ))
                 }
                 </thead>
-                <tbody className="text-sm">
+                <tbody style={{fontSize:'13.5px'}} >
                 {virtualizer.getVirtualItems().map((virtualRow, index) => {
                     const row = rows[virtualRow.index];
                     return (
@@ -63,7 +67,13 @@ export function HistoryTable<TData, TValue>({
                         >
                             {row.getVisibleCells().map((cell) => {
                                 return (
-                                    <td className="text-center border" key={cell.id}>
+                                    <td
+                                        style={{
+                                            border: '1px solid lightGray',
+                                            textAlign: 'center',
+                                            backgroundColor: row.index % 2 === 0 ? "white" : "rgb(243 244 246)",
+                                        }}
+                                        key={cell.id}>
                                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                     </td>
                                 )
