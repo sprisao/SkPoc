@@ -104,10 +104,10 @@ const Detail = ({data}: CustomerServiceDetailProps) => {
                     ))}
                 </div>
                 <div className="col-end-3 flex flex-row my-2 justify-end space-x-1">
-                    <CommonButton><p>
+                    <CommonButton disable={false}><p>
                         이동전화변경
                     </p></CommonButton>
-                    <CommonButton><p>
+                    <CommonButton disable={false}><p>
                         단말할부
                     </p></CommonButton>
                 </div>

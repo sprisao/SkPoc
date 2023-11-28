@@ -17,12 +17,12 @@ interface BillingInformationProps {
 
 
 const Billing = ({
-                                unpaidMonthCount,
-                                currentMonthCharge,
-                                unpaidAmount,
-                                postChargeAmount,
-                                billingInfoData
-                            }: BillingInformationProps) => {
+                     unpaidMonthCount,
+                     currentMonthCharge,
+                     unpaidAmount,
+                     postChargeAmount,
+                     billingInfoData
+                 }: BillingInformationProps) => {
 
 
     const rows1 = [
@@ -61,21 +61,22 @@ const Billing = ({
                         ))}
                     </div>
                     <div className="flex flex-col w-full text-sm justify-evenly space-y-2">
-                        {rows2.map((row,index) => (
-                            <GridRowComponent title={row.title} contents={row.contents} key={`billing-row2-${index}`}/>))}
+                        {rows2.map((row, index) => (
+                            <GridRowComponent title={row.title} contents={row.contents}
+                                              key={`billing-row2-${index}`}/>))}
                     </div>
                 </div>
                 <div className="grid grid-cols-4 gap-1 justify-evenly p-2 h-full">
-                    <CommonButton>
+                    <CommonButton disable={false}>
                         서비스별
                     </CommonButton>
-                    <CommonButton>
+                    <CommonButton disable={false}>
                         청구서별
                     </CommonButton>
-                    <CommonButton>
+                    <CommonButton disable={false}>
                         수납이력
                     </CommonButton>
-                    <CommonButton>
+                    <CommonButton disable={false}>
                         당월사용요금
                     </CommonButton>
                 </div>

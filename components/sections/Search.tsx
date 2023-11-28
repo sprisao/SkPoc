@@ -155,7 +155,7 @@ const Search = () => {
                                 type="text"
                                 placeholder=""/>
                         </div>
-                        <CommonButton>
+                        <CommonButton disable={true}>
                             고객인증
                         </CommonButton>
                     </div>

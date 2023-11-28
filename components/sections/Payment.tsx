@@ -84,12 +84,12 @@ const Payment = ({data}: PaymentInformationProps) => {
                 </div>
             </div>
             <div className="grid grid-cols-3 auto-cols-max gap-1 p-1">
-                <CommonButton>자납변경</CommonButton>
-                <CommonButton>인출일정</CommonButton>
-                <CommonButton>청구정보관리</CommonButton>
-                <CommonButton>기본약정/할부지원</CommonButton>
-                <CommonButton>입금전용계좌</CommonButton>
-                <CommonButton>청구서 반송내역</CommonButton>
+                <CommonButton disable={false}>자납변경</CommonButton>
+                <CommonButton disable={false}>인출일정</CommonButton>
+                <CommonButton disable={false}>청구정보관리</CommonButton>
+                <CommonButton disable={false}>기본약정/할부지원</CommonButton>
+                <CommonButton disable={false}>입금전용계좌</CommonButton>
+                <CommonButton disable={true}>청구서 반송내역</CommonButton>
             </div>
 
         </div>

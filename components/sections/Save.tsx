@@ -18,7 +18,7 @@ const Save = () => {
                                       type="text"
                                       placeholder=""
                             />
-                            <CommonButton>조회</CommonButton>
+                            <CommonButton disable={true}>조회</CommonButton>
                         </div>
                     </div>
                     <div className="grid grid-cols-5 gap-2">
@@ -65,9 +65,14 @@ const Save = () => {
                     <SelectBox
                         className=""
                     >
-                        <option></option>
-                        <option>1</option>
-                        <option>2</option>
+                        <option>In</option>
+                        <option>Out</option>
+                        <option>SMS</option>
+                        <option>우편</option>
+                        <option>방문</option>
+                        <option>이메일</option>
+                        <option>팩스</option>
+                        <option>기타</option>
                     </SelectBox>
                 </div>
                 <div className="flex flex-row text-sm space-x-1">
@@ -79,13 +84,20 @@ const Save = () => {
                     <SelectBox
                         className=""
                     >
-                        <option></option>
-                        <option>1</option>
-                        <option>2</option>
+                        <option>본인</option>
+                        <option>실사용자</option>
+                        <option>부모</option>
+                        <option>배우자</option>
+                        <option>자녀</option>
+                        <option>형제/자매</option>
+                        <option>친척</option>
+                        <option>친구/연인</option>
+                        <option>해당법인직원</option>
+                        <option>기타</option>
                     </SelectBox>
                 </div>
                 <div className="col-end-6">
-                    <CommonButton>
+                    <CommonButton disable={false}>
                         <div className="px-2">
                             저장
                         </div>
