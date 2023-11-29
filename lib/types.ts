@@ -66,8 +66,6 @@ export type CustomerConsultationDetail = {
 };
 
 export type CustomerConsultationHistory = {
-    consultationSequenceNumber: number; // 상담일련번호
-    serviceNumber: string; // 서비스번호
     consultationDate: string; // 상담일자
     consultationTime: string; // 상담시각
     serviceConsultationNumber: string; // 통화번호

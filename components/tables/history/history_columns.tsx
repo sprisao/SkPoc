@@ -1,7 +1,6 @@
 import {ColumnDef} from "@tanstack/react-table";
 import {CustomerConsultationHistory} from "@/lib/types";
 
-
 export const customerServiceHistoryColumns: ColumnDef<CustomerConsultationHistory>[] = [
     {
         id: "consultationDate",
@@ -39,11 +38,11 @@ export const customerServiceHistoryColumns: ColumnDef<CustomerConsultationHistor
             <div className="">{row.getValue("notes")}</div>
     },
     {
-        id: "processingStatus",
-        accessorKey: "processingStatus",
+        id: "processStatus",
+        accessorKey: "processStatus",
         header: "처리상태",
         cell: ({row}) =>
-            <div className="">{row.getValue("processingStatus")}</div>
+            <div className="">{row.getValue("processStatus")}</div>
     },
     {
         id: "consultantName",
@@ -53,10 +52,10 @@ export const customerServiceHistoryColumns: ColumnDef<CustomerConsultationHistor
             <div className="">{row.getValue("consultantName")}</div>
     },
     {
-        id: "contactType",
-        accessorKey: "contactType",
+        id: "contactCategory",
+        accessorKey: "contactCategory",
         header: "접촉구분",
         cell: ({row}) =>
-            <div className="">{row.getValue("contactType")}</div>
+            <div className="">{row.getValue("contactCategory")}</div>
     },
 ]

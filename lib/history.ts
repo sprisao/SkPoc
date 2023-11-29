@@ -1,8 +1,6 @@
 import 'server-only'
 import {CustomerConsultationHistory} from "@/lib/types";
 export async function getHistoryData(): Promise<CustomerConsultationHistory[]> {
-    const s3Url = 'https://seoulforest946d11193b74484098fc836b62a80eb783206-dev.s3.ap-northeast-2.amazonaws.com/data.json'
-    const googleCloudUrl = 'https://storage.googleapis.com/skpoc/data.json';
     const localUrl = 'http://localhost:8080/api/sk/GET_CSR_CNSL_HST_HISTORY';
 
     const response = await fetch(localUrl,{
@@ -30,15 +28,24 @@ export async function getHistoryData(): Promise<CustomerConsultationHistory[]> {
     return contents.map(toHistory);
 }
 
-function toHistory(data: any): CustomerConsultationHistory {
+type HistoryData = {
+    CNSL_DT: string; // 상담일자
+    CNSL_TM: string; // 상담시각
+    SVC_CNSL_NUM: string; // 통화번호
+    CNST_TYP: string; // 상담유형
+    CNSL_SEQ_NUM: string; // 메모
+    PROC_ST: string; // 처리상태
+    CNSL_NM: string; // 상담원
+    CONT_KND: string; // 접촉구분
+};
+
+function toHistory(data: HistoryData): CustomerConsultationHistory {
     return {
-        consultationSequenceNumber: data.CNSL_SEQ_NUM,
-        serviceNumber: data.SVC_CNSL_NUM,
         consultationDate: data.CNSL_DT,
         consultationTime: data.CNSL_TM,
-        serviceConsultationNumber: null, // Update this if you have a corresponding field in your data
+        serviceConsultationNumber: data.SVC_CNSL_NUM,
         consultationType: data.CNST_TYP,
-        notes: null, // Update this if you have a corresponding field in your data
+        notes: data.CNSL_SEQ_NUM,
         processStatus: data.PROC_ST,
         consultantName: data.CNSL_NM,
         contactCategory: data.CONT_KND,
