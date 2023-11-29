@@ -77,7 +77,6 @@ export type CustomerConsultationHistory = {
 };
 
 export type BillingInfoData = {
-    serviceNumber: string; // 서비스번호
     invoiceDate: number; // 청구일자
     invoiceAmount: number; // 청구금액(절사)
     unpaidBalance: number; // 미납잔액

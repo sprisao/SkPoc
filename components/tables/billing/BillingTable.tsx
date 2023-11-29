@@ -18,6 +18,7 @@ export function BillingTable<TData, TValue>({
     })
 
     return (
+        <div className="h-[127px] overflow-y-scroll">
         <Table className="">
             <TableHeader className="bg-blue-300">
                 {
@@ -64,8 +65,7 @@ export function BillingTable<TData, TValue>({
                 }
             </TableBody>
         </Table>
+        </div>
     );
-
-
 }
 
