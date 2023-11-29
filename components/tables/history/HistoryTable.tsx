@@ -1,6 +1,6 @@
 import {ColumnDef, flexRender, getCoreRowModel, useReactTable} from "@tanstack/react-table";
 import {useRef, useState} from "react";
-import {useVirtualizer} from "@tanstack/react-virtual";
+import {notUndefined, useVirtualizer} from "@tanstack/react-virtual";
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
@@ -30,11 +30,21 @@ export function HistoryTable<TData, TValue>({
         overscan: 10,
     })
 
+    const items = virtualizer.getVirtualItems();
+
+    const [before, after] =
+        items.length > 0
+            ? [
+                notUndefined(items[0]).start - virtualizer.options.scrollMargin,
+                virtualizer.getTotalSize() - notUndefined(items[items.length - 1]).end
+            ]
+            : [0, 0];
+
     let tHeight = showMore ? 1250 : 275;
     return (
         <div style={{height: `${tHeight}px`, width: "100%", overflowY: "scroll"}} ref={parentRef} >
             <table
-                style={{width: "100%", tableLayout: "fixed", borderCollapse: "collapse"}}
+                style={{width: "100%",}}
             >
                 <thead style={{backgroundColor: "rgb(147 197 253)", color:'white', height:'25px', fontSize:'13.5px', fontWeight:'300'}}>
                 {
@@ -56,31 +66,38 @@ export function HistoryTable<TData, TValue>({
                 }
                 </thead>
                 <tbody style={{fontSize:'13.5px'}} >
-                {virtualizer.getVirtualItems().map((virtualRow, index) => {
-                    const row = rows[virtualRow.index];
-                    return (
-                        <tr key={row.id} id=""
-                            style={{
-                                height: `${virtualRow.size}px`,
-                                transform: `translateY(${virtualRow.start - index * virtualRow.size}px)`,
-                            }}
-                        >
-                            {row.getVisibleCells().map((cell) => {
-                                return (
-                                    <td
-                                        style={{
-                                            border: '1px solid lightGray',
-                                            textAlign: 'center',
-                                            backgroundColor: row.index % 2 === 0 ? "white" : "rgb(243 244 246)",
-                                        }}
-                                        key={cell.id}>
-                                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                                    </td>
-                                )
-                            })}
-                        </tr>
-                    )
-                })}
+                {before > 0 && (
+                    <tr style={{height: before}}>
+                        <td colSpan={columns.length}/>
+                    </tr>
+                )}
+                {items.map((item) =>(
+                    <tr key={rows[item.index].id} id=""
+                        style={{
+                            height: `${item.size}px`,
+                            transform: `translateY(${item.start - item.index * item.size}px)`,
+                        }}
+                    >
+                        {rows[item.index].getVisibleCells().map((cell) => {
+                            return (
+                                <td
+                                    style={{
+                                        height: '25px',
+                                        textAlign: 'center',
+                                        backgroundColor: rows[item.index].index % 2 === 0 ? "white" : "rgb(243 244 246)",
+                                    }}
+                                    key={cell.id}>
+                                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                </td>
+                            )
+                        })}
+                    </tr>
+                ))}
+                {after > 0 && (
+                    <tr style={{height: after}}>
+                        <td colSpan={columns.length}/>
+                    </tr>
+                )}
                 </tbody>
             </table>
         </div>
