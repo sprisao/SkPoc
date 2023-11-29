@@ -1,7 +1,7 @@
 'use client';
 import SectionTitle from "@/components/ui/sectionTitle";
 import CommonTab from "@/components/ui/commonTab";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import UnpaidTable from "@/components/tables/unpaid/UnpaidTable";
 import SMSTable from "@/components/tables/sms/SMSTable";
 import CommonButton from "@/components/ui/commonButton";
@@ -15,20 +15,9 @@ import {
 const History = ({customerHistoryData, customerUnpaidHistoryData, customerSMSHistoryData}) => {
     const [activeTab, setActiveTab] = useState('tab1');
     const [showMore, setShowMore] = useState(false)
-    const [historyData, setHistoryData] = useState([])
     const toggleNumber = () => {
         setShowMore(!showMore)
     };
-
-    useEffect(() => {
-        (async () => {
-            const historyResponse = await fetch('/api/consultation/history')
-            const historyData = await historyResponse.json()
-            setHistoryData(historyData)
-        })()
-    }, []);
-
-
 
     return (
         <div className="w-full border rounded-sm overflow-clip m-1">
@@ -49,7 +38,7 @@ const History = ({customerHistoryData, customerUnpaidHistoryData, customerSMSHis
             </div>
             <div className="">
                 {activeTab === 'tab1' &&
-                    <HistoryTable columns={customerServiceHistoryColumns} data={historyData}
+                    <HistoryTable columns={customerServiceHistoryColumns} data={customerHistoryData}
                                   showMore={showMore}/>}
                 {activeTab === 'tab2' && <UnpaidTable/>}
                 {activeTab === 'tab3' && <SMSTable/>}
