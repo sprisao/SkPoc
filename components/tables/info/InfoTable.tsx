@@ -46,7 +46,7 @@ export function InfoTable<TData, TValue>({
     }, [rowSelection]);
 
     return (
-        <Table className="">
+        <Table className="table-auto">
             <TableHeader className="bg-blue-300">
                 {table.getHeaderGroups().map((headerGroup) => (
                     <TableRow key={headerGroup.id}>
