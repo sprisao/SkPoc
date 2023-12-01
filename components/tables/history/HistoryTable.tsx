@@ -45,8 +45,9 @@ export function HistoryTable<TData, TValue>({
         <div style={{height: `${tHeight}px`, width: "100%", overflowY: "scroll"}} ref={parentRef} >
             <table
                 style={{width: "100%",}}
+                className="table-auto text-sm"
             >
-                <thead style={{backgroundColor: "rgb(147 197 253)", color:'white', height:'25px', fontSize:'13.5px', fontWeight:'300'}}>
+                <thead style={{backgroundColor: "rgb(147 197 253)", color:'white', height:'25px' }}>
                 {
                     table.getHeaderGroups().map((headerGroup) => (
                         <tr key={headerGroup.id}
@@ -65,13 +66,23 @@ export function HistoryTable<TData, TValue>({
                     ))
                 }
                 </thead>
-                <tbody style={{fontSize:'13.5px'}} >
+                <tbody >
                 {before > 0 && (
                     <tr style={{height: before}}>
                         <td colSpan={columns.length}/>
                     </tr>
                 )}
-                {items.map((item) =>(
+                {
+                    items.length === 0 && (
+                        <tr>
+                            <td colSpan={columns.length} className="text-center">
+                                No Data
+                            </td>
+                        </tr>
+                    )
+                }
+                {
+                    items.map((item) =>(
                     <tr key={rows[item.index].id} id=""
                         style={{
                             height: `${item.size}px`,
