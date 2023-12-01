@@ -19,7 +19,7 @@ export function BillingTable<TData, TValue>({
 
     return (
         <div className="h-[127px] overflow-y-scroll">
-        <Table className="">
+        <Table className="table-auto">
             <TableHeader className="bg-blue-300">
                 {
                     table.getHeaderGroups().map((headerGroup) => (
