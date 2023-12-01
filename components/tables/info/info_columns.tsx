@@ -55,14 +55,4 @@ export const info_columns: ColumnDef<CustomerConsultationInfo>[] = [
         cell: ({row}) => <div className="lowercase">{row.getValue("equipmentName" +
             "")}</div>,
     },
-    {
-        accessorKey: "businessNumber",
-        header: "사업자번호",
-        cell: ({row}) => <div className="lowercase">{row.getValue("businessNumber")}</div>,
-    },
-    {
-        accessorKey: "businessName",
-        header: "사업자명",
-        cell: ({row}) => <div className="lowercase">{row.getValue("businessName")}</div>,
-    },
 ]

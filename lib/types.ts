@@ -18,8 +18,6 @@ export type CustomerConsultationInfo = {
     serviceStatusName: string; // 서비스상태명
     feeName: string; // 요금제
     equipmentName: string; // 단말기
-    businessNumber: string; // 사업자번호
-    businessName: string; // 사업자명
 };
 
 export type CustomerConsultationDetail = {
