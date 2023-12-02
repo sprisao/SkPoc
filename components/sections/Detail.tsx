@@ -44,7 +44,7 @@ const Detail = ({data}: CustomerServiceDetailProps) => {
         },
         {
             title: "일련/사용일",
-            contents: [data?.serviceSequence || "", data?.serviceUseDate || ""]
+            contents: [data?.serviceNumber|| "", data?.serviceUseDate || ""]
         },
         {
             title: "방식",

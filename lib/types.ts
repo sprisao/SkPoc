@@ -38,7 +38,6 @@ export type CustomerConsultationDetail = {
     equipmentOS: string; // OS
     equipmentNickname1: string; // 단말기애칭1
     equipmentNickname2: string; // 단말기애칭2
-    serviceSequence: string; // 일련
     serviceUseDate: string; // 사용일
     minorClass: string; // 미성년자
     equipmentMethod1: string; // 방식1
