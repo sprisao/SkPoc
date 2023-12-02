@@ -11,36 +11,7 @@ import History from "@/components/sections/History";
 
 {/*고객상담 정보*/
 }
-const Info = ({data}) => {
-
-    const [detailData, setDetailData] = useState(null)
-    const [billingData, setBillingData] = useState([])
-    const [historyData, setHistoryData] = useState([])
-    const [getDetailData, setGetDetailData] = useState(false)
-
-    useEffect(() => {
-        const controller = new AbortController();
-        if (!getDetailData) return
-        (async () => {
-            const detailResponse = await fetch('/api/consultation/detail')
-            const billingResponse = await fetch('/api/consultation/billing')
-            const historyResponse = await fetch('/api/consultation/history')
-            const detailData = await detailResponse.json()
-            const billingData = await billingResponse.json()
-            const historyData = await historyResponse.json()
-            setDetailData(detailData)
-            setBillingData(billingData)
-            setHistoryData(historyData)
-        })()
-        setGetDetailData(false)
-        return () => {
-            controller.abort()
-        }
-    }, [getDetailData]);
-
-    const handleSelect = (selectedItem) => {
-        setGetDetailData(true)
-    }
+const Info = ({infoData, detailData, billingData, historyData}) => {
 
 
     return (
@@ -51,8 +22,8 @@ const Info = ({data}) => {
 
                 {/*고객상담 정보 아이템*/}
                 <div className="flex flex-row justify-between">
-                    <InfoTable columns={info_columns} data={data}
-                               onSelect={handleSelect}/>
+                    <InfoTable columns={info_columns} data={infoData}
+                               />
                 </div>
             </div>
             {/*고객상담 상세정보, 청구정보, 납부정보, 상담이력저장 섹션*/}

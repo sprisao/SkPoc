@@ -18,13 +18,11 @@ import React, {useEffect, useState} from "react";
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[]
-    onSelect: (selectedItem: TData) => void
 }
 
 export function InfoTable<TData, TValue>({
                                                             columns,
                                                             data,
-                                                            onSelect
                                                         }: DataTableProps<TData, TValue>) {
     const [rowSelection, setRowSelection] = useState({})
 
@@ -41,7 +39,6 @@ export function InfoTable<TData, TValue>({
 
     useEffect(() => {
         if (rowSelection && table.getFilteredSelectedRowModel().rows.length === 1) {
-            onSelect(table.getFilteredSelectedRowModel().rows[0].original)
         }
     }, [rowSelection]);
 

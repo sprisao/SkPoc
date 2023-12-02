@@ -34,6 +34,10 @@ const Search = () => {
 
     const [getCustomerInfoData, setGetCustomerInfoData] = useState(false)
     const [customerInfoData, setCustomerInfoData] = useState([])
+    const [detailData, setDetailData] = useState(null)
+    const [billingData, setBillingData] = useState([])
+    const [historyData, setHistoryData] = useState([])
+    const [getDetailData, setGetDetailData] = useState(false)
 
     const closeButtonRef = useRef(null);
 
@@ -58,8 +62,17 @@ const Search = () => {
         if (!getCustomerInfoData) return
         (async () => {
             const response = await fetch('/api/consultation/info')
+            const detailResponse = await fetch('/api/consultation/detail')
+            const billingResponse = await fetch('/api/consultation/billing')
+            const historyResponse = await fetch('/api/consultation/history')
             const data = await response.json()
+            const detailData = await detailResponse.json()
+            const billingData = await billingResponse.json()
+            const historyData = await historyResponse.json()
             setCustomerInfoData(data)
+            setDetailData(detailData)
+            setBillingData(billingData)
+            setHistoryData(historyData)
             console.log(data)
         })()
         setGetCustomerInfoData(false)
@@ -236,7 +249,7 @@ const Search = () => {
                     </DialogFooter>
                 </div>
             </DialogContent>
-            <Info data={customerInfoData}/>
+            <Info infoData={customerInfoData} billingData={billingData} detailData={detailData} historyData={historyData}/>
         </Dialog>
     );
 }
