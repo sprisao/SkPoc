@@ -106,13 +106,3 @@ html{
     @apply bg-background text-foreground;
   }
 }
-
-table {
-  table-layout: fixed;
-  width: 100%;
-}
-
-th,
-td {
-  border: 1px solid lightgrey;
-}

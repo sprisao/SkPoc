@@ -7,6 +7,7 @@
     "@tanstack/react-table": "^8.10.7",
     "@tanstack/react-virtual": "^3.0.0-beta.68",
     "accept-language": "^3.0.18",
+    "ag-grid-react": "^31.0.0",
     "chart.js": "^4.4.0",
     "chartjs-plugin-datalabels": "^2.2.0",
     "class-variance-authority": "^0.7.0",

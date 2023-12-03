@@ -6,10 +6,7 @@ import UnpaidTable from "@/components/tables/unpaid/UnpaidTable";
 import SMSTable from "@/components/tables/sms/SMSTable";
 import CommonButton from "@/components/ui/commonButton";
 import {Button} from "@/components/ui/button";
-import {HistoryTable} from "@/components/tables/history/HistoryTable";
-import {
-    customerServiceHistoryColumns
-} from "@/components/tables/history/history_columns";
+import HistoryTable from "@/components/tables/history/HistoryTable";
 
 
 const History = ({customerHistoryData, customerUnpaidHistoryData, customerSMSHistoryData}) => {
@@ -38,7 +35,7 @@ const History = ({customerHistoryData, customerUnpaidHistoryData, customerSMSHis
             </div>
             <div className="">
                 {activeTab === 'tab1' &&
-                    <HistoryTable columns={customerServiceHistoryColumns} data={customerHistoryData}
+                    <HistoryTable data={customerHistoryData}
                                   showMore={showMore}/>}
                 {activeTab === 'tab2' && <UnpaidTable/>}
                 {activeTab === 'tab3' && <SMSTable/>}
