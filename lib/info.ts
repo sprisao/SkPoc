@@ -2,10 +2,9 @@ import 'server-only'
 import {CustomerConsultationInfo} from "@/lib/types";
 
 export async function getCustomerInfoData(): Promise<CustomerConsultationInfo[]> {
+    const serverUrl = 'http://3.36.89.29:8080/api/sk/GET_CSR_CNSL_INFO';
 
-    const localUrl = 'http://localhost:8080/api/sk/GET_CSR_CNSL_INFO';
-
-    const response = await fetch(localUrl,{
+    const response = await fetch(serverUrl,{
         cache: 'no-cache',
         method: 'GET',
         headers: {

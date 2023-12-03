@@ -2,9 +2,9 @@ import 'server-only'
 import {ServiceAccountSearchData} from "@/lib/types";
 
 export async function getServiceAccountSearchData(): Promise<ServiceAccountSearchData[]> {
-    const localUrl = 'http://localhost:8080/api/sk/GET_CSR_SV_ACNT';
+    const serverUrl = 'http://3.36.89.29:8080/api/sk/GET_CSR_SV_ACNT';
 
-    const response = await fetch(localUrl,{
+    const response = await fetch(serverUrl,{
         cache: 'no-cache',
         method: 'GET',
         headers: {

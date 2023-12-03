@@ -2,9 +2,9 @@ import 'server-only'
 import {CustomerConsultationDetail} from "@/lib/types";
 
 export async function getConsultationDetailData(): Promise<CustomerConsultationDetail> {
-    const localUrl = 'http://localhost:8080/api/sk/GET_CSR_CNSL_HST';
+    const serverUrl = 'http://3.36.89.29:8080/api/sk/GET_CSR_CNSL_HST';
 
-    const response = await fetch(localUrl, {
+    const response = await fetch(serverUrl, {
         cache: 'no-cache',
         method: 'GET',
         headers: {
