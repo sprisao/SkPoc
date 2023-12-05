@@ -2,7 +2,7 @@ import 'server-only'
 import {BillingInfoData} from "@/lib/types";
 
 export async function getBillingInfoData(): Promise<BillingInfoData[]> {
-    const serverUrl = 'http://3.36.89.29:8080/api/sk/GET_INV_SVC_INV_SPC';
+    const serverUrl = 'http://3.35.140.144/api/sk/GET_INV_SVC_INV_SPC';
 
     const response = await fetch(serverUrl,{
         cache: 'no-cache',
